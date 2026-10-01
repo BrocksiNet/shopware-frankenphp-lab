@@ -1,7 +1,7 @@
 # Validation record
 
 Date: 2026-10-01. This record concerns the starter's setup path, not full Shopware
-compatibility. The lab was exercised using Docker Compose v2 on an ARM64 Linux
+compatibility. The lab was exercised using Docker Compose on an ARM64 Linux
 container engine through its Docker-compatible API. Native Docker Engine/Desktop
 on each supported host platform has not been independently verified.
 
@@ -16,8 +16,9 @@ resolving to them. Architecture-specific manifests may have different digests.
 
 ## Static and harness checks
 
-Both Compose configurations validate. ShellCheck passes for the initializer.
-The benchmark's three Node tests and the verifier's eight Python tests pass.
+The classic, worker and benchmark Compose configurations validate. ShellCheck passes for the initializer.
+Five Node tests and ten Python tests pass, covering the benchmark transport,
+fixture guards/relations, summary validation and storefront verifier.
 Markdown lint and local documentation links pass. The image build verifies patch
 applicability before applying it.
 
@@ -46,3 +47,27 @@ see [the explanation and workaround](testing.md#health-checks-can-trigger-the-as
 
 These setup checks do not validate shopping journeys, third-party extensions,
 multi-domain workers, prolonged load, payment providers or production recovery.
+
+## Public-fixture follow-up
+
+The new three-runtime setup was tested using Compose v5.0.2. The pinned initializer
+build succeeds using cached source/dependency layers. Starting the pinned Compose
+configuration against the existing lab preserves the installation; recreated web
+services have the same image IDs as the measured services. This follow-up did not
+repeat the full frontend build from fresh volumes.
+
+- Synthetic fixture creation succeeds; a second upsert retains the same fixture
+  counts. Total searched records: 500 products, 51 categories, 100 customers and
+  103 media records, including bootstrap data.
+- Five classic threads, five HTTP workers plus one regular thread, and five static
+  FPM children are configured. Runtime state and FPM configuration were inspected.
+- HTTP/2 gzip: 27 runs, 213,744 validated responses.
+- HTTP/2 identity: 9 runs, 67,504 validated responses.
+- Seeded classic storefront verification: six content/asset-origin assertions
+  passed; cart and customer-login checks were skipped.
+- After recreating the pinned services, authenticated HTTP/2 searches were checked
+  again on all three targets. These short smoke runs are excluded from the tables.
+
+The [environment record](results/2026-10-01/environment.json) and
+[measurement report](measurements.md) preserve the image/build differences and
+limitations. No production compatibility conclusion is implied by these checks.

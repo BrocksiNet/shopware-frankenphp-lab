@@ -1,5 +1,8 @@
 # This image only prepares the isolated lab volume; it is not the web runtime.
-FROM ghcr.io/shopware/docker-dev:php8.4-node24-caddy
+ARG INIT_IMAGE=ghcr.io/shopware/docker-dev:php8.4-node24-caddy
+FROM ${INIT_IMAGE}
+# The initializer sets shared-volume ownership; HTTP runtimes run as uid 82.
+# hadolint ignore=DL3002,DL3066
 USER root
 ARG SHOPWARE_REF=868f25121f764f41d6490fd032d6f28507be4e43
 WORKDIR /opt/shopware-source

@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-01",
+  "source": "868f25121f764f41d6490fd032d6f28507be4e43",
+  "patch": "patches/plugin-init.patch",
+  "hostCpu": "Apple M4 Pro",
+  "node": "v26.10.0",
+  "compose": "Docker Compose version v5.0.2",
+  "containerEngine": {
+    "ServerVersion": "5.7.1",
+    "Architecture": "arm64",
+    "NCPU": 8,
+    "MemTotal": 16718139392,
+    "OperatingSystem": "fedora"
+  },
+  "notes": [
+    "Developer machine; other containers present, not dedicated benchmark hardware.",
+    "Host load generator through loopback forwarding to ARM64 Linux VM.",
+    "No CPU or memory resource limits applied to individual lab services.",
+    "Web-container cgroup CPU excludes database and load generator."
+  ],
+  "runtimes": {
+    "web": {
+      "imageId": "sha256:4723c82d33f3712051163e850091dbc729050d7f04447a6c0cba1c5de6093e16",
+      "repoDigests": [
+        "ghcr.io/shopware/docker-base@sha256:09482355e50c913214af687001a1c2a7426e9d268709e291256ad19a458bfa05",
+        "ghcr.io/shopware/docker-base@sha256:204bdeba18e9566af794d089019325798937647f07bed3e3ea0be8ee5555bd33"
+      ],
+      "php": {
+        "version": "8.4.26",
+        "zts": true,
+        "memory_limit": "512m",
+        "opcache.enable": "1",
+        "opcache.enable_cli": "0",
+        "opcache.jit": "disable",
+        "opcache.validate_timestamps": "0"
+      },
+      "caddy": "FrankenPHP v1.12.7 PHP 8.4.26 Caddy v2.11.4 h1:XKxkMTgNSizEvKG6QHue6cAsFOteU2qA61w2tKkCWi0=",
+      "os": "PRETTY_NAME=\"Debian GNU/Linux 13 (trixie)\"\nNAME=\"Debian GNU/Linux\"\nVERSION_ID=\"13\"\nVERSION=\"13 (trixie)\"\nVERSION_CODENAME=trixie\nDEBIAN_VERSION_FULL=13.7\nID=debian\nHOME_URL=\"https://www.debian.org/\"\nSUPPORT_URL=\"https://www.debian.org/support\"\nBUG_REPORT_URL=\"https://bugs.debian.org/\""
+    },
+    "worker": {
+      "imageId": "sha256:4723c82d33f3712051163e850091dbc729050d7f04447a6c0cba1c5de6093e16",
+      "repoDigests": [
+        "ghcr.io/shopware/docker-base@sha256:09482355e50c913214af687001a1c2a7426e9d268709e291256ad19a458bfa05",
+        "ghcr.io/shopware/docker-base@sha256:204bdeba18e9566af794d089019325798937647f07bed3e3ea0be8ee5555bd33"
+      ],
+      "php": {
+        "version": "8.4.26",
+        "zts": true,
+        "memory_limit": "512m",
+        "opcache.enable": "1",
+        "opcache.enable_cli": "0",
+        "opcache.jit": "disable",
+        "opcache.validate_timestamps": "0"
+      },
+      "caddy": "FrankenPHP v1.12.7 PHP 8.4.26 Caddy v2.11.4 h1:XKxkMTgNSizEvKG6QHue6cAsFOteU2qA61w2tKkCWi0=",
+      "os": "PRETTY_NAME=\"Debian GNU/Linux 13 (trixie)\"\nNAME=\"Debian GNU/Linux\"\nVERSION_ID=\"13\"\nVERSION=\"13 (trixie)\"\nVERSION_CODENAME=trixie\nDEBIAN_VERSION_FULL=13.7\nID=debian\nHOME_URL=\"https://www.debian.org/\"\nSUPPORT_URL=\"https://www.debian.org/support\"\nBUG_REPORT_URL=\"https://bugs.debian.org/\""
+    },
+    "fpm": {
+      "imageId": "sha256:a6f21481c4eb73d769ae31797a7d32c94269792ec55b29696f6bbfb82fb045df",
+      "repoDigests": [
+        "ghcr.io/shopware/docker-base@sha256:78c5ae846291e7a1e64156c161ca7d1a0e8230b1e95ee3fd222c704a81ffa214",
+        "ghcr.io/shopware/docker-base@sha256:c9747684cb09e3d81f71d2cab924903420df84b320c1e53f0fa41be587ac8d54"
+      ],
+      "php": {
+        "version": "8.4.26",
+        "zts": false,
+        "memory_limit": "512m",
+        "opcache.enable": "1",
+        "opcache.enable_cli": "0",
+        "opcache.jit": "disable",
+        "opcache.validate_timestamps": "0"
+      },
+      "caddy": "v2.11.4",
+      "os": "NAME=\"Alpine Linux\"\nID=alpine\nVERSION_ID=3.24.2\nPRETTY_NAME=\"Alpine Linux v3.24\"\nHOME_URL=\"https://alpinelinux.org/\"\nBUG_REPORT_URL=\"https://gitlab.alpinelinux.org/alpine/aports/-/issues\""
+    }
+  },
+  "mariadb:10.11": {
+    "id": "sha256:76b2a6246e258ce1b8516ec35f2fadd1d68e3ef351c074ec7d0d2a3956a37de7",
+    "repoDigests": [
+      "docker.io/library/mariadb@sha256:21d87f60a6d84d25871738c64e468ea56118d73e90f614fbde09695ca9879c6e",
+      "docker.io/library/mariadb@sha256:3cc3b5268c72460975975b88cca9a4ae33064dd7ce2680ccc25b7e05dff9791d"
+    ]
+  },
+  "ghcr.io/shopware/docker-dev:php8.4-node24-caddy": {
+    "id": "sha256:fcc85873b872977958aadb3a722045534b17229563a4295cdd212810be53c08c",
+    "repoDigests": [
+      "ghcr.io/shopware/docker-dev@sha256:3aa5f2aa0b6fe32effd7a2a8d5cd3007fffbea7d118de7d30556746415d863fa",
+      "ghcr.io/shopware/docker-dev@sha256:9e75defee6e11c950958b7316ffb6198469b7d00ff20e60395bbfc12d4e6ccc1"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "lab-h2-gzip.json.gz": {
+    "sha256": "20f523e06adb893a5d72c46fb10ab7e97d64fbdc2f45d83b26c59772afda0d67",
+    "uncompressedSha256": "7d312b84c9f304d8048da77cec61166131a3f382d5356416e96120277e8a2cdc"
+  },
+  "lab-h2-identity.json.gz": {
+    "sha256": "f15a3c531daa00f90e53313e3196e6f9528566a2a036d024be14d6f6cd893b32",
+    "uncompressedSha256": "a719f00ea63e1523485ddf4b647e8b0f8b30d1ff536cc76f0bd2366bc7f1826f"
+  }
+}

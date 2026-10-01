@@ -33,7 +33,10 @@ services:
       retries: 40
 
   init:
-    build: .
+    build:
+      context: .
+      args:
+        INIT_IMAGE: ${INIT_IMAGE:-ghcr.io/shopware/docker-dev:php8.4-node24-caddy}
     environment: *app-env
     volumes:
       - application:/var/www/html
@@ -43,7 +46,7 @@ services:
     restart: "no"
 
   web:
-    image: ghcr.io/shopware/docker-base:8.4-frankenphp
+    image: ${FRANKENPHP_IMAGE:-ghcr.io/shopware/docker-base:8.4-frankenphp}
     environment:
       <<: *app-env
       # No worker block: each request gets a fresh PHP application lifecycle.

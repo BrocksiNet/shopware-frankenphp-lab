@@ -72,11 +72,12 @@ export function percentile(values, quantile) {
 }
 
 export class Client {
-  constructor(base, protocol, token, timeout = 15000) {
+  constructor(base, protocol, token, timeout = 15000, acceptEncoding = "gzip") {
     this.base = new URL(base);
     this.protocol = protocol;
     this.token = token;
     this.timeout = timeout;
+    this.acceptEncoding = acceptEncoding;
     this.connections = 0;
     if (protocol === "h2") {
       this.session = http2.connect(base);
@@ -95,7 +96,7 @@ export class Client {
       const headers = {
         "content-type": "application/json",
         accept: "application/json",
-        "accept-encoding": "gzip",
+        "accept-encoding": this.acceptEncoding,
       };
       if (this.token) headers.authorization = `Bearer ${this.token}`;
       let status = 0,
@@ -121,7 +122,15 @@ export class Client {
             error = "invalid_json";
           }
         }
-        resolve({ status, version, ms, bytes, error: error || null, data });
+        resolve({
+          status,
+          version,
+          ms,
+          bytes,
+          encoding: encoding || "identity",
+          error: error || null,
+          data,
+        });
       };
       const timer = setTimeout(() => {
         finish("timeout");
@@ -214,6 +223,7 @@ async function phase(clients, seconds, expected, protocol) {
             protocol: response.version,
             ms: response.ms,
             bytes: response.bytes,
+            encoding: response.encoding,
             valid,
             error: response.error,
           });
@@ -275,6 +285,7 @@ async function main() {
       seconds: { type: "string", default: "8" },
       warmup: { type: "string", default: "2" },
       repeats: { type: "string", default: "3" },
+      encoding: { type: "string", default: "gzip" },
       output: { type: "string" },
     },
   });
@@ -313,7 +324,8 @@ async function main() {
   if (
     ![seconds, warmup].every((x) => Number.isFinite(x) && x > 0) ||
     ![...levels, repeats].every((x) => Number.isInteger(x) && x > 0) ||
-    protocols.some((x) => !["h1", "h2"].includes(x))
+    protocols.some((x) => !["h1", "h2"].includes(x)) ||
+    !["gzip", "identity"].includes(values.encoding)
   )
     throw new Error("Invalid workload parameters");
   const report = {
@@ -326,6 +338,7 @@ async function main() {
       seconds,
       warmup,
       repeats,
+      acceptEncoding: values.encoding,
       requestsPerUserBurst: workload.length,
       authentication: "separate OAuth tokens, same admin account",
       tls: targets.map((x) => new URL(x.url).protocol === "https:"),
@@ -395,6 +408,10 @@ async function main() {
         client.close();
       }
     }
+    report.dataset = workload.map((item, i) => ({
+      endpoint: item.name,
+      ...JSON.parse(expected[i]),
+    }));
     // Alternating target and protocol order reduces simple first/last-run bias.
     for (let repeat = 0; repeat < repeats; repeat++)
       for (const users of levels) {
@@ -407,7 +424,16 @@ async function main() {
             const bank = await tokens(target);
             const clients = bank
               .slice(0, users)
-              .map((token) => new Client(target.url, protocol, token));
+              .map(
+                (token) =>
+                  new Client(
+                    target.url,
+                    protocol,
+                    token,
+                    15000,
+                    values.encoding,
+                  ),
+              );
             try {
               const warm = await phase(clients, warmup, expected, protocol);
               if (warm.failures)

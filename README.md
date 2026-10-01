@@ -8,6 +8,13 @@ This is not a production template or an official Shopware support statement.
 The example intentionally uses local demo credentials, binds only to loopback,
 disables HTTP caching for inspection, and sends no email.
 
+The runtime already uses Shopware's own `ghcr.io/shopware/docker-base` images.
+See the [official Shopware Docker guide](https://developer.shopware.com/docs/guides/hosting/installation-updates/docker.html)
+for the production build/deployment workflow. Shopware recommends FrankenPHP for
+container deployments; enabling persistent HTTP workers is a separate application
+compatibility question. This lab's patched source and worker experiments do not
+represent the default configuration in that guide.
+
 ## Start with classic mode
 
 Requirements: Git, Docker Engine/Desktop and Docker Compose v2, internet access,
@@ -109,10 +116,14 @@ Follow [the Shopware testing guide](docs/testing.md) for browser checks, plugins
 sessions, multi-domain requests and known gaps. The scripts in `tools/` are optional
 host-side Python/curl and Node tools; they do not run Shopware on the host.
 
-The Admin benchmark requires nonempty products, categories, customers and media.
-An empty installation deliberately fails its data preflight. Import your own
-synthetic fixtures before benchmarking; the published demo setup does not reproduce
-the original benchmark dataset or its throughput.
+The [reproducible benchmark guide](docs/benchmarking.md) adds a Shopware Caddy/FPM
+control and a separate worker service alongside classic mode, with frozen runtime
+image references and deterministic synthetic data. It includes commands for HTTP/2
+load tests, response-encoding inspection and an uncompressed control.
+
+Seeding is opt-in: the normal starter remains empty. The public fixture makes the
+workload reproducible, not the throughput of any particular machine. The older
+populated-shop experiment remains a separate dataset.
 
 See the [recorded three-runtime comparison](docs/measurements.md) for results and limitations.
 

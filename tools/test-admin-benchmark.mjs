@@ -42,6 +42,12 @@ for (const protocol of ["h1", "h2"]) {
     server.on("connection", () => connections++);
     server.on("request", (req, res) => {
       req.resume();
+      if (req.url === "/identity") {
+        assert.equal(req.headers["accept-encoding"], "identity");
+        res.writeHead(200, { "content-type": "application/json" });
+        res.end(JSON.stringify({ data: [{ id: "a" }], total: 1 }));
+        return;
+      }
       if (req.url === "/timeout") return;
       inFlight++;
       peak = Math.max(peak, inFlight);
@@ -77,6 +83,19 @@ for (const protocol of ["h1", "h2"]) {
         ),
       );
       const established = connections;
+      assert.ok(first.every((response) => response.encoding === "gzip"));
+      client.acceptEncoding = "identity";
+      const uncompressed = await client.request("/identity", {});
+      assert.equal(uncompressed.encoding, "identity");
+      assert.equal(
+        validResponse(
+          uncompressed,
+          identity({ data: [{ id: "a" }], total: 1 }),
+          protocol,
+        ),
+        true,
+      );
+      client.acceptEncoding = "gzip";
       await Promise.all(
         Array.from({ length: 4 }, () => client.request("/data", {})),
       );

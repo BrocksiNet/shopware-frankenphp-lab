@@ -1,0 +1,28 @@
+# Use with compose.yaml, not compose.worker.yaml. All three share code and data.
+services:
+  worker:
+    extends:
+      file: compose.yaml
+      service: web
+    ports: !override
+      - "127.0.0.1:8081:8000"
+    environment:
+      FRANKENPHP_CONFIG: |
+        num_threads 6
+        max_threads 6
+        worker {
+          file /var/www/html/public/index.php
+          num 5
+        }
+      FRANKENPHP_LOOP_MAX: "500"
+
+  fpm:
+    extends:
+      file: compose.yaml
+      service: web
+    image: ${FPM_IMAGE:-ghcr.io/shopware/docker-base:8.4-caddy}
+    ports: !override
+      - "127.0.0.1:8082:8000"
+    environment:
+      FPM_PM: static
+      FPM_PM_MAX_CHILDREN: "5"

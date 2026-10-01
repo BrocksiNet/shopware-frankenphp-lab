@@ -47,6 +47,10 @@ complete Shopware/runtime/extension compatibility.
 
 ## Optional command-line checks
 
+For a controlled three-runtime comparison with repeatable sample data, follow
+[the benchmark guide](benchmarking.md). The single-target command below is useful
+for checking an individual service.
+
 The storefront verifier checks the homepage, search and login routes. Use
 `--search-term` for a query suited to your catalog. The optional `--cart` check
 requires a simple add-to-cart product on the homepage. Inspect
@@ -73,7 +77,7 @@ verify every field, ACL combination, write operation or full Administration UI.
 Harness checks need no running Shopware:
 
 ```bash
-node --test tools/test-admin-benchmark.mjs
+node --test tools/test-*.mjs
 python3 -m unittest discover -s tools -p test_verify.py -v
 ```
 
