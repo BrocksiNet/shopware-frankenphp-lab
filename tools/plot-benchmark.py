@@ -114,3 +114,7 @@ for extension in ["svg", "png"]:
         facecolor=fig.get_facecolor(),
     )
 plt.close(fig)
+
+# Matplotlib adds trailing spaces in SVG paths; keep generated diffs clean.
+svg = ASSETS / "lab-comparison.svg"
+svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines()) + "\n")
