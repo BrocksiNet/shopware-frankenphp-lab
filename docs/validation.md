@@ -71,3 +71,40 @@ repeat the full frontend build from fresh volumes.
 The [environment record](results/2026-10-01/environment.json) and
 [measurement report](measurements.md) preserve the image/build differences and
 limitations. No production compatibility conclusion is implied by these checks.
+
+## Logging correction and no-recycling follow-up
+
+The initializer build now checks and applies `patches/monolog-reset.patch` as well
+as the existing plugin-init patch. For this follow-up, the logging patch was
+checked and applied to the existing seeded application volume, then all three
+runtimes were restarted. Their handler-file SHA-256 checksums match. No fixture,
+Composer dependency, source revision or runtime image change was made. A full
+fresh-volume frontend build was not repeated for this source-only correction.
+
+- Standalone log-reset verification: all four cases pass with zero retained logs;
+  the earlier unmodified-code control retained 1,000 in each case.
+- PHP CS Fixer passes for all three patched classes and the verification script.
+  Targeted PHPStan analysis passes for the three classes.
+- Existing handler PHPUnit tests: 18 tests, 25 assertions pass using
+  `--no-configuration --bootstrap vendor/autoload.php` and the three handler-test
+  classes. The standard project bootstrap requires a separate `shopware_test`
+  database which this lab user cannot create; these pure unit tests were run
+  without that database bootstrap. This is not an integration-suite result.
+- Both Compose worker overrides validate with loop limits 0 and 500. The live
+  no-recycling matrix used five workers, loop limit zero and an unmodified runtime.
+- Gzip matrix: 27 runs, 224,952 valid responses. Identity control: 9 runs, 78,652.
+- Ten-minute worker follow-up: 10 runs, 546,432 valid responses. No worker restart
+  between the matrix, identity control and this follow-up. Thread counters finish
+  between 140,443 and 151,113 across the five workers.
+- Fresh-start policy controls: 3 runs at limit 500 and 3 at limit zero, 80,568 valid
+  responses in total. The policies ran sequentially; no optimal-limit claim is made.
+- Combined load tests: **52 runs and 930,604 validated responses**, with zero failures.
+- Five Node and ten Python harness tests pass. Python chart lint passes. Generated
+  charts were visually inspected; documentation links and Markdown lint were checked
+  with the line-length rule excluded for existing tables, links and commands.
+- Patched classic storefront smoke check: six assertions pass; cart and customer
+  login remain skipped. See the [smoke report](results/2026-10-01-no-recycling/storefront-smoke.json).
+
+New reports, patch hashes and image IDs are in the
+[no-recycling results](results/2026-10-01-no-recycling/README.md). Earlier results
+remain archived. These checks do not establish full Shopware worker compatibility.

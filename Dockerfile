@@ -10,7 +10,9 @@ RUN git init && git remote add origin https://github.com/shopware/shopware.git \
     && git fetch --depth 1 origin "$SHOPWARE_REF" && git checkout --detach FETCH_HEAD
 COPY composer.lock /opt/shopware-source/composer.lock
 COPY patches/plugin-init.patch /tmp/plugin-init.patch
+COPY patches/monolog-reset.patch /tmp/monolog-reset.patch
 RUN git apply --check /tmp/plugin-init.patch && git apply /tmp/plugin-init.patch \
+    && git apply --check /tmp/monolog-reset.patch && git apply /tmp/monolog-reset.patch \
     && printf '%s\n' "$SHOPWARE_REF" > /opt/shopware-source/LAB_SOURCE_REVISION
 COPY docker/init.sh /usr/local/bin/lab-init
 WORKDIR /var/www/html

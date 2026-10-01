@@ -1,0 +1,7 @@
+{
+  "workerLoopMax": "500",
+  "startedAt": "2026-10-01T09:31:31.786619828Z",
+  "imageId": "sha256:4723c82d33f3712051163e850091dbc729050d7f04447a6c0cba1c5de6093e16",
+  "workers": 5,
+  "note": "Fresh worker container on the same patched shared code and dataset, after the no-recycling matrix, identity control and long run."
+}

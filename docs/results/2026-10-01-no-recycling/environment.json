@@ -1,0 +1,66 @@
+{
+  "baselineEnvironment": "../2026-10-01/environment.json",
+  "sourceCommit": "868f25121f764f41d6490fd032d6f28507be4e43",
+  "patches": {
+    "patches/monolog-reset.patch": "48eb7deb6658e74cfb2665f6830389560e5cbfc9eefb93e678c6ad0b0b8c4347",
+    "patches/plugin-init.patch": "7cf925959fc4ed1f5ce5581be90f1411e70d205abdabff62f52e31715edecc7a"
+  },
+  "workerLoopMax": 0,
+  "workerCount": 5,
+  "instrumentation": "Unmodified Symfony runtime; no PHP timing or heap probes",
+  "existingVolumeUpdate": "Applied checked monolog-reset.patch to the previously seeded volume, then restarted all runtimes. No data reseed or dependency change.",
+  "containers": {
+    "web": {
+      "image": "ghcr.io/shopware/docker-base:8.4-frankenphp",
+      "imageId": "sha256:4723c82d33f3712051163e850091dbc729050d7f04447a6c0cba1c5de6093e16",
+      "startedAt": "2026-10-01T09:05:37.995168653Z",
+      "runtimeConfig": {
+        "FRANKENPHP_CONFIG": "num_threads 5\nmax_threads 5\n",
+        "FRANKENPHP_LOOP_MAX": "0"
+      },
+      "handlerChecksums": [
+        "57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php",
+        "26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php",
+        "503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php"
+      ]
+    },
+    "worker": {
+      "image": "ghcr.io/shopware/docker-base:8.4-frankenphp",
+      "imageId": "sha256:4723c82d33f3712051163e850091dbc729050d7f04447a6c0cba1c5de6093e16",
+      "startedAt": "2026-10-01T09:05:38.009611797Z",
+      "runtimeConfig": {
+        "FRANKENPHP_CONFIG": "num_threads 6\nmax_threads 6\nworker {\n  file /var/www/html/public/index.php\n  num 5\n}\n",
+        "FRANKENPHP_LOOP_MAX": "0"
+      },
+      "handlerChecksums": [
+        "57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php",
+        "26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php",
+        "503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php"
+      ]
+    },
+    "fpm": {
+      "image": "ghcr.io/shopware/docker-base:8.4-caddy",
+      "imageId": "sha256:a6f21481c4eb73d769ae31797a7d32c94269792ec55b29696f6bbfb82fb045df",
+      "startedAt": "2026-10-01T09:05:37.979574255Z",
+      "runtimeConfig": {
+        "FRANKENPHP_CONFIG": "num_threads 5\nmax_threads 5\n",
+        "FRANKENPHP_LOOP_MAX": "0",
+        "FPM_PM": "static",
+        "FPM_PM_MAX_CHILDREN": "5"
+      },
+      "handlerChecksums": [
+        "57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php",
+        "26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php",
+        "503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php"
+      ]
+    },
+    "database": {
+      "image": "docker.io/library/mariadb:10.11",
+      "imageId": "sha256:76b2a6246e258ce1b8516ec35f2fadd1d68e3ef351c074ec7d0d2a3956a37de7",
+      "startedAt": "2026-10-01T06:37:18.064649523Z"
+    }
+  },
+  "matrixOrder": "gzip matrix, identity control, then ten one-minute worker runs; no restart between these stages",
+  "laterControls": "Fresh worker container with loop limit 500, then fresh worker container with loop limit 0; recorded separately",
+  "phpQualityRuntime": "Initializer PHP 8.4.17 for PHPUnit/PHPStan; benchmark runtimes use PHP 8.4.26"
+}

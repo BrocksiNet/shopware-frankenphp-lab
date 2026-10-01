@@ -48,25 +48,32 @@ The source is pinned to Shopware commit
 runtime comparison. It includes the kernel reset work from
 [PR #19121](https://github.com/shopware/shopware/pull/19121), plus the checked-in
 [plugin initialization correction and regression test](patches/plugin-init.patch).
+It also applies [logging reset forwarding](patches/monolog-reset.patch) for
+[issue #21124](https://github.com/shopware/shopware/issues/21124).
 It is **not a released, fully worker-compatible Shopware version**.
 
 The source pin and checked-in `composer.lock` record the tested PHP dependency
-resolution. The pin intentionally does not follow a moving PR head. The patch is applied with
+resolution. The pin intentionally does not follow a moving PR head. Both patches are applied with
 a failing check if the source no longer matches. PHP/Caddy image tags and package
 registries can change; record image digests before benchmarking. See
 [compatibility and testing](docs/testing.md) before adding extensions or data.
 
 ## Switch the same installation to worker mode
 
+For an existing lab created before the logging correction, [apply that patch first](docs/benchmarking.md#update-an-existing-lab). Rebuilding alone does not update the application volume.
+
 ```bash
 docker compose -f compose.yaml -f compose.worker.yaml up -d --no-deps --force-recreate web
 ```
 
-This uses five application workers and recycles each after 500 requests.
+This uses five application workers with request-count recycling disabled
+(`FRANKENPHP_LOOP_MAX=0`) to test the logging correction over worker lifetime.
+This experimental setting is not a general production recommendation.
 FrankenPHP also requires one regular PHP thread; the override sets six total
 threads while Shopware front-controller requests go to the five workers. It retains the same
-code, database, URL and cache settings. Recycling bounds lifetime; it does not fix
-cross-request state bugs. This is an opt-in compatibility experiment.
+code, database, URL and cache settings. Set `FRANKENPHP_LOOP_MAX=500` before
+the Compose command to run a recycling control. Recycling bounds lifetime;
+it does not fix cross-request state bugs. This is an opt-in compatibility experiment.
 
 Return to classic mode:
 
@@ -107,7 +114,9 @@ docker compose up --build -d
 
 Do not run the destructive reset against a shop you need to keep. Changing the
 pinned source in the Dockerfile requires a fresh lab volume; this initializer is
-not an upgrade system. For an interrupted first installation, inspect the `init`
+not an upgrade system. Existing volumes also do not acquire new patches merely
+by rebuilding the initializer. See the [targeted logging-patch update](docs/benchmarking.md#update-an-existing-lab)
+for this experiment. For an interrupted first installation, inspect the `init`
 logs; fix the cause and retry, or reset this disposable lab.
 
 ## Verify behavior before measuring speed

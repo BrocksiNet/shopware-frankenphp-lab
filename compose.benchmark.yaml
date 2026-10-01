@@ -14,7 +14,7 @@ services:
           file /var/www/html/public/index.php
           num 5
         }
-      FRANKENPHP_LOOP_MAX: "500"
+      FRANKENPHP_LOOP_MAX: "${FRANKENPHP_LOOP_MAX:-0}"
 
   fpm:
     extends:

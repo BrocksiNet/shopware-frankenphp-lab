@@ -3,7 +3,9 @@
 Run: uv run --with matplotlib tools/plot-benchmark.py
 """
 
+import argparse
 import json
+import math
 from pathlib import Path
 from statistics import median
 
@@ -11,7 +13,16 @@ import matplotlib.pyplot as plt
 
 plt.switch_backend("Agg")
 
-ASSETS = Path(__file__).resolve().parents[1] / "docs/results/2026-10-01"
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument(
+    "--results-dir",
+    type=Path,
+    default=Path(__file__).resolve().parents[1]
+    / "docs/results/2026-10-01-no-recycling",
+)
+parser.add_argument("--recycling-limit", type=int, default=0)
+args = parser.parse_args()
+ASSETS = args.results_dir
 SOURCE = ASSETS / "lab-h2-gzip-summary.json"
 report = json.loads(SOURCE.read_text())
 assert report["completed"]
@@ -46,13 +57,15 @@ fig.text(
     fontsize=14,
     color="#625d70",
 )
-for ax, field, title, unit, limit in zip(
+for ax, field, title, unit in zip(
     axes,
     ["successfulRps", "requestP95Ms"],
     ["Throughput: higher is better", "Request p95: lower is better"],
     ["requests / second", "milliseconds"],
-    [1050, 350],
 ):
+    limit = (
+        math.ceil(max(r[field] for runs in rows.values() for r in runs) * 1.3 / 50) * 50
+    )
     ax.set_facecolor("#faf9f6")
     values = [median(r[field] for r in rows[name]) for name in runtimes]
     ax.barh(range(3), values, height=0.48, color=colors, zorder=2)
@@ -96,7 +109,11 @@ fig.text(
 fig.text(
     0.045,
     0.12,
-    "* Workers recycled every 500 requests. PHP 8.4.26 on all targets; FPM/FrankenPHP OS bases and ZTS/NTS builds differ.",
+    (
+        f"* Workers recycled every {args.recycling_limit} requests. PHP 8.4.26; OS bases and ZTS/NTS builds differ."
+        if args.recycling_limit
+        else "* No worker recycling. Logging reset patch on all targets. PHP 8.4.26; OS bases and ZTS/NTS builds differ."
+    ),
     fontsize=12,
     color="#625d70",
 )
@@ -118,3 +135,67 @@ plt.close(fig)
 # Matplotlib adds trailing spaces in SVG paths; keep generated diffs clean.
 svg = ASSETS / "lab-comparison.svg"
 svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines()) + "\n")
+
+# The longer run uses the same worker processes after the comparison matrix.
+if args.recycling_limit == 0:
+    soak = json.loads((ASSETS / "worker-soak-summary.json").read_text())
+    assert soak["completed"] and len(soak["runs"]) == 10
+    assert all(r["failures"] == 0 and r["target"] == "worker" for r in soak["runs"])
+    fig, axes = plt.subplots(1, 2, figsize=(14, 5.5))
+    fig.patch.set_facecolor("#faf9f6")
+    fig.subplots_adjust(left=0.08, right=0.95, top=0.74, bottom=0.25, wspace=0.3)
+    fig.text(
+        0.045,
+        0.91,
+        "Ten minutes without recycling",
+        fontsize=21,
+        weight="bold",
+        color="#20202b",
+    )
+    fig.text(
+        0.045,
+        0.83,
+        "Patched Shopware · 5 workers · 20 sessions · HTTP/2 + gzip",
+        fontsize=14,
+        color="#625d70",
+    )
+    for ax, field, title in zip(
+        axes,
+        ["successfulRps", "requestP95Ms"],
+        ["Requests / second", "Request p95 (ms)"],
+    ):
+        values = [r[field] for r in soak["runs"]]
+        ax.set_facecolor("#faf9f6")
+        ax.plot(range(1, 11), values, "o-", color="#5831a5", linewidth=2)
+        ax.set_ylim(0, max(values) * 1.25)
+        ax.set_xticks(range(1, 11))
+        ax.set_xlabel("Consecutive 60-second run")
+        ax.set_title(title, loc="left", fontsize=14, weight="bold")
+        ax.grid(axis="y", color="#e3dfe8")
+        for spine in ax.spines.values():
+            spine.set_visible(False)
+    fig.text(
+        0.045,
+        0.10,
+        "Workers were already warm from the matrix and compression control; no restart between runs.",
+        fontsize=11,
+        color="#625d70",
+    )
+    fig.text(
+        0.045,
+        0.05,
+        "Read-only Admin searches. A ten-minute observation, not proof of unlimited worker lifetime.",
+        fontsize=11,
+        color="#625d70",
+    )
+    for extension in ["svg", "png"]:
+        fig.savefig(
+            ASSETS / f"worker-lifetime.{extension}",
+            dpi=180,
+            facecolor=fig.get_facecolor(),
+        )
+    plt.close(fig)
+    svg = ASSETS / "worker-lifetime.svg"
+    svg.write_text(
+        "\n".join(line.rstrip() for line in svg.read_text().splitlines()) + "\n"
+    )

@@ -36,11 +36,14 @@ Status checked 2026-10-01; these links can change after publication.
 | --- | --- |
 | [Kernel reset PR #19121](https://github.com/shopware/shopware/pull/19121) | Still open; the pinned baseline includes an earlier version, plus the local plugin-init correction |
 | [Twig globals PR #21031](https://github.com/shopware/shopware/pull/21031) | Merged upstream, but not included in this older pinned source; do not equate merged with installed |
+| [Logging reset issue #21124](https://github.com/shopware/shopware/issues/21124) | Local patch forwards resets through three core Monolog decorators; verify with `tools/verify-log-reset.php` |
 | [Asset origin issue #21063](https://github.com/shopware/shopware/issues/21063) | Open; a shared service can retain the first domain's asset origin in workers |
 | [Long-running compatibility epic #13921](https://github.com/shopware/shopware/issues/13921) | Tracks broader work; this lab does not resolve it |
 
-In previous worker tests we observed memory growth and throughput decline without
-recycling. Short recycling tests do not establish long-term stability. Full checkout,
+Previous tests found log records accumulating because core logging decorators did
+not forward service resets. This lab now applies that experimental correction and
+disables request-count recycling to measure worker behavior beyond 500 requests.
+The [measurement report](measurements.md) records the tested duration and scope. Full checkout,
 payments, failure recovery and arbitrary third-party extensions remain unverified.
 Classic mode avoids persistent application objects, but that alone does not prove
 complete Shopware/runtime/extension compatibility.

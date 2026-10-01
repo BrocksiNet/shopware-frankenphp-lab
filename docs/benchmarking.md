@@ -20,7 +20,7 @@ docker compose --env-file benchmark.env -f compose.yaml -f compose.benchmark.yam
 | Service | Admin API origin | Image | PHP execution slots |
 | --- | --- | --- | --- |
 | `web` | `http://localhost:8080` | Shopware docker-base FrankenPHP, classic | 5 regular threads |
-| `worker` | `http://localhost:8081` | Same FrankenPHP image | 5 HTTP workers, recycling at 500 requests; 1 extra regular thread |
+| `worker` | `http://localhost:8081` | Same FrankenPHP image | 5 HTTP workers, no request-count recycling; 1 extra regular thread |
 | `fpm` | `http://localhost:8082` | Shopware docker-base Caddy + PHP-FPM | 5 static FPM children |
 
 All services share the application volume, database and application configuration.
@@ -41,6 +41,35 @@ upgraded or reinstalled by changing an image reference.
 MariaDB retains its `10.11` tag; the environment record includes the exact resolved
 database image used for the published run. A future pull may change that build,
 so this is not a bit-for-bit lock of the entire stack.
+
+## Update an existing lab
+
+New installations include both checked-in patches. Existing application volumes
+keep their files even after an initializer rebuild. For an otherwise unmodified
+lab at the pinned source revision that already has the plugin-init patch, apply
+only the logging correction before using the no-recycling configuration:
+
+```bash
+docker compose --env-file benchmark.env -f compose.yaml -f compose.benchmark.yaml stop web worker fpm
+docker compose --env-file benchmark.env build init
+docker compose --env-file benchmark.env run --rm --no-deps init sh -c \
+  'git -c safe.directory=/var/www/html apply --check /tmp/monolog-reset.patch && git -c safe.directory=/var/www/html apply /tmp/monolog-reset.patch'
+docker compose --env-file benchmark.env -f compose.yaml -f compose.benchmark.yaml up -d
+```
+
+The check fails if the patch is already applied or the source differs. Investigate
+that result instead of applying it twice. This preserves the database and fixture.
+Restart all runtimes after source changes so persistent workers and OPcache use
+the same code. Verify the logging correction:
+
+```bash
+docker cp tools/verify-log-reset.php shopware-frankenphp-lab-web-1:/tmp/verify-log-reset.php
+docker compose exec web php /tmp/verify-log-reset.php
+```
+
+All four cases must report zero retained records and PASS. Without the correction,
+all four retain 1,000 records. This is a focused lifecycle check, not comprehensive
+Shopware validation.
 
 ## Seed repeatable synthetic data
 
@@ -99,8 +128,10 @@ wire-body byte count and actual Content-Encoding. Tokens and response bodies are
 not written to reports. HTTP/2 uses cleartext prior knowledge, not browser TLS.
 
 For an uncompressed control, repeat the command with `--encoding identity`,
-`--users 20` and a new output path. To inspect longer behavior, use `--seconds 60`
-and a new output path. Run these sequentially, never alongside another benchmark.
+`--users 20` and a new output path. For the recorded longer worker test, use only the worker target, `--users 20`,
+`--seconds 60 --warmup 3 --repeats 10` and a new output path. Keep the worker
+running between repeats; inspect `/frankenphp/threads` to record each thread's
+request count and memory. Ten minutes still does not establish production stability. Run these sequentially, never alongside another benchmark.
 Successful HTTP/2 negotiation does not establish the performance of HTTPS/HTTP/3.
 
 ## Interpret and share results
@@ -117,6 +148,10 @@ python3 tools/summarize-benchmark.py measurements/lab-h2-gzip.json measurements/
 
 The summarizer rejects incomplete or failed reports. Keep the original JSON as
 evidence too; the published run includes a compressed copy.
+
+A separate recycling control can be run with the same patched code by setting
+`FRANKENPHP_LOOP_MAX=500` when recreating only the worker service. Record the
+changed setting and keep that report separate from the no-recycling matrix.
 
 The dated chart can be regenerated from its checked-in summary with
 `uv run --with matplotlib tools/plot-benchmark.py`. Its bars start at zero and the

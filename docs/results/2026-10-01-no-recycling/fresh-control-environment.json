@@ -1,0 +1,7 @@
+{
+  "workerLoopMax": "0",
+  "startedAt": "2026-10-01T09:33:27.793148417Z",
+  "imageId": "sha256:4723c82d33f3712051163e850091dbc729050d7f04447a6c0cba1c5de6093e16",
+  "workers": 5,
+  "note": "Fresh no-recycling control after the fresh 500-request control; same shared code/data. These policy controls were sequential, not randomized."
+}

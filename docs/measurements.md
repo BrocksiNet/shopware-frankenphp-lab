@@ -1,134 +1,157 @@
 # Recorded runtime comparisons
 
-## Public synthetic fixture on Shopware images
+## Logging correction with worker recycling disabled
 
-Measured 2026-10-01 using this repository's optional fixture and
-[three-runtime setup](benchmarking.md). These results are separate from the older
-populated-shop experiment below. All targets share code, data, five execution
-slots, prod/debug off and disabled HTTP cache. Workers recycle at 500 requests.
+Measured 2026-10-01 using the public synthetic fixture and Shopware's Docker
+images. All three runtimes use the same pinned application source, dependencies,
+database and five PHP execution slots, with production mode, debug off and HTTP
+cache off. **The logging reset patch is applied to all three targets. Workers run
+with `FRANKENPHP_LOOP_MAX=0`; no request-count recycling is configured.**
 
-Both images use PHP 8.4.26 and Caddy 2.11.4. FrankenPHP is 1.12.7, with ZTS PHP
-on Debian 13; the Caddy/FPM image uses NTS PHP on Alpine 3.24.2. This compares
-Shopware's shipped stacks, not just a single isolated runtime variable.
+The patch forwards resets through three core Monolog decorators, addressing
+[issue #21124](https://github.com/shopware/shopware/issues/21124). This is a locally
+patched experiment, not a released fully worker-compatible Shopware version.
+The [benchmark guide](benchmarking.md) includes setup and existing-volume steps.
 
-Hardware: Apple M4 Pro host, an ARM64 Linux container VM with 8 CPUs and about
-15.6 GiB RAM. The Node load generator runs on the host. Other development containers
-and light tooling were present; this was not a dedicated benchmark machine.
-Versions and resolved image digests are in the
-[environment record](results/2026-10-01/environment.json).
+PHP 8.4.26 and Caddy 2.11.4 are shared versions. FrankenPHP 1.12.7 uses ZTS PHP on
+Debian 13; FPM uses NTS PHP on Alpine 3.24.2. Hardware: Apple M4 Pro host, ARM64
+Linux container VM with 8 CPUs and about 15.6 GiB RAM. The Node client runs on the
+host. Other development containers were present; this is not a dedicated machine.
+See [environment and patch hashes](results/2026-10-01-no-recycling/environment.json).
+No diagnostic PHP timing or heap-inspection code was installed in these runs.
 
 ### HTTP/2 with gzip
 
-Three repeats at each load level, 3 seconds warm-up and 15 seconds measured per
-run. The targets run sequentially with alternating order. Each session issues four
-parallel read-only searches with no think time. These are synthetic sessions, not
-equivalent numbers of human Administration users.
+Three repeats at 1, 5 and 20 synthetic sessions. Each session issues four parallel
+read-only searches with no think time. Each run has 3 seconds warm-up and 15
+measured seconds. Targets run sequentially with alternating order. Workers remain
+alive between repeats and load levels.
 
 | Sessions | FPM req/s | Classic req/s | Worker req/s | FPM p95 | Classic p95 | Worker p95 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 299.3 | 307.1 | 419.0 | 13.3 ms | 13.2 ms | 9.3 ms |
-| 5 | 536.0 | 522.0 | 814.1 | 41.7 ms | 43.8 ms | 33.3 ms |
-| 20 | 502.6 | 517.8 | 844.0 | 197.7 ms | 175.6 ms | 111.8 ms |
+| 1 | 294.3 | 299.3 | 415.0 | 13.5 ms | 13.2 ms | 9.3 ms |
+| 5 | 546.5 | 544.6 | 902.1 | 39.8 ms | 40.4 ms | 24.5 ms |
+| 20 | 520.1 | 559.3 | 911.3 | 185.2 ms | 157.2 ms | 95.0 ms |
 
-Cells are medians of three run-level results; latency percentiles are not pooled.
-All **213,744 measured responses** in 27 runs passed status, HTTP/2 and entity
-ID/total validation. Every measured response was gzip encoded. Mean compressed
-body size was 3,356.75 bytes across the four equally represented endpoints on all
-three runtimes. These checks do not establish equality of every response field.
+Each cell is a median of three run-level results; p95 values are not pooled.
+All **224,952 measured responses in 27 runs** passed status, HTTP/2 and entity
+ID/total validation. Every response used gzip; mean wire-body size was 3,356.75
+bytes on each runtime. These checks do not establish equality of every field.
 
-At 20 sessions, individual throughput results ranged from 471.3 to 509.4 req/s
-for FPM, 494.6 to 519.3 for classic and 818.5 to 850.2 for workers. The overlapping
-FPM/classic ranges do not justify a strong claim that one is faster. Worker median
-throughput was 1.68 times FPM and 1.63 times classic for this workload.
+At 20 sessions, throughput ranged from 466.7–541.2 req/s for FPM,
+522.2–566.7 for classic and 897.0–927.9 for workers. Worker median throughput
+was **1.75 times FPM** and **1.63 times classic**. FPM/classic ranges overlap,
+so this does not establish a general classic-mode speedup.
 
-The [run summary](results/2026-10-01/lab-h2-gzip-summary.json) retains each run,
-including p99 latency, wire-body sizes, CPU time and memory snapshots.
+![At 20 sessions, median throughput was 520 requests/s for FPM, 559 for classic and 911 for workers without recycling. Median run p95 was 185, 157 and 95 ms.](results/2026-10-01-no-recycling/lab-comparison.svg)
 
-![At 20 sessions, FPM measured 503 req/s, classic 518 and workers 844. Median run p95 was 198, 176 and 112 ms. Individual runs are shown as dots.](results/2026-10-01/lab-comparison.svg)
+Median web-container CPU seconds per 1,000 validated requests were **8.24 for FPM,
+7.51 for classic and 4.55 for workers**. Database and client CPU are excluded.
+End-of-run container memory at 20 sessions ranged from 211.0–216.2 MiB for FPM,
+147.2–148.8 MiB for classic and 164.2–166.1 MiB for workers. These are cgroup charges
+including cache, not PHP heap usage, peaks or a hosting-cost calculation.
 
-Median web-container CPU seconds per 1,000 validated requests were **8.54 for FPM,
-8.07 for classic and 4.92 for workers**. This excludes database/client CPU and is
-not a hosting-cost calculation. End-of-run container memory snapshots at 20 sessions
-ranged from 142.2–166.6 MiB for FPM, 128.0–154.6 MiB for classic and 137.5–138.5 MiB
-for workers. These are cgroup memory charges including cache, not peaks or PHP heap
-measurements, and do not establish long-term stability.
+[Run-level gzip summary](results/2026-10-01-no-recycling/lab-h2-gzip-summary.json).
 
 ### HTTP/2 without compression
 
-The sequential control used the same targets, fixture, 20 sessions, warm-up,
-duration and three repeats, with `Accept-Encoding: identity`:
+The same patched targets, data and still-running workers were used for a
+sequential control: 20 sessions, `Accept-Encoding: identity`, three repeats,
+3-second warm-up and 15 measured seconds per run.
 
 | Runtime | Median req/s | Range across runs | Median run p95 |
 | --- | --- | --- | --- |
-| Caddy + FPM | 451.6 | 435.3–461.9 | 194.6 ms |
-| FrankenPHP classic | 416.5 | 403.9–432.1 | 230.1 ms |
-| FrankenPHP worker | 630.7 | 586.8–633.3 | 149.0 ms |
+| Caddy + FPM | 505.2 | 486.1–508.7 | 177.1 ms |
+| FrankenPHP classic | 480.3 | 476.0–482.5 | 198.2 ms |
+| FrankenPHP worker | 759.9 | 723.7–774.3 | 115.3 ms |
 
-All **67,504 responses** passed, with identity encoding throughout. Mean body size
-was 50,978.75 bytes on every target, about 15.2 times the compressed size. Workers
-still led, but at about 1.40 times FPM throughput. Larger transfers, client processing
-and the server's compression path can affect this comparison; it does not isolate
-which component caused each difference. The gzip and identity runs were sequential,
-not a randomized interleaving of encodings.
+All **78,652 measured responses** passed, with identity encoding throughout.
+Mean wire-body size was 50,978.75 bytes on every target, about 15.2 times the
+compressed size. Workers measured 1.50 times FPM throughput. Payload transfer,
+client processing and compression paths can affect the result; this does not
+isolate their individual contributions. Encodings were tested sequentially.
 
-Together, the two reports contain **281,248 validated responses in 36 runs**.
-See the [identity summary](results/2026-10-01/lab-h2-identity-summary.json),
-[raw gzip workload report](results/2026-10-01/lab-h2-gzip.json.gz),
-[raw identity workload report](results/2026-10-01/lab-h2-identity.json.gz), and
-[archive checksums](results/2026-10-01/checksums.json).
+The two comparison reports contain **303,604 validated responses in 36 runs**.
+[Run-level identity summary](results/2026-10-01-no-recycling/lab-h2-identity-summary.json).
 
-### Scope of the result
+### Ten-minute worker test without recycling
 
-The fixture has 500 simple products, 10 manufacturers, 50 added categories,
-100 synthetic guest customers and 100 media metadata placeholders. It contains
-no uploaded image data or orders. It is useful for repeating the same Admin search
-workload, not a model of every merchant catalog.
-Including installation data, the searched totals were 500 products, 51 categories,
-100 customers and 103 media records. The identity report records the preflight IDs
-and totals; the earlier gzip report checked the same signatures in memory but did
-not yet persist them. No data writes took place between the two benchmark commands.
+After the matrix and identity control, the same five workers continued serving
+20 sessions with gzip. Ten consecutive runs measured 60 seconds each, with
+3-second warm-ups and report-writing gaps. There was no worker restart between
+these experiments. This is ten minutes of measured traffic, not an assertion that
+the request stream had no pauses.
 
-Matching versions and response encodings improves comparability. OS libraries,
-ZTS/NTS builds, background activity and the load generator remain confounders.
-HTTP/2 cleartext excludes TLS overhead and browser behavior. Full checkout,
-mutations, ACL variation, extensions and long-term worker stability remain untested.
+All **546,432 measured responses** passed. Throughput ranged from **885.4 to
+927.1 req/s**, with a median of **915.1 req/s**. The first minute measured 915.5
+and the last 917.4 req/s. Median run p95 was 97.3 ms. End-of-run container memory
+stayed between **163.6 and 165.7 MiB**, ending below the first sample.
 
-## Earlier populated-shop experiment
+![Ten successive one-minute runs with recycling disabled show worker throughput between 885 and 927 requests/s; first and last runs are approximately equal.](results/2026-10-01-no-recycling/worker-lifetime.svg)
 
-Measured 2026-10-01 against a populated test shop, **not the empty catalog created
-by this repository**. All runtimes used the same Shopware code/database, five PHP
-execution slots, prod/debug off and HTTP cache disabled. Classic and worker mode
-shared PHP 8.4.26 ZTS, FrankenPHP 1.12.7 and Caddy 2.11.4. The FPM control used
-PHP 8.4.17 NTS, so it is not a perfectly isolated runtime comparison.
+At the end of the complete no-recycling sequence, the five thread request counters
+were **140,443, 151,113, 150,001, 150,116 and 145,211**. These include warm-ups,
+authentication, health checks and preceding benchmark traffic; they are not the
+measured-response totals. The configured loop limit remained zero throughout.
+The [thread timeline](results/2026-10-01-no-recycling/worker-timeline.jsonl) and
+[long-run summary](results/2026-10-01-no-recycling/worker-soak-summary.json) retain
+the observations.
 
-Each virtual session issued four parallel read-only Admin searches: products,
-categories, customers and media. Separate tokens used the same administrator
-account. HTTP/2 cleartext, gzip, persistent connections, no think time, 2 seconds
-warm-up and 8 seconds measured per run. Targets ran sequentially with reversed
-order across repeats/load levels. Three repeats per load/runtime produced 36 runs.
+This corrected build did not need a 500-request restart to avoid the earlier
+progressive slowdown on this workload. Ten minutes of repeated Admin reads does
+not establish unlimited lifetime or rule out retention in other application paths.
 
-Worker recycling: 500 requests. Classic mode had no worker script. Previous
-unrecycled workers slowed over time; these short runs do not prove stability.
+### Fresh-start recycling controls on the corrected code
 
-| Sessions | FPM req/s | Classic req/s | Worker req/s | FPM p95 | Classic p95 | Worker p95 |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1 | 235.8 | 218.4 | 462.9 | 18.4 ms | 18.1 ms | 8.6 ms |
-| 5 | 408.0 | 320.3 | 824.6 | 55.5 ms | 70.5 ms | 26.6 ms |
-| 10 | 418.8 | 333.4 | 856.4 | 105.8 ms | 130.3 ms | 48.9 ms |
-| 20 | 415.8 | 330.4 | 851.3 | 199.5 ms | 255.5 ms | 100.8 ms |
+After the longer run, the worker container was recreated for each of two policies.
+Both used the same patched code and data, five workers, 20 sessions, gzip, three
+15-second measured runs and 3-second warm-ups. The 500-request policy ran first,
+then no recycling; the policies were not randomized or interleaved.
 
-Each cell is a median of three run-level results (p95 values are not pooled).
-137,384 measured responses passed status, protocol and entity ID/total validation.
-Those checks do not validate every response field or the complete Admin UI.
+| Policy | Median req/s | Range | Median run p95 |
+| --- | ---: | --- | ---: |
+| Recycle after 500 requests | 940.4 | 887.4–943.1 | 93.6 ms |
+| No recycling, fresh container | 851.0 | 822.2–895.1 | 108.2 ms |
 
-Classic was about 21% slower than FPM at 20 sessions; workers were about 2.05× FPM
-and 2.58× classic. This does not imply every shop will improve, or that a server
-change alone is faster. Local machine activity, PHP build differences, short runs,
-fixture sizes and the absence of mutations limit generalization. Production TLS,
-real user capacity, full checkout and long-term behavior were not measured.
+All **80,568 responses** passed. The recycling control had the higher median;
+the ranges overlap. These short sequential controls do **not** support a claim
+that disabling recycling is inherently faster, nor establish an optimal limit.
+The main three-runtime matrix and the longer run remain separate observations;
+none of their samples are replaced with the best control result.
 
-The source tool is [admin-benchmark.mjs](../tools/admin-benchmark.mjs). These numbers
-are a recorded experiment, not expected output or performance guarantees for this
-starter. The original request-level reports remain with the author's experiment;
-only the aggregate summary is included here. Use your own representative synthetic
-data and save new reports when evaluating a deployment.
+The evidence for removing the earlier workaround is narrower: the corrected
+workers served far beyond 500 requests without the diagnosed progressive buffer
+growth/slowdown on this workload. Operational policy still needs representative
+longer testing. [500-request control](results/2026-10-01-no-recycling/recycle-500-control-summary.json),
+[fresh no-recycling control](results/2026-10-01-no-recycling/no-recycling-fresh-control-summary.json).
+
+### Raw evidence
+
+The five reports contain **930,604 validated measured responses across 52 runs**.
+Warm-ups, authentication and health checks are additional traffic.
+
+- [Gzip matrix](results/2026-10-01-no-recycling/lab-h2-gzip.json.gz)
+- [Identity control](results/2026-10-01-no-recycling/lab-h2-identity.json.gz)
+- [Ten-minute worker test](results/2026-10-01-no-recycling/worker-soak.json.gz)
+- [500-request recycling control](results/2026-10-01-no-recycling/recycle-500-control.json.gz)
+- [Fresh no-recycling control](results/2026-10-01-no-recycling/no-recycling-fresh-control.json.gz)
+- [Archive SHA-256 checksums](results/2026-10-01-no-recycling/checksums.json)
+
+## Scope and earlier results
+
+The fixture contains 500 simple products, 10 manufacturers, 50 added categories,
+100 synthetic guest customers and 100 media placeholders. No uploaded media bytes
+or orders are included. Full searched totals are 500 products, 51 categories,
+100 customers and 103 media records. Both reports preserve preflight IDs/totals.
+Separate tokens use the same administrator; these synthetic sessions are not
+counts of supported human users. HTTP/2 cleartext excludes TLS and browser costs.
+
+This measures read-only Admin searches. Checkout, writes, ACL isolation, customer
+sessions, exception recovery, idle database connections and arbitrary extensions
+require separate validation. A persistent-worker test cannot establish unlimited
+safe lifetime or choose a universal recycling threshold.
+
+The [earlier comparison with 500-request recycling](measurements-2026-10-01-recycling.md)
+is preserved unchanged, including its raw data and the older populated-shop
+experiment. That comparison did not have the logging patch. Do not attribute the
+difference between dates/configurations solely to recycling or pool their samples.
