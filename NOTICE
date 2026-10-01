@@ -1,0 +1,5 @@
+Shopware is a trademark of shopware AG. This independent lab is not an official
+Shopware distribution or support commitment. Downloaded Shopware source remains
+under its upstream license. The included plugin initialization patch modifies
+Shopware source and includes the regression test used in the original experiment.
+FrankenPHP, Caddy, PHP, MariaDB and bundled dependencies retain their own licenses.

@@ -1,0 +1,13 @@
+# Opt-in experiment. This does not resolve all known worker compatibility issues.
+services:
+  web:
+    environment:
+      # Five application workers plus the required regular PHP thread.
+      FRANKENPHP_CONFIG: |
+        num_threads 6
+        max_threads 6
+        worker {
+          file /var/www/html/public/index.php
+          num 5
+        }
+      FRANKENPHP_LOOP_MAX: "500"

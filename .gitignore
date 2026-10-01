@@ -1,0 +1,6 @@
+.env
+.env.*
+!.env.example
+measurements/
+__pycache__/
+*.log

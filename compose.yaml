@@ -1,0 +1,79 @@
+name: shopware-frankenphp-lab
+
+x-app-env: &app-env
+  APP_ENV: prod
+  APP_DEBUG: "0"
+  APP_URL: http://localhost:8080
+  APP_SECRET: local-lab-only-change-before-any-shared-use-0123456789abcdef
+  DATABASE_URL: mysql://shopware:shopware@database/shopware
+  MAILER_DSN: "null://null"
+  PROJECT_ROOT: /var/www/html
+  COMPOSER_ROOT_VERSION: 6.7.9999999-dev
+  SHOPWARE_CACHE_ID: frankenphp-lab
+  SHOPWARE_HTTP_CACHE_ENABLED: "0"
+  SHOPWARE_SKIP_WEBINSTALLER: "1"
+  SHOPWARE_ES_ENABLED: "0"
+  SHOPWARE_ES_INDEXING_ENABLED: "0"
+  ADMIN_OPENSEARCH_URL: ""
+
+services:
+  database:
+    image: mariadb:10.11
+    environment:
+      MARIADB_ROOT_PASSWORD: local-lab-root
+      MARIADB_DATABASE: shopware
+      MARIADB_USER: shopware
+      MARIADB_PASSWORD: shopware
+    volumes:
+      - database:/var/lib/mysql
+    healthcheck:
+      test: [CMD, healthcheck.sh, --connect, --innodb_initialized]
+      interval: 3s
+      timeout: 3s
+      retries: 40
+
+  init:
+    build: .
+    environment: *app-env
+    volumes:
+      - application:/var/www/html
+    depends_on:
+      database:
+        condition: service_healthy
+    restart: "no"
+
+  web:
+    image: ghcr.io/shopware/docker-base:8.4-frankenphp
+    environment:
+      <<: *app-env
+      # No worker block: each request gets a fresh PHP application lifecycle.
+      FRANKENPHP_CONFIG: |
+        num_threads 5
+        max_threads 5
+      FRANKENPHP_LOOP_MAX: "0"
+    ports:
+      - "127.0.0.1:8080:8000"
+    volumes:
+      - application:/var/www/html
+    depends_on:
+      init:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+        [
+          CMD,
+          curl,
+          --fail,
+          --silent,
+          --header,
+          "Host: localhost:8080",
+          http://localhost:8000/admin,
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+volumes:
+  application:
+  database:
