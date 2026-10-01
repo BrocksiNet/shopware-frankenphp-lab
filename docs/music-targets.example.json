@@ -1,0 +1,35 @@
+{
+  "title": "My music storefront comparison",
+  "httpCacheEnabled": true,
+  "expectedProtocol": "http/1.1",
+  "environment": {
+    "notes": "Record actual revisions, patches, PHP builds, pool limits and catalog counts before running."
+  },
+  "targets": [
+    {
+      "name": "classic",
+      "label": "FrankenPHP classic",
+      "url": "http://music.localhost:8080",
+      "routes": [
+        {
+          "name": "homepage",
+          "path": "/",
+          "route": "frontend-home-page",
+          "expectedText": "Acoustic Foam Panel"
+        },
+        {
+          "name": "search",
+          "path": "/search?search=guitar",
+          "route": "frontend-search-page",
+          "expectedText": "Acoustic Guitar"
+        },
+        {
+          "name": "product",
+          "path": "/Acoustic-Guitar-Natural-Finish-Spruce-Top/AI-7773c700e25f427e934e62144dcc1451",
+          "route": "frontend-detail-page",
+          "expectedText": "Acoustic Guitar"
+        }
+      ]
+    }
+  ]
+}

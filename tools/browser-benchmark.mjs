@@ -23,11 +23,11 @@ export function percentile(values, fraction) {
   const sorted = [...values].sort((a, b) => a - b);
   return sorted[Math.max(0, Math.ceil(sorted.length * fraction) - 1)];
 }
-export function summarize(samples) {
+export function summarize(samples, selectedRoutes = routes) {
   if (!samples.length || samples.some((s) => s.error))
     throw new Error("Cannot summarize failed or empty samples");
   return Object.fromEntries(
-    routes.map(({ name }) => {
+    selectedRoutes.map(({ name }) => {
       const selected = samples.filter((s) => s.route === name);
       return [
         name,
@@ -66,21 +66,52 @@ export function validateOptions(options) {
       "This browser harness is bounded to 20 concurrent sessions",
     );
   const url = new URL(options.url);
+  const local =
+    url.hostname === "localhost" ||
+    url.hostname.endsWith(".localhost") ||
+    url.hostname === "127.0.0.1";
+  const allowed = options.existingStorefront
+    ? local && ["http:", "https:"].includes(url.protocol)
+    : url.protocol === "https:" &&
+      url.hostname === "localhost" &&
+      url.port === "8443";
   if (
-    url.protocol !== "https:" ||
-    url.hostname !== "localhost" ||
-    url.port !== "8443" ||
+    !allowed ||
     url.pathname !== "/" ||
     url.search ||
     url.hash ||
     url.username ||
     url.password
   )
-    throw new Error("Use the disposable lab's https://localhost:8443 origin");
+    throw new Error("Use an explicit local storefront origin");
+  if (options.existingStorefront && !options.routes)
+    throw new Error(
+      "Existing storefronts require explicit routes and expected text",
+    );
+  if (options.routes) {
+    if (
+      options.routes.length !== 3 ||
+      new Set(options.routes.map((r) => r.name)).size !== 3 ||
+      options.routes.some(
+        (r) =>
+          !["homepage", "search", "product"].includes(r.name) ||
+          !r.path.startsWith("/") ||
+          r.path.startsWith("//") ||
+          new URL(r.path, url).origin !== url.origin ||
+          !r.route ||
+          !r.expectedText,
+      )
+    )
+      throw new Error(
+        "Provide homepage, search and product routes with relative paths and expected text",
+      );
+  }
 }
 
 export async function benchmark(options) {
   validateOptions(options);
+  const selectedRoutes = options.routes || routes;
+  const expectedProtocol = options.expectedProtocol || "h2";
   const report = {
     schemaVersion: 1,
     completed: false,
@@ -108,16 +139,22 @@ export async function benchmark(options) {
         baseURL: options.url,
         ignoreHTTPSErrors: true,
         serviceWorkers: "block",
+        ...(options.existingStorefront
+          ? { extraHTTPHeaders: { "Accept-Encoding": "gzip" } }
+          : {}),
         viewport: { width: 1280, height: 720 },
         locale: "en-GB",
         timezoneId: "UTC",
       });
       await context.addInitScript(() => {
-        window.__labPaint = { lcp: null, lcpElement: null };
+        window.__labPaint = { lcp: null, lcpElement: null, lcpImage: null };
         new PerformanceObserver((list) => {
           for (const entry of list.getEntries()) {
             window.__labPaint.lcp = entry.startTime;
             window.__labPaint.lcpElement = entry.element?.tagName || null;
+            window.__labPaint.lcpImage = entry.url
+              ? new URL(entry.url).pathname
+              : null;
           }
         }).observe({ type: "largest-contentful-paint", buffered: true });
       });
@@ -139,9 +176,28 @@ export async function benchmark(options) {
         await page.evaluate(async () => {
           await document.fonts.ready;
         });
+        if (options.requireImages) {
+          await page.waitForFunction(() => {
+            const images = Array.from(document.images).filter((image) => {
+              const r = image.getBoundingClientRect();
+              return (
+                r.width > 0 &&
+                r.height > 0 &&
+                r.bottom > 0 &&
+                r.right > 0 &&
+                r.top < innerHeight &&
+                r.left < innerWidth
+              );
+            });
+            return (
+              images.length > 0 &&
+              images.every((image) => image.complete && image.naturalWidth > 0)
+            );
+          });
+        }
         // Fixed post-load observation window; this is not field LCP or INP.
         await page.waitForTimeout(options.settleMs);
-        const result = await page.evaluate(() => {
+        const result = await page.evaluate((expectedText) => {
           const nav = performance.getEntriesByType("navigation")[0];
           const fonts = Array.from(document.fonts);
           const origins = Array.from(
@@ -160,6 +216,28 @@ export async function benchmark(options) {
                 ?.startTime ?? null,
             lcpObservedMs: window.__labPaint.lcp,
             lcpElement: window.__labPaint.lcpElement,
+            lcpImage: window.__labPaint.lcpImage,
+            visibleImages: Array.from(document.images)
+              .filter((image) => {
+                const r = image.getBoundingClientRect();
+                return (
+                  r.width > 0 &&
+                  r.height > 0 &&
+                  r.bottom > 0 &&
+                  r.right > 0 &&
+                  r.top < innerHeight &&
+                  r.left < innerWidth
+                );
+              })
+              .map((image) => ({
+                path: new URL(image.currentSrc || image.src).pathname,
+                loaded: image.complete && image.naturalWidth > 0,
+                width: image.naturalWidth,
+                height: image.naturalHeight,
+              })),
+            textPresent: expectedText
+              ? document.body.innerText.includes(expectedText)
+              : true,
             observedAtMs: performance.now(),
             protocol: nav.nextHopProtocol,
             transferSize: nav.transferSize,
@@ -171,7 +249,7 @@ export async function benchmark(options) {
               document.querySelectorAll(".product-name, h1"),
             ).some((element) => element.textContent.includes("Lab product")),
           };
-        });
+        }, route.expectedText || null);
         const problems = errors.slice(previousErrors);
         if (
           problems.length ||
@@ -180,9 +258,16 @@ export async function benchmark(options) {
           result.wrongOrigins.length
         )
           throw new Error(JSON.stringify({ problems, ...result }));
-        if (result.protocol !== "h2")
-          throw new Error(`Expected h2; got ${result.protocol}`);
-        if (route.name !== "homepage" && !result.productPresent)
+        if (result.protocol !== expectedProtocol)
+          throw new Error(
+            `Expected ${expectedProtocol}; got ${result.protocol}`,
+          );
+        if (
+          !result.textPresent ||
+          (!options.existingStorefront &&
+            route.name !== "homepage" &&
+            !result.productPresent)
+        )
           throw new Error("Seeded product content missing");
         for (const field of [
           "ttfbMs",
@@ -227,7 +312,7 @@ export async function benchmark(options) {
     async function phase(cycles, measured) {
       // Each round starts together; the next begins only when every page passes.
       for (let cycle = 0; cycle < cycles; cycle++) {
-        for (const route of routes) {
+        for (const route of selectedRoutes) {
           const results = await Promise.allSettled(
             sessions.map((session) =>
               navigate(session, route, cycle, measured),
@@ -250,7 +335,7 @@ export async function benchmark(options) {
     report.driverCpuSeconds = (cpu.user + cpu.system) / 1e6; // excludes Chromium subprocesses
     report.completedNavigationsPerSecond =
       report.samples.length / report.measuredSeconds;
-    report.summary = summarize(report.samples);
+    report.summary = summarize(report.samples, selectedRoutes);
     report.completed = true;
   } catch (error) {
     report.error = error.message;

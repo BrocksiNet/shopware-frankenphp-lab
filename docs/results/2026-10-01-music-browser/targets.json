@@ -1,0 +1,95 @@
+{
+  "title": "Music demo storefront",
+  "httpCacheEnabled": true,
+  "expectedProtocol": "http/1.1",
+  "environment": {
+    "notes": "Existing installations, not identical builds. Cache temporarily enabled on both same-code runtimes. No worker recycling; logging reset patch absent.",
+    "sourceRevision": "868f25121f764f41d6490fd032d6f28507be4e43 plus local changes",
+    "trunkRevision": "58cb2b6df1c6ed10906f2680e668786b309c4efb plus local changes",
+    "phpWorker": "8.4.26 ZTS",
+    "phpFpm": "8.4.17 NTS",
+    "workers": 5,
+    "fpmMaxChildren": 5,
+    "productsSameCode": 578,
+    "productsTrunk": 581,
+    "languageSameCode": "German/EUR",
+    "languageTrunk": "English/USD"
+  },
+  "targets": [
+    {
+      "name": "fpm-control",
+      "label": "FPM, same code/data",
+      "url": "http://music-de.localhost:8105",
+      "routes": [
+        {
+          "name": "homepage",
+          "path": "/",
+          "route": "frontend-home-page",
+          "expectedText": "Acoustic Foam Panel"
+        },
+        {
+          "name": "search",
+          "path": "/search?search=guitar",
+          "route": "frontend-search-page",
+          "expectedText": "Acoustic Guitar"
+        },
+        {
+          "name": "product",
+          "path": "/Acoustic-Guitar-Natural-Finish-Spruce-Top/AI-7773c700e25f427e934e62144dcc1451",
+          "route": "frontend-detail-page",
+          "expectedText": "Acoustic Guitar"
+        }
+      ]
+    },
+    {
+      "name": "worker",
+      "label": "FrankenPHP workers",
+      "url": "http://music-de.localhost:8106",
+      "routes": [
+        {
+          "name": "homepage",
+          "path": "/",
+          "route": "frontend-home-page",
+          "expectedText": "Acoustic Foam Panel"
+        },
+        {
+          "name": "search",
+          "path": "/search?search=guitar",
+          "route": "frontend-search-page",
+          "expectedText": "Acoustic Guitar"
+        },
+        {
+          "name": "product",
+          "path": "/Acoustic-Guitar-Natural-Finish-Spruce-Top/AI-7773c700e25f427e934e62144dcc1451",
+          "route": "frontend-detail-page",
+          "expectedText": "Acoustic Guitar"
+        }
+      ]
+    },
+    {
+      "name": "trunk-fpm",
+      "label": "Trunk/FPM, different build",
+      "url": "http://music-trunk.localhost:8100",
+      "routes": [
+        {
+          "name": "homepage",
+          "path": "/",
+          "route": "frontend-home-page",
+          "expectedText": "Acoustic Foam Panel"
+        },
+        {
+          "name": "search",
+          "path": "/search?search=guitar",
+          "route": "frontend-search-page",
+          "expectedText": "Acoustic Guitar"
+        },
+        {
+          "name": "product",
+          "path": "/Acoustic-Guitar-Natural-Finish-Spruce-Top/AI-7773c700e25f427e934e62144dcc1451",
+          "route": "frontend-detail-page",
+          "expectedText": "Acoustic Guitar"
+        }
+      ]
+    }
+  ]
+}

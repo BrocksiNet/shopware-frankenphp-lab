@@ -1,0 +1,1160 @@
+{
+  "fpm-control": {
+    "1": {
+      "homepage": {
+        "ttfbMs": {
+          "medianOfRunMedians": 19.400000005960464,
+          "medianOfRunP95": 25.099999994039536,
+          "runMedianRange": [
+            17.600000008940697,
+            22.099999994039536
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 49.6000000089407,
+          "medianOfRunP95": 56.8999999910593,
+          "runMedianRange": [
+            45.1000000089407,
+            51.099999994039536
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 68.1000000089407,
+          "medianOfRunP95": 73.90000000596046,
+          "runMedianRange": [
+            65.70000000298023,
+            74.40000000596046
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 64,
+          "medianOfRunP95": 72,
+          "runMedianRange": [
+            60,
+            72
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 80,
+          "medianOfRunP95": 84,
+          "runMedianRange": [
+            72,
+            84
+          ]
+        }
+      },
+      "search": {
+        "ttfbMs": {
+          "medianOfRunMedians": 91.70000000298023,
+          "medianOfRunP95": 102.20000000298023,
+          "runMedianRange": [
+            90.80000001192093,
+            92.8999999910593
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 115.6000000089407,
+          "medianOfRunP95": 125.5,
+          "runMedianRange": [
+            114.79999999701977,
+            120.20000000298023
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 131.1000000089407,
+          "medianOfRunP95": 140.90000000596046,
+          "runMedianRange": [
+            130,
+            135.90000000596046
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 128,
+          "medianOfRunP95": 140,
+          "runMedianRange": [
+            128,
+            132
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 136,
+          "medianOfRunP95": 148,
+          "runMedianRange": [
+            136,
+            140
+          ]
+        }
+      },
+      "product": {
+        "ttfbMs": {
+          "medianOfRunMedians": 17.600000008940697,
+          "medianOfRunP95": 23.299999997019768,
+          "runMedianRange": [
+            16.799999997019768,
+            21.299999997019768
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 39.900000005960464,
+          "medianOfRunP95": 46.70000000298023,
+          "runMedianRange": [
+            39,
+            45.8999999910593
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 61.900000005960464,
+          "medianOfRunP95": 71.5,
+          "runMedianRange": [
+            61.19999998807907,
+            68.8999999910593
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 56,
+          "medianOfRunP95": 64,
+          "runMedianRange": [
+            52,
+            60
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 56,
+          "medianOfRunP95": 64,
+          "runMedianRange": [
+            52,
+            60
+          ]
+        }
+      }
+    },
+    "5": {
+      "homepage": {
+        "ttfbMs": {
+          "medianOfRunMedians": 29.100000008940697,
+          "medianOfRunP95": 41.8999999910593,
+          "runMedianRange": [
+            21.5,
+            29.19999998807907
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 67.6000000089407,
+          "medianOfRunP95": 79.79999999701977,
+          "runMedianRange": [
+            51.79999999701977,
+            69.3999999910593
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 94.80000001192093,
+          "medianOfRunP95": 106,
+          "runMedianRange": [
+            79.80000001192093,
+            98.40000000596046
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 68,
+          "medianOfRunP95": 88,
+          "runMedianRange": [
+            68,
+            68
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 92,
+          "medianOfRunP95": 104,
+          "runMedianRange": [
+            84,
+            92
+          ]
+        }
+      },
+      "search": {
+        "ttfbMs": {
+          "medianOfRunMedians": 97,
+          "medianOfRunP95": 193.59999999403954,
+          "runMedianRange": [
+            95.09999999403954,
+            97.70000000298023
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 126.40000000596046,
+          "medianOfRunP95": 216.69999998807907,
+          "runMedianRange": [
+            125.20000000298023,
+            131.29999999701977
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 142,
+          "medianOfRunP95": 232.5,
+          "runMedianRange": [
+            140.09999999403954,
+            144.70000000298023
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 128,
+          "medianOfRunP95": 228,
+          "runMedianRange": [
+            128,
+            136
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 140,
+          "medianOfRunP95": 240,
+          "runMedianRange": [
+            140,
+            148
+          ]
+        }
+      },
+      "product": {
+        "ttfbMs": {
+          "medianOfRunMedians": 17.600000008940697,
+          "medianOfRunP95": 37.69999998807907,
+          "runMedianRange": [
+            12,
+            28
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 44.6000000089407,
+          "medianOfRunP95": 66.5,
+          "runMedianRange": [
+            42.3999999910593,
+            58.70000000298023
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 80,
+          "medianOfRunP95": 101.19999998807907,
+          "runMedianRange": [
+            79.79999999701977,
+            94.79999999701977
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 52,
+          "medianOfRunP95": 72,
+          "runMedianRange": [
+            44,
+            64
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 52,
+          "medianOfRunP95": 72,
+          "runMedianRange": [
+            44,
+            64
+          ]
+        }
+      }
+    },
+    "10": {
+      "homepage": {
+        "ttfbMs": {
+          "medianOfRunMedians": 32.900000005960464,
+          "medianOfRunP95": 101.69999998807907,
+          "runMedianRange": [
+            31,
+            40.70000000298023
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 83.79999999701977,
+          "medianOfRunP95": 155,
+          "runMedianRange": [
+            81.3999999910593,
+            90.5
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 157.5,
+          "medianOfRunP95": 187.8999999910593,
+          "runMedianRange": [
+            153,
+            170.5
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 76,
+          "medianOfRunP95": 140,
+          "runMedianRange": [
+            72,
+            80
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 120,
+          "medianOfRunP95": 168,
+          "runMedianRange": [
+            116,
+            136
+          ]
+        }
+      },
+      "search": {
+        "ttfbMs": {
+          "medianOfRunMedians": 184.30000001192093,
+          "medianOfRunP95": 331.09999999403954,
+          "runMedianRange": [
+            182.30000001192093,
+            187.69999998807907
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 212.70000000298023,
+          "medianOfRunP95": 356.70000000298023,
+          "runMedianRange": [
+            212.70000000298023,
+            218.79999999701977
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 232.30000001192093,
+          "medianOfRunP95": 370.70000000298023,
+          "runMedianRange": [
+            229.90000000596046,
+            238.29999999701977
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 216,
+          "medianOfRunP95": 356,
+          "runMedianRange": [
+            212,
+            220
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 232,
+          "medianOfRunP95": 372,
+          "runMedianRange": [
+            224,
+            236
+          ]
+        }
+      },
+      "product": {
+        "ttfbMs": {
+          "medianOfRunMedians": 34.79999999701977,
+          "medianOfRunP95": 96.5,
+          "runMedianRange": [
+            33.900000005960464,
+            37.5
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 81.90000000596046,
+          "medianOfRunP95": 134.20000000298023,
+          "runMedianRange": [
+            79.90000000596046,
+            86.79999999701977
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 158.70000000298023,
+          "medianOfRunP95": 191.59999999403954,
+          "runMedianRange": [
+            153.59999999403954,
+            159.6000000089407
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 76,
+          "medianOfRunP95": 132,
+          "runMedianRange": [
+            76,
+            80
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 80,
+          "medianOfRunP95": 132,
+          "runMedianRange": [
+            80,
+            84
+          ]
+        }
+      }
+    }
+  },
+  "worker": {
+    "1": {
+      "homepage": {
+        "ttfbMs": {
+          "medianOfRunMedians": 15.099999994039536,
+          "medianOfRunP95": 17.80000001192093,
+          "runMedianRange": [
+            13.099999994039536,
+            16.299999997019768
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 45.6000000089407,
+          "medianOfRunP95": 59.70000000298023,
+          "runMedianRange": [
+            43.5,
+            46
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 68.29999999701977,
+          "medianOfRunP95": 72,
+          "runMedianRange": [
+            66,
+            69.59999999403954
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 64,
+          "medianOfRunP95": 68,
+          "runMedianRange": [
+            64,
+            68
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 76,
+          "medianOfRunP95": 80,
+          "runMedianRange": [
+            76,
+            76
+          ]
+        }
+      },
+      "search": {
+        "ttfbMs": {
+          "medianOfRunMedians": 81.30000001192093,
+          "medianOfRunP95": 86.8999999910593,
+          "runMedianRange": [
+            80.8999999910593,
+            82.5
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 105.30000001192093,
+          "medianOfRunP95": 111.3999999910593,
+          "runMedianRange": [
+            105.09999999403954,
+            107.09999999403954
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 117.19999998807907,
+          "medianOfRunP95": 127.09999999403954,
+          "runMedianRange": [
+            116.6000000089407,
+            122.59999999403954
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 108,
+          "medianOfRunP95": 124,
+          "runMedianRange": [
+            104,
+            120
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 120,
+          "medianOfRunP95": 136,
+          "runMedianRange": [
+            116,
+            128
+          ]
+        }
+      },
+      "product": {
+        "ttfbMs": {
+          "medianOfRunMedians": 7.0999999940395355,
+          "medianOfRunP95": 12.299999997019768,
+          "runMedianRange": [
+            6.5999999940395355,
+            11.100000008940697
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 31.599999994039536,
+          "medianOfRunP95": 37.1000000089407,
+          "runMedianRange": [
+            29.099999994039536,
+            37.400000005960464
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 55.400000005960464,
+          "medianOfRunP95": 60,
+          "runMedianRange": [
+            52.099999994039536,
+            59.79999999701977
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 44,
+          "medianOfRunP95": 52,
+          "runMedianRange": [
+            44,
+            52
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 44,
+          "medianOfRunP95": 52,
+          "runMedianRange": [
+            44,
+            52
+          ]
+        }
+      }
+    },
+    "5": {
+      "homepage": {
+        "ttfbMs": {
+          "medianOfRunMedians": 18.899999991059303,
+          "medianOfRunP95": 27.299999997019768,
+          "runMedianRange": [
+            16.5,
+            23.69999998807907
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 63.70000000298023,
+          "medianOfRunP95": 77,
+          "runMedianRange": [
+            60,
+            67
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 92.8999999910593,
+          "medianOfRunP95": 109.79999999701977,
+          "runMedianRange": [
+            87.70000000298023,
+            96.29999999701977
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 64,
+          "medianOfRunP95": 72,
+          "runMedianRange": [
+            56,
+            64
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 88,
+          "medianOfRunP95": 96,
+          "runMedianRange": [
+            80,
+            88
+          ]
+        }
+      },
+      "search": {
+        "ttfbMs": {
+          "medianOfRunMedians": 82.59999999403954,
+          "medianOfRunP95": 97.09999999403954,
+          "runMedianRange": [
+            81.70000000298023,
+            83.8999999910593
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 114.59999999403954,
+          "medianOfRunP95": 133.20000000298023,
+          "runMedianRange": [
+            113.5,
+            117.59999999403954
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 143.6000000089407,
+          "medianOfRunP95": 152.29999999701977,
+          "runMedianRange": [
+            140.70000000298023,
+            144.90000000596046
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 116,
+          "medianOfRunP95": 132,
+          "runMedianRange": [
+            112,
+            116
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 132,
+          "medianOfRunP95": 160,
+          "runMedianRange": [
+            128,
+            136
+          ]
+        }
+      },
+      "product": {
+        "ttfbMs": {
+          "medianOfRunMedians": 15.199999988079071,
+          "medianOfRunP95": 22.799999997019768,
+          "runMedianRange": [
+            12.5,
+            17
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 49.1000000089407,
+          "medianOfRunP95": 60.1000000089407,
+          "runMedianRange": [
+            41.599999994039536,
+            55.5
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 83.3999999910593,
+          "medianOfRunP95": 88.59999999403954,
+          "runMedianRange": [
+            78.09999999403954,
+            91
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 56,
+          "medianOfRunP95": 64,
+          "runMedianRange": [
+            48,
+            60
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 56,
+          "medianOfRunP95": 64,
+          "runMedianRange": [
+            48,
+            60
+          ]
+        }
+      }
+    },
+    "10": {
+      "homepage": {
+        "ttfbMs": {
+          "medianOfRunMedians": 29.200000002980232,
+          "medianOfRunP95": 50.5,
+          "runMedianRange": [
+            26.400000005960464,
+            29.599999994039536
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 101.79999999701977,
+          "medianOfRunP95": 126.79999999701977,
+          "runMedianRange": [
+            98.3999999910593,
+            107.3999999910593
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 165.20000000298023,
+          "medianOfRunP95": 182.20000000298023,
+          "runMedianRange": [
+            161.90000000596046,
+            171.1000000089407
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 72,
+          "medianOfRunP95": 112,
+          "runMedianRange": [
+            68,
+            84
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 124,
+          "medianOfRunP95": 148,
+          "runMedianRange": [
+            116,
+            128
+          ]
+        }
+      },
+      "search": {
+        "ttfbMs": {
+          "medianOfRunMedians": 98.3999999910593,
+          "medianOfRunP95": 207.29999999701977,
+          "runMedianRange": [
+            93.19999998807907,
+            100.19999998807907
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 134.79999999701977,
+          "medianOfRunP95": 241.90000000596046,
+          "runMedianRange": [
+            128.79999999701977,
+            136.8999999910593
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 160.20000000298023,
+          "medianOfRunP95": 269.59999999403954,
+          "runMedianRange": [
+            154.80000001192093,
+            162.8999999910593
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 136,
+          "medianOfRunP95": 240,
+          "runMedianRange": [
+            128,
+            136
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 160,
+          "medianOfRunP95": 260,
+          "runMedianRange": [
+            160,
+            164
+          ]
+        }
+      },
+      "product": {
+        "ttfbMs": {
+          "medianOfRunMedians": 18.700000002980232,
+          "medianOfRunP95": 43.69999998807907,
+          "runMedianRange": [
+            18.600000008940697,
+            22.599999994039536
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 89.29999999701977,
+          "medianOfRunP95": 103.5,
+          "runMedianRange": [
+            85.3999999910593,
+            90
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 146.40000000596046,
+          "medianOfRunP95": 164.29999999701977,
+          "runMedianRange": [
+            145.6000000089407,
+            151.6000000089407
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 68,
+          "medianOfRunP95": 88,
+          "runMedianRange": [
+            68,
+            72
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 84,
+          "medianOfRunP95": 104,
+          "runMedianRange": [
+            80,
+            84
+          ]
+        }
+      }
+    }
+  },
+  "trunk-fpm": {
+    "1": {
+      "homepage": {
+        "ttfbMs": {
+          "medianOfRunMedians": 33.30000001192093,
+          "medianOfRunP95": 36.70000000298023,
+          "runMedianRange": [
+            28,
+            36.19999998807907
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 63,
+          "medianOfRunP95": 81.70000000298023,
+          "runMedianRange": [
+            60.20000000298023,
+            78.19999998807907
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 87.29999999701977,
+          "medianOfRunP95": 92.40000000596046,
+          "runMedianRange": [
+            86.20000000298023,
+            105.59999999403954
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 84,
+          "medianOfRunP95": 88,
+          "runMedianRange": [
+            76,
+            100
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 92,
+          "medianOfRunP95": 100,
+          "runMedianRange": [
+            84,
+            108
+          ]
+        }
+      },
+      "search": {
+        "ttfbMs": {
+          "medianOfRunMedians": 98.79999999701977,
+          "medianOfRunP95": 105.20000000298023,
+          "runMedianRange": [
+            95.30000001192093,
+            100.70000000298023
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 123.79999999701977,
+          "medianOfRunP95": 128.3999999910593,
+          "runMedianRange": [
+            119.70000000298023,
+            136.1000000089407
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 139.59999999403954,
+          "medianOfRunP95": 147,
+          "runMedianRange": [
+            134.80000001192093,
+            151.90000000596046
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 136,
+          "medianOfRunP95": 144,
+          "runMedianRange": [
+            132,
+            148
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 144,
+          "medianOfRunP95": 152,
+          "runMedianRange": [
+            140,
+            156
+          ]
+        }
+      },
+      "product": {
+        "ttfbMs": {
+          "medianOfRunMedians": 31.5,
+          "medianOfRunP95": 36.8999999910593,
+          "runMedianRange": [
+            29.099999994039536,
+            34.20000000298023
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 58.400000005960464,
+          "medianOfRunP95": 62.8999999910593,
+          "runMedianRange": [
+            55.6000000089407,
+            66.29999999701977
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 82.40000000596046,
+          "medianOfRunP95": 87.20000000298023,
+          "runMedianRange": [
+            79.29999999701977,
+            91.59999999403954
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 72,
+          "medianOfRunP95": 80,
+          "runMedianRange": [
+            72,
+            84
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 72,
+          "medianOfRunP95": 80,
+          "runMedianRange": [
+            72,
+            84
+          ]
+        }
+      }
+    },
+    "5": {
+      "homepage": {
+        "ttfbMs": {
+          "medianOfRunMedians": 33.5,
+          "medianOfRunP95": 58.900000005960464,
+          "runMedianRange": [
+            30.600000008940697,
+            36
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 73.59999999403954,
+          "medianOfRunP95": 98.79999999701977,
+          "runMedianRange": [
+            68.20000000298023,
+            79.70000000298023
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 99.09999999403954,
+          "medianOfRunP95": 118.59999999403954,
+          "runMedianRange": [
+            88.3999999910593,
+            105.5
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 84,
+          "medianOfRunP95": 104,
+          "runMedianRange": [
+            68,
+            84
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 100,
+          "medianOfRunP95": 124,
+          "runMedianRange": [
+            92,
+            108
+          ]
+        }
+      },
+      "search": {
+        "ttfbMs": {
+          "medianOfRunMedians": 99.69999998807907,
+          "medianOfRunP95": 201.3999999910593,
+          "runMedianRange": [
+            99.5,
+            101.79999999701977
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 129.20000000298023,
+          "medianOfRunP95": 226.19999998807907,
+          "runMedianRange": [
+            128.70000000298023,
+            134
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 143.79999999701977,
+          "medianOfRunP95": 241.8999999910593,
+          "runMedianRange": [
+            142.29999999701977,
+            149.70000000298023
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 136,
+          "medianOfRunP95": 240,
+          "runMedianRange": [
+            136,
+            136
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 148,
+          "medianOfRunP95": 248,
+          "runMedianRange": [
+            144,
+            148
+          ]
+        }
+      },
+      "product": {
+        "ttfbMs": {
+          "medianOfRunMedians": 32.6000000089407,
+          "medianOfRunP95": 50.69999998807907,
+          "runMedianRange": [
+            31.200000002980232,
+            37.70000000298023
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 60.900000005960464,
+          "medianOfRunP95": 88.30000001192093,
+          "runMedianRange": [
+            60.5,
+            71.79999999701977
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 97.70000000298023,
+          "medianOfRunP95": 108.30000001192093,
+          "runMedianRange": [
+            95.20000000298023,
+            105.3999999910593
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 68,
+          "medianOfRunP95": 88,
+          "runMedianRange": [
+            68,
+            80
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 68,
+          "medianOfRunP95": 88,
+          "runMedianRange": [
+            68,
+            80
+          ]
+        }
+      }
+    },
+    "10": {
+      "homepage": {
+        "ttfbMs": {
+          "medianOfRunMedians": 53,
+          "medianOfRunP95": 153.40000000596046,
+          "runMedianRange": [
+            52.20000000298023,
+            58.599999994039536
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 105.6000000089407,
+          "medianOfRunP95": 190,
+          "runMedianRange": [
+            105.59999999403954,
+            108.79999999701977
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 158.59999999403954,
+          "medianOfRunP95": 217.09999999403954,
+          "runMedianRange": [
+            154.20000000298023,
+            160.40000000596046
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 96,
+          "medianOfRunP95": 196,
+          "runMedianRange": [
+            92,
+            104
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 132,
+          "medianOfRunP95": 220,
+          "runMedianRange": [
+            124,
+            136
+          ]
+        }
+      },
+      "search": {
+        "ttfbMs": {
+          "medianOfRunMedians": 191.5,
+          "medianOfRunP95": 332.59999999403954,
+          "runMedianRange": [
+            184,
+            195.69999998807907
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 219.19999998807907,
+          "medianOfRunP95": 360,
+          "runMedianRange": [
+            213.20000000298023,
+            226
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 240.69999998807907,
+          "medianOfRunP95": 373,
+          "runMedianRange": [
+            237.90000000596046,
+            242.40000000596046
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 216,
+          "medianOfRunP95": 364,
+          "runMedianRange": [
+            216,
+            228
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 236,
+          "medianOfRunP95": 376,
+          "runMedianRange": [
+            228,
+            244
+          ]
+        }
+      },
+      "product": {
+        "ttfbMs": {
+          "medianOfRunMedians": 48.29999999701977,
+          "medianOfRunP95": 138.1000000089407,
+          "runMedianRange": [
+            47.599999994039536,
+            53
+          ]
+        },
+        "domContentLoadedMs": {
+          "medianOfRunMedians": 94.79999999701977,
+          "medianOfRunP95": 166.5,
+          "runMedianRange": [
+            90,
+            95.70000000298023
+          ]
+        },
+        "loadMs": {
+          "medianOfRunMedians": 155.09999999403954,
+          "medianOfRunP95": 202.29999999701977,
+          "runMedianRange": [
+            146.79999999701977,
+            166.3999999910593
+          ]
+        },
+        "fcpMs": {
+          "medianOfRunMedians": 92,
+          "medianOfRunP95": 168,
+          "runMedianRange": [
+            92,
+            96
+          ]
+        },
+        "lcpObservedMs": {
+          "medianOfRunMedians": 96,
+          "medianOfRunP95": 168,
+          "runMedianRange": [
+            92,
+            96
+          ]
+        }
+      }
+    }
+  }
+}

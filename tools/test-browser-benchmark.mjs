@@ -51,3 +51,38 @@ test("benchmark rejects remote origins and invalid concurrency", () => {
   ])
     assert.throws(() => validateOptions({ ...options, ...update }));
 });
+
+test("existing shops require local origins and complete content assertions", () => {
+  const options = {
+    existingStorefront: true,
+    url: "http://music-de.localhost:8106",
+    users: 1,
+    samples: 1,
+    warmup: 1,
+    settleMs: 500,
+    routes: routes.map((r) => ({ ...r, expectedText: "Acoustic Guitar" })),
+  };
+  assert.doesNotThrow(() => validateOptions(options));
+  assert.throws(() => validateOptions({ ...options, routes: undefined }));
+  for (const url of [
+    "http://example.com",
+    "http://localhost.evil.test",
+    "http://name:password@localhost",
+    "http://localhost/path",
+  ]) {
+    assert.throws(() => validateOptions({ ...options, url }));
+  }
+  for (const update of [
+    { path: "//example.com" },
+    { path: "/\\example.com" },
+    { expectedText: "" },
+    { name: "other" },
+  ]) {
+    assert.throws(() =>
+      validateOptions({
+        ...options,
+        routes: options.routes.map((r, i) => (i ? r : { ...r, ...update })),
+      }),
+    );
+  }
+});

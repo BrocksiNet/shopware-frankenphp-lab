@@ -1,0 +1,2198 @@
+{
+  "completed": true,
+  "startedAt": "2026-10-01T13:07:37.563Z",
+  "targets": [
+    {
+      "name": "fpm-control",
+      "label": "FPM, same code/data",
+      "url": "http://music-de.localhost:8105",
+      "routes": [
+        {
+          "name": "homepage",
+          "path": "/",
+          "route": "frontend-home-page",
+          "expectedText": "Acoustic Foam Panel"
+        },
+        {
+          "name": "search",
+          "path": "/search?search=guitar",
+          "route": "frontend-search-page",
+          "expectedText": "Acoustic Guitar"
+        },
+        {
+          "name": "product",
+          "path": "/Acoustic-Guitar-Natural-Finish-Spruce-Top/AI-7773c700e25f427e934e62144dcc1451",
+          "route": "frontend-detail-page",
+          "expectedText": "Acoustic Guitar"
+        }
+      ]
+    },
+    {
+      "name": "worker",
+      "label": "FrankenPHP workers",
+      "url": "http://music-de.localhost:8106",
+      "routes": [
+        {
+          "name": "homepage",
+          "path": "/",
+          "route": "frontend-home-page",
+          "expectedText": "Acoustic Foam Panel"
+        },
+        {
+          "name": "search",
+          "path": "/search?search=guitar",
+          "route": "frontend-search-page",
+          "expectedText": "Acoustic Guitar"
+        },
+        {
+          "name": "product",
+          "path": "/Acoustic-Guitar-Natural-Finish-Spruce-Top/AI-7773c700e25f427e934e62144dcc1451",
+          "route": "frontend-detail-page",
+          "expectedText": "Acoustic Guitar"
+        }
+      ]
+    },
+    {
+      "name": "trunk-fpm",
+      "label": "Trunk/FPM, different build",
+      "url": "http://music-trunk.localhost:8100",
+      "routes": [
+        {
+          "name": "homepage",
+          "path": "/",
+          "route": "frontend-home-page",
+          "expectedText": "Acoustic Foam Panel"
+        },
+        {
+          "name": "search",
+          "path": "/search?search=guitar",
+          "route": "frontend-search-page",
+          "expectedText": "Acoustic Guitar"
+        },
+        {
+          "name": "product",
+          "path": "/Acoustic-Guitar-Natural-Finish-Spruce-Top/AI-7773c700e25f427e934e62144dcc1451",
+          "route": "frontend-detail-page",
+          "expectedText": "Acoustic Guitar"
+        }
+      ]
+    }
+  ],
+  "title": "Music demo storefront",
+  "configuration": {
+    "repeats": 3,
+    "users": [
+      1,
+      5,
+      10
+    ],
+    "samplesPerRoutePerUser": 6,
+    "warmupCycles": 2,
+    "settleMs": 500,
+    "httpCacheEnabled": true,
+    "expectedProtocol": "http/1.1",
+    "encoding": "gzip",
+    "requireImages": true
+  },
+  "environment": {
+    "notes": "Existing installations, not identical builds. Cache temporarily enabled on both same-code runtimes. No worker recycling; logging reset patch absent.",
+    "sourceRevision": "868f25121f764f41d6490fd032d6f28507be4e43 plus local changes",
+    "trunkRevision": "58cb2b6df1c6ed10906f2680e668786b309c4efb plus local changes",
+    "phpWorker": "8.4.26 ZTS",
+    "phpFpm": "8.4.17 NTS",
+    "workers": 5,
+    "fpmMaxChildren": 5,
+    "productsSameCode": 578,
+    "productsTrunk": 581,
+    "languageSameCode": "German/EUR",
+    "languageTrunk": "English/USD"
+  },
+  "host": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M4 Pro",
+    "logicalCpus": 14
+  },
+  "runs": [
+    {
+      "repeat": 1,
+      "runtime": "fpm-control",
+      "users": 1,
+      "file": "1-fpm-control-1.json",
+      "completed": true,
+      "navigations": 18,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 17.600000008940697,
+            "p95": 23
+          },
+          "domContentLoadedMs": {
+            "median": 45.1000000089407,
+            "p95": 49.6000000089407
+          },
+          "loadMs": {
+            "median": 68.1000000089407,
+            "p95": 72.3999999910593
+          },
+          "fcpMs": {
+            "median": 64,
+            "p95": 68
+          },
+          "lcpObservedMs": {
+            "median": 80,
+            "p95": 84
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 91.70000000298023,
+            "p95": 102.8999999910593
+          },
+          "domContentLoadedMs": {
+            "median": 114.79999999701977,
+            "p95": 126.70000000298023
+          },
+          "loadMs": {
+            "median": 130,
+            "p95": 141.70000000298023
+          },
+          "fcpMs": {
+            "median": 128,
+            "p95": 140
+          },
+          "lcpObservedMs": {
+            "median": 136,
+            "p95": 148
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 16.799999997019768,
+            "p95": 25.099999994039536
+          },
+          "domContentLoadedMs": {
+            "median": 39,
+            "p95": 49
+          },
+          "loadMs": {
+            "median": 61.19999998807907,
+            "p95": 71.5
+          },
+          "fcpMs": {
+            "median": 52,
+            "p95": 64
+          },
+          "lcpObservedMs": {
+            "median": 52,
+            "p95": 64
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 1,
+      "runtime": "fpm-control",
+      "users": 5,
+      "file": "1-fpm-control-5.json",
+      "completed": true,
+      "navigations": 90,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 29.100000008940697,
+            "p95": 41.900000005960464
+          },
+          "domContentLoadedMs": {
+            "median": 67.6000000089407,
+            "p95": 80.70000000298023
+          },
+          "loadMs": {
+            "median": 94.80000001192093,
+            "p95": 106
+          },
+          "fcpMs": {
+            "median": 68,
+            "p95": 92
+          },
+          "lcpObservedMs": {
+            "median": 92,
+            "p95": 104
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 97,
+            "p95": 188.70000000298023
+          },
+          "domContentLoadedMs": {
+            "median": 126.40000000596046,
+            "p95": 213.70000000298023
+          },
+          "loadMs": {
+            "median": 140.09999999403954,
+            "p95": 225.6000000089407
+          },
+          "fcpMs": {
+            "median": 128,
+            "p95": 220
+          },
+          "lcpObservedMs": {
+            "median": 140,
+            "p95": 236
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 17.600000008940697,
+            "p95": 36.1000000089407
+          },
+          "domContentLoadedMs": {
+            "median": 44.6000000089407,
+            "p95": 63.1000000089407
+          },
+          "loadMs": {
+            "median": 80,
+            "p95": 96.90000000596046
+          },
+          "fcpMs": {
+            "median": 52,
+            "p95": 68
+          },
+          "lcpObservedMs": {
+            "median": 52,
+            "p95": 68
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 1,
+      "runtime": "fpm-control",
+      "users": 10,
+      "file": "1-fpm-control-10.json",
+      "completed": true,
+      "navigations": 180,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 31,
+            "p95": 101.69999998807907
+          },
+          "domContentLoadedMs": {
+            "median": 90.5,
+            "p95": 156.8999999910593
+          },
+          "loadMs": {
+            "median": 153,
+            "p95": 187.8999999910593
+          },
+          "fcpMs": {
+            "median": 76,
+            "p95": 140
+          },
+          "lcpObservedMs": {
+            "median": 116,
+            "p95": 168
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 182.30000001192093,
+            "p95": 377.5
+          },
+          "domContentLoadedMs": {
+            "median": 212.70000000298023,
+            "p95": 400.79999999701977
+          },
+          "loadMs": {
+            "median": 229.90000000596046,
+            "p95": 416.40000000596046
+          },
+          "fcpMs": {
+            "median": 216,
+            "p95": 416
+          },
+          "lcpObservedMs": {
+            "median": 232,
+            "p95": 424
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 37.5,
+            "p95": 96.5
+          },
+          "domContentLoadedMs": {
+            "median": 79.90000000596046,
+            "p95": 134.20000000298023
+          },
+          "loadMs": {
+            "median": 159.6000000089407,
+            "p95": 191.90000000596046
+          },
+          "fcpMs": {
+            "median": 76,
+            "p95": 132
+          },
+          "lcpObservedMs": {
+            "median": 80,
+            "p95": 132
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 1,
+      "runtime": "worker",
+      "users": 1,
+      "file": "1-worker-1.json",
+      "completed": true,
+      "navigations": 18,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 13.099999994039536,
+            "p95": 15.400000005960464
+          },
+          "domContentLoadedMs": {
+            "median": 43.5,
+            "p95": 59.70000000298023
+          },
+          "loadMs": {
+            "median": 66,
+            "p95": 68.70000000298023
+          },
+          "fcpMs": {
+            "median": 64,
+            "p95": 64
+          },
+          "lcpObservedMs": {
+            "median": 76,
+            "p95": 76
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 81.30000001192093,
+            "p95": 83.40000000596046
+          },
+          "domContentLoadedMs": {
+            "median": 105.30000001192093,
+            "p95": 109.70000000298023
+          },
+          "loadMs": {
+            "median": 116.6000000089407,
+            "p95": 125.6000000089407
+          },
+          "fcpMs": {
+            "median": 108,
+            "p95": 124
+          },
+          "lcpObservedMs": {
+            "median": 120,
+            "p95": 148
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 7.0999999940395355,
+            "p95": 10.900000005960464
+          },
+          "domContentLoadedMs": {
+            "median": 31.599999994039536,
+            "p95": 35.1000000089407
+          },
+          "loadMs": {
+            "median": 55.400000005960464,
+            "p95": 58
+          },
+          "fcpMs": {
+            "median": 44,
+            "p95": 52
+          },
+          "lcpObservedMs": {
+            "median": 44,
+            "p95": 52
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 1,
+      "runtime": "worker",
+      "users": 5,
+      "file": "1-worker-5.json",
+      "completed": true,
+      "navigations": 90,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 18.899999991059303,
+            "p95": 26.099999994039536
+          },
+          "domContentLoadedMs": {
+            "median": 60,
+            "p95": 67.59999999403954
+          },
+          "loadMs": {
+            "median": 87.70000000298023,
+            "p95": 104.20000000298023
+          },
+          "fcpMs": {
+            "median": 56,
+            "p95": 72
+          },
+          "lcpObservedMs": {
+            "median": 80,
+            "p95": 92
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 81.70000000298023,
+            "p95": 97.09999999403954
+          },
+          "domContentLoadedMs": {
+            "median": 113.5,
+            "p95": 133.20000000298023
+          },
+          "loadMs": {
+            "median": 144.90000000596046,
+            "p95": 152.29999999701977
+          },
+          "fcpMs": {
+            "median": 116,
+            "p95": 132
+          },
+          "lcpObservedMs": {
+            "median": 132,
+            "p95": 160
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 12.5,
+            "p95": 25.5
+          },
+          "domContentLoadedMs": {
+            "median": 41.599999994039536,
+            "p95": 60.1000000089407
+          },
+          "loadMs": {
+            "median": 78.09999999403954,
+            "p95": 88.59999999403954
+          },
+          "fcpMs": {
+            "median": 48,
+            "p95": 64
+          },
+          "lcpObservedMs": {
+            "median": 48,
+            "p95": 64
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 1,
+      "runtime": "worker",
+      "users": 10,
+      "file": "1-worker-10.json",
+      "completed": true,
+      "navigations": 180,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 29.200000002980232,
+            "p95": 55
+          },
+          "domContentLoadedMs": {
+            "median": 98.3999999910593,
+            "p95": 119.29999999701977
+          },
+          "loadMs": {
+            "median": 161.90000000596046,
+            "p95": 182.20000000298023
+          },
+          "fcpMs": {
+            "median": 68,
+            "p95": 112
+          },
+          "lcpObservedMs": {
+            "median": 124,
+            "p95": 148
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 93.19999998807907,
+            "p95": 211.69999998807907
+          },
+          "domContentLoadedMs": {
+            "median": 128.79999999701977,
+            "p95": 250.40000000596046
+          },
+          "loadMs": {
+            "median": 154.80000001192093,
+            "p95": 274.70000000298023
+          },
+          "fcpMs": {
+            "median": 128,
+            "p95": 244
+          },
+          "lcpObservedMs": {
+            "median": 160,
+            "p95": 268
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 22.599999994039536,
+            "p95": 43.599999994039536
+          },
+          "domContentLoadedMs": {
+            "median": 89.29999999701977,
+            "p95": 103.5
+          },
+          "loadMs": {
+            "median": 145.6000000089407,
+            "p95": 166.1000000089407
+          },
+          "fcpMs": {
+            "median": 72,
+            "p95": 88
+          },
+          "lcpObservedMs": {
+            "median": 84,
+            "p95": 104
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 1,
+      "runtime": "trunk-fpm",
+      "users": 1,
+      "file": "1-trunk-fpm-1.json",
+      "completed": true,
+      "navigations": 18,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 36.19999998807907,
+            "p95": 40.80000001192093
+          },
+          "domContentLoadedMs": {
+            "median": 78.19999998807907,
+            "p95": 86.1000000089407
+          },
+          "loadMs": {
+            "median": 105.59999999403954,
+            "p95": 112.30000001192093
+          },
+          "fcpMs": {
+            "median": 100,
+            "p95": 108
+          },
+          "lcpObservedMs": {
+            "median": 108,
+            "p95": 128
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 100.70000000298023,
+            "p95": 254.40000000596046
+          },
+          "domContentLoadedMs": {
+            "median": 136.1000000089407,
+            "p95": 284.59999999403954
+          },
+          "loadMs": {
+            "median": 151.90000000596046,
+            "p95": 300.29999999701977
+          },
+          "fcpMs": {
+            "median": 148,
+            "p95": 296
+          },
+          "lcpObservedMs": {
+            "median": 156,
+            "p95": 308
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 34.20000000298023,
+            "p95": 37.6000000089407
+          },
+          "domContentLoadedMs": {
+            "median": 66.29999999701977,
+            "p95": 76.29999999701977
+          },
+          "loadMs": {
+            "median": 91.59999999403954,
+            "p95": 102.90000000596046
+          },
+          "fcpMs": {
+            "median": 84,
+            "p95": 92
+          },
+          "lcpObservedMs": {
+            "median": 84,
+            "p95": 92
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 1,
+      "runtime": "trunk-fpm",
+      "users": 5,
+      "file": "1-trunk-fpm-5.json",
+      "completed": true,
+      "navigations": 90,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 36,
+            "p95": 61.1000000089407
+          },
+          "domContentLoadedMs": {
+            "median": 79.70000000298023,
+            "p95": 100.20000000298023
+          },
+          "loadMs": {
+            "median": 105.5,
+            "p95": 121.20000000298023
+          },
+          "fcpMs": {
+            "median": 84,
+            "p95": 116
+          },
+          "lcpObservedMs": {
+            "median": 108,
+            "p95": 132
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 101.79999999701977,
+            "p95": 216.59999999403954
+          },
+          "domContentLoadedMs": {
+            "median": 134,
+            "p95": 239.5
+          },
+          "loadMs": {
+            "median": 149.70000000298023,
+            "p95": 250.8999999910593
+          },
+          "fcpMs": {
+            "median": 136,
+            "p95": 240
+          },
+          "lcpObservedMs": {
+            "median": 148,
+            "p95": 252
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 37.70000000298023,
+            "p95": 59.80000001192093
+          },
+          "domContentLoadedMs": {
+            "median": 71.79999999701977,
+            "p95": 98.20000000298023
+          },
+          "loadMs": {
+            "median": 105.3999999910593,
+            "p95": 134.5
+          },
+          "fcpMs": {
+            "median": 80,
+            "p95": 100
+          },
+          "lcpObservedMs": {
+            "median": 80,
+            "p95": 100
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 1,
+      "runtime": "trunk-fpm",
+      "users": 10,
+      "file": "1-trunk-fpm-10.json",
+      "completed": true,
+      "navigations": 180,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 58.599999994039536,
+            "p95": 153.40000000596046
+          },
+          "domContentLoadedMs": {
+            "median": 108.79999999701977,
+            "p95": 190
+          },
+          "loadMs": {
+            "median": 158.59999999403954,
+            "p95": 217.09999999403954
+          },
+          "fcpMs": {
+            "median": 104,
+            "p95": 204
+          },
+          "lcpObservedMs": {
+            "median": 136,
+            "p95": 220
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 195.69999998807907,
+            "p95": 370
+          },
+          "domContentLoadedMs": {
+            "median": 226,
+            "p95": 393.3999999910593
+          },
+          "loadMs": {
+            "median": 240.69999998807907,
+            "p95": 407.8999999910593
+          },
+          "fcpMs": {
+            "median": 228,
+            "p95": 404
+          },
+          "lcpObservedMs": {
+            "median": 244,
+            "p95": 416
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 53,
+            "p95": 166.70000000298023
+          },
+          "domContentLoadedMs": {
+            "median": 95.70000000298023,
+            "p95": 199.79999999701977
+          },
+          "loadMs": {
+            "median": 155.09999999403954,
+            "p95": 220.5
+          },
+          "fcpMs": {
+            "median": 96,
+            "p95": 204
+          },
+          "lcpObservedMs": {
+            "median": 96,
+            "p95": 204
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 2,
+      "runtime": "worker",
+      "users": 5,
+      "file": "2-worker-5.json",
+      "completed": true,
+      "navigations": 90,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 16.5,
+            "p95": 27.299999997019768
+          },
+          "domContentLoadedMs": {
+            "median": 67,
+            "p95": 77
+          },
+          "loadMs": {
+            "median": 96.29999999701977,
+            "p95": 110.20000000298023
+          },
+          "fcpMs": {
+            "median": 64,
+            "p95": 76
+          },
+          "lcpObservedMs": {
+            "median": 88,
+            "p95": 100
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 82.59999999403954,
+            "p95": 91.70000000298023
+          },
+          "domContentLoadedMs": {
+            "median": 117.59999999403954,
+            "p95": 137.90000000596046
+          },
+          "loadMs": {
+            "median": 140.70000000298023,
+            "p95": 163.5
+          },
+          "fcpMs": {
+            "median": 116,
+            "p95": 136
+          },
+          "lcpObservedMs": {
+            "median": 136,
+            "p95": 160
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 15.199999988079071,
+            "p95": 22.799999997019768
+          },
+          "domContentLoadedMs": {
+            "median": 55.5,
+            "p95": 61.79999999701977
+          },
+          "loadMs": {
+            "median": 91,
+            "p95": 96.19999998807907
+          },
+          "fcpMs": {
+            "median": 60,
+            "p95": 68
+          },
+          "lcpObservedMs": {
+            "median": 60,
+            "p95": 68
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 2,
+      "runtime": "worker",
+      "users": 10,
+      "file": "2-worker-10.json",
+      "completed": true,
+      "navigations": 180,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 29.599999994039536,
+            "p95": 42.599999994039536
+          },
+          "domContentLoadedMs": {
+            "median": 101.79999999701977,
+            "p95": 166.6000000089407
+          },
+          "loadMs": {
+            "median": 171.1000000089407,
+            "p95": 218.19999998807907
+          },
+          "fcpMs": {
+            "median": 84,
+            "p95": 120
+          },
+          "lcpObservedMs": {
+            "median": 128,
+            "p95": 172
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 100.19999998807907,
+            "p95": 201.79999999701977
+          },
+          "domContentLoadedMs": {
+            "median": 134.79999999701977,
+            "p95": 235.79999999701977
+          },
+          "loadMs": {
+            "median": 162.8999999910593,
+            "p95": 269.59999999403954
+          },
+          "fcpMs": {
+            "median": 136,
+            "p95": 232
+          },
+          "lcpObservedMs": {
+            "median": 160,
+            "p95": 260
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 18.600000008940697,
+            "p95": 43.69999998807907
+          },
+          "domContentLoadedMs": {
+            "median": 90,
+            "p95": 103.70000000298023
+          },
+          "loadMs": {
+            "median": 151.6000000089407,
+            "p95": 164.29999999701977
+          },
+          "fcpMs": {
+            "median": 68,
+            "p95": 92
+          },
+          "lcpObservedMs": {
+            "median": 84,
+            "p95": 116
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 2,
+      "runtime": "worker",
+      "users": 1,
+      "file": "2-worker-1.json",
+      "completed": true,
+      "navigations": 18,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 16.299999997019768,
+            "p95": 19
+          },
+          "domContentLoadedMs": {
+            "median": 46,
+            "p95": 48.1000000089407
+          },
+          "loadMs": {
+            "median": 69.59999999403954,
+            "p95": 72
+          },
+          "fcpMs": {
+            "median": 68,
+            "p95": 68
+          },
+          "lcpObservedMs": {
+            "median": 76,
+            "p95": 80
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 82.5,
+            "p95": 90.09999999403954
+          },
+          "domContentLoadedMs": {
+            "median": 107.09999999403954,
+            "p95": 115.5
+          },
+          "loadMs": {
+            "median": 122.59999999403954,
+            "p95": 131
+          },
+          "fcpMs": {
+            "median": 120,
+            "p95": 128
+          },
+          "lcpObservedMs": {
+            "median": 128,
+            "p95": 136
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 11.100000008940697,
+            "p95": 14.800000011920929
+          },
+          "domContentLoadedMs": {
+            "median": 37.400000005960464,
+            "p95": 39
+          },
+          "loadMs": {
+            "median": 59.79999999701977,
+            "p95": 62.70000000298023
+          },
+          "fcpMs": {
+            "median": 52,
+            "p95": 56
+          },
+          "lcpObservedMs": {
+            "median": 52,
+            "p95": 56
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 2,
+      "runtime": "trunk-fpm",
+      "users": 5,
+      "file": "2-trunk-fpm-5.json",
+      "completed": true,
+      "navigations": 90,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 33.5,
+            "p95": 52.900000005960464
+          },
+          "domContentLoadedMs": {
+            "median": 73.59999999403954,
+            "p95": 92.69999998807907
+          },
+          "loadMs": {
+            "median": 99.09999999403954,
+            "p95": 113.29999999701977
+          },
+          "fcpMs": {
+            "median": 84,
+            "p95": 104
+          },
+          "lcpObservedMs": {
+            "median": 100,
+            "p95": 120
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 99.5,
+            "p95": 197.70000000298023
+          },
+          "domContentLoadedMs": {
+            "median": 129.20000000298023,
+            "p95": 221.5
+          },
+          "loadMs": {
+            "median": 143.79999999701977,
+            "p95": 233.40000000596046
+          },
+          "fcpMs": {
+            "median": 136,
+            "p95": 232
+          },
+          "lcpObservedMs": {
+            "median": 144,
+            "p95": 240
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 32.6000000089407,
+            "p95": 50.69999998807907
+          },
+          "domContentLoadedMs": {
+            "median": 60.900000005960464,
+            "p95": 81.29999999701977
+          },
+          "loadMs": {
+            "median": 97.70000000298023,
+            "p95": 108.30000001192093
+          },
+          "fcpMs": {
+            "median": 68,
+            "p95": 80
+          },
+          "lcpObservedMs": {
+            "median": 68,
+            "p95": 80
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 2,
+      "runtime": "trunk-fpm",
+      "users": 10,
+      "file": "2-trunk-fpm-10.json",
+      "completed": true,
+      "navigations": 180,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 53,
+            "p95": 157.59999999403954
+          },
+          "domContentLoadedMs": {
+            "median": 105.59999999403954,
+            "p95": 199
+          },
+          "loadMs": {
+            "median": 154.20000000298023,
+            "p95": 220.29999999701977
+          },
+          "fcpMs": {
+            "median": 92,
+            "p95": 196
+          },
+          "lcpObservedMs": {
+            "median": 124,
+            "p95": 220
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 184,
+            "p95": 327.5
+          },
+          "domContentLoadedMs": {
+            "median": 213.20000000298023,
+            "p95": 349.79999999701977
+          },
+          "loadMs": {
+            "median": 237.90000000596046,
+            "p95": 365.29999999701977
+          },
+          "fcpMs": {
+            "median": 216,
+            "p95": 364
+          },
+          "lcpObservedMs": {
+            "median": 228,
+            "p95": 376
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 47.599999994039536,
+            "p95": 124.40000000596046
+          },
+          "domContentLoadedMs": {
+            "median": 90,
+            "p95": 155.1000000089407
+          },
+          "loadMs": {
+            "median": 166.3999999910593,
+            "p95": 190.20000000298023
+          },
+          "fcpMs": {
+            "median": 92,
+            "p95": 160
+          },
+          "lcpObservedMs": {
+            "median": 92,
+            "p95": 160
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 2,
+      "runtime": "trunk-fpm",
+      "users": 1,
+      "file": "2-trunk-fpm-1.json",
+      "completed": true,
+      "navigations": 18,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 33.30000001192093,
+            "p95": 36.6000000089407
+          },
+          "domContentLoadedMs": {
+            "median": 63,
+            "p95": 81.70000000298023
+          },
+          "loadMs": {
+            "median": 86.20000000298023,
+            "p95": 90.70000000298023
+          },
+          "fcpMs": {
+            "median": 76,
+            "p95": 88
+          },
+          "lcpObservedMs": {
+            "median": 84,
+            "p95": 100
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 98.79999999701977,
+            "p95": 100.8999999910593
+          },
+          "domContentLoadedMs": {
+            "median": 123.79999999701977,
+            "p95": 127.6000000089407
+          },
+          "loadMs": {
+            "median": 139.59999999403954,
+            "p95": 147
+          },
+          "fcpMs": {
+            "median": 136,
+            "p95": 140
+          },
+          "lcpObservedMs": {
+            "median": 144,
+            "p95": 148
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 29.099999994039536,
+            "p95": 32.29999999701977
+          },
+          "domContentLoadedMs": {
+            "median": 55.6000000089407,
+            "p95": 58.79999999701977
+          },
+          "loadMs": {
+            "median": 79.29999999701977,
+            "p95": 82.20000000298023
+          },
+          "fcpMs": {
+            "median": 72,
+            "p95": 76
+          },
+          "lcpObservedMs": {
+            "median": 72,
+            "p95": 76
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 2,
+      "runtime": "fpm-control",
+      "users": 5,
+      "file": "2-fpm-control-5.json",
+      "completed": true,
+      "navigations": 90,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 21.5,
+            "p95": 41.8999999910593
+          },
+          "domContentLoadedMs": {
+            "median": 51.79999999701977,
+            "p95": 79.79999999701977
+          },
+          "loadMs": {
+            "median": 79.80000001192093,
+            "p95": 105.1000000089407
+          },
+          "fcpMs": {
+            "median": 68,
+            "p95": 80
+          },
+          "lcpObservedMs": {
+            "median": 84,
+            "p95": 104
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 95.09999999403954,
+            "p95": 193.80000001192093
+          },
+          "domContentLoadedMs": {
+            "median": 125.20000000298023,
+            "p95": 217
+          },
+          "loadMs": {
+            "median": 142,
+            "p95": 233.09999999403954
+          },
+          "fcpMs": {
+            "median": 128,
+            "p95": 228
+          },
+          "lcpObservedMs": {
+            "median": 140,
+            "p95": 240
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 28,
+            "p95": 37.69999998807907
+          },
+          "domContentLoadedMs": {
+            "median": 58.70000000298023,
+            "p95": 66.5
+          },
+          "loadMs": {
+            "median": 94.79999999701977,
+            "p95": 101.19999998807907
+          },
+          "fcpMs": {
+            "median": 64,
+            "p95": 72
+          },
+          "lcpObservedMs": {
+            "median": 64,
+            "p95": 72
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 2,
+      "runtime": "fpm-control",
+      "users": 10,
+      "file": "2-fpm-control-10.json",
+      "completed": true,
+      "navigations": 180,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 40.70000000298023,
+            "p95": 101.69999998807907
+          },
+          "domContentLoadedMs": {
+            "median": 83.79999999701977,
+            "p95": 155
+          },
+          "loadMs": {
+            "median": 170.5,
+            "p95": 188.09999999403954
+          },
+          "fcpMs": {
+            "median": 80,
+            "p95": 140
+          },
+          "lcpObservedMs": {
+            "median": 136,
+            "p95": 172
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 187.69999998807907,
+            "p95": 331.09999999403954
+          },
+          "domContentLoadedMs": {
+            "median": 218.79999999701977,
+            "p95": 356.70000000298023
+          },
+          "loadMs": {
+            "median": 238.29999999701977,
+            "p95": 370.70000000298023
+          },
+          "fcpMs": {
+            "median": 220,
+            "p95": 356
+          },
+          "lcpObservedMs": {
+            "median": 236,
+            "p95": 372
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 33.900000005960464,
+            "p95": 96.79999999701977
+          },
+          "domContentLoadedMs": {
+            "median": 81.90000000596046,
+            "p95": 139.29999999701977
+          },
+          "loadMs": {
+            "median": 153.59999999403954,
+            "p95": 191.59999999403954
+          },
+          "fcpMs": {
+            "median": 80,
+            "p95": 132
+          },
+          "lcpObservedMs": {
+            "median": 84,
+            "p95": 148
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 2,
+      "runtime": "fpm-control",
+      "users": 1,
+      "file": "2-fpm-control-1.json",
+      "completed": true,
+      "navigations": 18,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 19.400000005960464,
+            "p95": 25.099999994039536
+          },
+          "domContentLoadedMs": {
+            "median": 49.6000000089407,
+            "p95": 59.400000005960464
+          },
+          "loadMs": {
+            "median": 65.70000000298023,
+            "p95": 73.90000000596046
+          },
+          "fcpMs": {
+            "median": 60,
+            "p95": 72
+          },
+          "lcpObservedMs": {
+            "median": 72,
+            "p95": 84
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 92.8999999910593,
+            "p95": 100.5
+          },
+          "domContentLoadedMs": {
+            "median": 120.20000000298023,
+            "p95": 125.29999999701977
+          },
+          "loadMs": {
+            "median": 135.90000000596046,
+            "p95": 140.90000000596046
+          },
+          "fcpMs": {
+            "median": 132,
+            "p95": 140
+          },
+          "lcpObservedMs": {
+            "median": 140,
+            "p95": 148
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 17.600000008940697,
+            "p95": 21
+          },
+          "domContentLoadedMs": {
+            "median": 39.900000005960464,
+            "p95": 46
+          },
+          "loadMs": {
+            "median": 61.900000005960464,
+            "p95": 68.90000000596046
+          },
+          "fcpMs": {
+            "median": 56,
+            "p95": 60
+          },
+          "lcpObservedMs": {
+            "median": 56,
+            "p95": 60
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 3,
+      "runtime": "trunk-fpm",
+      "users": 10,
+      "file": "3-trunk-fpm-10.json",
+      "completed": true,
+      "navigations": 180,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 52.20000000298023,
+            "p95": 144.29999999701977
+          },
+          "domContentLoadedMs": {
+            "median": 105.6000000089407,
+            "p95": 183.09999999403954
+          },
+          "loadMs": {
+            "median": 160.40000000596046,
+            "p95": 204.40000000596046
+          },
+          "fcpMs": {
+            "median": 96,
+            "p95": 176
+          },
+          "lcpObservedMs": {
+            "median": 132,
+            "p95": 204
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 191.5,
+            "p95": 332.59999999403954
+          },
+          "domContentLoadedMs": {
+            "median": 219.19999998807907,
+            "p95": 360
+          },
+          "loadMs": {
+            "median": 242.40000000596046,
+            "p95": 373
+          },
+          "fcpMs": {
+            "median": 216,
+            "p95": 364
+          },
+          "lcpObservedMs": {
+            "median": 236,
+            "p95": 372
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 48.29999999701977,
+            "p95": 138.1000000089407
+          },
+          "domContentLoadedMs": {
+            "median": 94.79999999701977,
+            "p95": 166.5
+          },
+          "loadMs": {
+            "median": 146.79999999701977,
+            "p95": 202.29999999701977
+          },
+          "fcpMs": {
+            "median": 92,
+            "p95": 168
+          },
+          "lcpObservedMs": {
+            "median": 96,
+            "p95": 168
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 3,
+      "runtime": "trunk-fpm",
+      "users": 1,
+      "file": "3-trunk-fpm-1.json",
+      "completed": true,
+      "navigations": 18,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 28,
+            "p95": 36.70000000298023
+          },
+          "domContentLoadedMs": {
+            "median": 60.20000000298023,
+            "p95": 67.5
+          },
+          "loadMs": {
+            "median": 87.29999999701977,
+            "p95": 92.40000000596046
+          },
+          "fcpMs": {
+            "median": 84,
+            "p95": 88
+          },
+          "lcpObservedMs": {
+            "median": 92,
+            "p95": 100
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 95.30000001192093,
+            "p95": 105.20000000298023
+          },
+          "domContentLoadedMs": {
+            "median": 119.70000000298023,
+            "p95": 128.3999999910593
+          },
+          "loadMs": {
+            "median": 134.80000001192093,
+            "p95": 145.09999999403954
+          },
+          "fcpMs": {
+            "median": 132,
+            "p95": 144
+          },
+          "lcpObservedMs": {
+            "median": 140,
+            "p95": 152
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 31.5,
+            "p95": 36.8999999910593
+          },
+          "domContentLoadedMs": {
+            "median": 58.400000005960464,
+            "p95": 62.8999999910593
+          },
+          "loadMs": {
+            "median": 82.40000000596046,
+            "p95": 87.20000000298023
+          },
+          "fcpMs": {
+            "median": 72,
+            "p95": 80
+          },
+          "lcpObservedMs": {
+            "median": 72,
+            "p95": 80
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 3,
+      "runtime": "trunk-fpm",
+      "users": 5,
+      "file": "3-trunk-fpm-5.json",
+      "completed": true,
+      "navigations": 90,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 30.600000008940697,
+            "p95": 58.900000005960464
+          },
+          "domContentLoadedMs": {
+            "median": 68.20000000298023,
+            "p95": 98.79999999701977
+          },
+          "loadMs": {
+            "median": 88.3999999910593,
+            "p95": 118.59999999403954
+          },
+          "fcpMs": {
+            "median": 68,
+            "p95": 96
+          },
+          "lcpObservedMs": {
+            "median": 92,
+            "p95": 124
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 99.69999998807907,
+            "p95": 201.3999999910593
+          },
+          "domContentLoadedMs": {
+            "median": 128.70000000298023,
+            "p95": 226.19999998807907
+          },
+          "loadMs": {
+            "median": 142.29999999701977,
+            "p95": 241.8999999910593
+          },
+          "fcpMs": {
+            "median": 136,
+            "p95": 240
+          },
+          "lcpObservedMs": {
+            "median": 148,
+            "p95": 248
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 31.200000002980232,
+            "p95": 49.8999999910593
+          },
+          "domContentLoadedMs": {
+            "median": 60.5,
+            "p95": 88.30000001192093
+          },
+          "loadMs": {
+            "median": 95.20000000298023,
+            "p95": 108.20000000298023
+          },
+          "fcpMs": {
+            "median": 68,
+            "p95": 88
+          },
+          "lcpObservedMs": {
+            "median": 68,
+            "p95": 88
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 3,
+      "runtime": "fpm-control",
+      "users": 10,
+      "file": "3-fpm-control-10.json",
+      "completed": true,
+      "navigations": 180,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 32.900000005960464,
+            "p95": 84.5
+          },
+          "domContentLoadedMs": {
+            "median": 81.3999999910593,
+            "p95": 138.09999999403954
+          },
+          "loadMs": {
+            "median": 157.5,
+            "p95": 174.20000000298023
+          },
+          "fcpMs": {
+            "median": 72,
+            "p95": 132
+          },
+          "lcpObservedMs": {
+            "median": 120,
+            "p95": 160
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 184.30000001192093,
+            "p95": 307.5
+          },
+          "domContentLoadedMs": {
+            "median": 212.70000000298023,
+            "p95": 331.8999999910593
+          },
+          "loadMs": {
+            "median": 232.30000001192093,
+            "p95": 346.6000000089407
+          },
+          "fcpMs": {
+            "median": 212,
+            "p95": 344
+          },
+          "lcpObservedMs": {
+            "median": 224,
+            "p95": 352
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 34.79999999701977,
+            "p95": 87.6000000089407
+          },
+          "domContentLoadedMs": {
+            "median": 86.79999999701977,
+            "p95": 131.70000000298023
+          },
+          "loadMs": {
+            "median": 158.70000000298023,
+            "p95": 184.69999998807907
+          },
+          "fcpMs": {
+            "median": 76,
+            "p95": 132
+          },
+          "lcpObservedMs": {
+            "median": 80,
+            "p95": 132
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 3,
+      "runtime": "fpm-control",
+      "users": 1,
+      "file": "3-fpm-control-1.json",
+      "completed": true,
+      "navigations": 18,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 22.099999994039536,
+            "p95": 27.099999994039536
+          },
+          "domContentLoadedMs": {
+            "median": 51.099999994039536,
+            "p95": 56.8999999910593
+          },
+          "loadMs": {
+            "median": 74.40000000596046,
+            "p95": 80
+          },
+          "fcpMs": {
+            "median": 72,
+            "p95": 76
+          },
+          "lcpObservedMs": {
+            "median": 84,
+            "p95": 92
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 90.80000001192093,
+            "p95": 102.20000000298023
+          },
+          "domContentLoadedMs": {
+            "median": 115.6000000089407,
+            "p95": 125.5
+          },
+          "loadMs": {
+            "median": 131.1000000089407,
+            "p95": 140.79999999701977
+          },
+          "fcpMs": {
+            "median": 128,
+            "p95": 140
+          },
+          "lcpObservedMs": {
+            "median": 136,
+            "p95": 148
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 21.299999997019768,
+            "p95": 23.299999997019768
+          },
+          "domContentLoadedMs": {
+            "median": 45.8999999910593,
+            "p95": 46.70000000298023
+          },
+          "loadMs": {
+            "median": 68.8999999910593,
+            "p95": 72.09999999403954
+          },
+          "fcpMs": {
+            "median": 60,
+            "p95": 64
+          },
+          "lcpObservedMs": {
+            "median": 60,
+            "p95": 64
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 3,
+      "runtime": "fpm-control",
+      "users": 5,
+      "file": "3-fpm-control-5.json",
+      "completed": true,
+      "navigations": 90,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 29.19999998807907,
+            "p95": 41.79999999701977
+          },
+          "domContentLoadedMs": {
+            "median": 69.3999999910593,
+            "p95": 77.90000000596046
+          },
+          "loadMs": {
+            "median": 98.40000000596046,
+            "p95": 109.1000000089407
+          },
+          "fcpMs": {
+            "median": 68,
+            "p95": 88
+          },
+          "lcpObservedMs": {
+            "median": 92,
+            "p95": 108
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 97.70000000298023,
+            "p95": 193.59999999403954
+          },
+          "domContentLoadedMs": {
+            "median": 131.29999999701977,
+            "p95": 216.69999998807907
+          },
+          "loadMs": {
+            "median": 144.70000000298023,
+            "p95": 232.5
+          },
+          "fcpMs": {
+            "median": 136,
+            "p95": 228
+          },
+          "lcpObservedMs": {
+            "median": 148,
+            "p95": 244
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 12,
+            "p95": 41.80000001192093
+          },
+          "domContentLoadedMs": {
+            "median": 42.3999999910593,
+            "p95": 77.80000001192093
+          },
+          "loadMs": {
+            "median": 79.79999999701977,
+            "p95": 106.1000000089407
+          },
+          "fcpMs": {
+            "median": 44,
+            "p95": 72
+          },
+          "lcpObservedMs": {
+            "median": 44,
+            "p95": 88
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 3,
+      "runtime": "worker",
+      "users": 10,
+      "file": "3-worker-10.json",
+      "completed": true,
+      "navigations": 180,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 26.400000005960464,
+            "p95": 50.5
+          },
+          "domContentLoadedMs": {
+            "median": 107.3999999910593,
+            "p95": 126.79999999701977
+          },
+          "loadMs": {
+            "median": 165.20000000298023,
+            "p95": 176.8999999910593
+          },
+          "fcpMs": {
+            "median": 72,
+            "p95": 112
+          },
+          "lcpObservedMs": {
+            "median": 116,
+            "p95": 148
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 98.3999999910593,
+            "p95": 207.29999999701977
+          },
+          "domContentLoadedMs": {
+            "median": 136.8999999910593,
+            "p95": 241.90000000596046
+          },
+          "loadMs": {
+            "median": 160.20000000298023,
+            "p95": 268.09999999403954
+          },
+          "fcpMs": {
+            "median": 136,
+            "p95": 240
+          },
+          "lcpObservedMs": {
+            "median": 164,
+            "p95": 260
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 18.700000002980232,
+            "p95": 46.70000000298023
+          },
+          "domContentLoadedMs": {
+            "median": 85.3999999910593,
+            "p95": 101.29999999701977
+          },
+          "loadMs": {
+            "median": 146.40000000596046,
+            "p95": 164.09999999403954
+          },
+          "fcpMs": {
+            "median": 68,
+            "p95": 88
+          },
+          "lcpObservedMs": {
+            "median": 80,
+            "p95": 104
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 3,
+      "runtime": "worker",
+      "users": 1,
+      "file": "3-worker-1.json",
+      "completed": true,
+      "navigations": 18,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 15.099999994039536,
+            "p95": 17.80000001192093
+          },
+          "domContentLoadedMs": {
+            "median": 45.6000000089407,
+            "p95": 61.20000000298023
+          },
+          "loadMs": {
+            "median": 68.29999999701977,
+            "p95": 72.29999999701977
+          },
+          "fcpMs": {
+            "median": 64,
+            "p95": 68
+          },
+          "lcpObservedMs": {
+            "median": 76,
+            "p95": 80
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 80.8999999910593,
+            "p95": 86.8999999910593
+          },
+          "domContentLoadedMs": {
+            "median": 105.09999999403954,
+            "p95": 111.3999999910593
+          },
+          "loadMs": {
+            "median": 117.19999998807907,
+            "p95": 127.09999999403954
+          },
+          "fcpMs": {
+            "median": 104,
+            "p95": 124
+          },
+          "lcpObservedMs": {
+            "median": 116,
+            "p95": 132
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 6.5999999940395355,
+            "p95": 12.299999997019768
+          },
+          "domContentLoadedMs": {
+            "median": 29.099999994039536,
+            "p95": 37.1000000089407
+          },
+          "loadMs": {
+            "median": 52.099999994039536,
+            "p95": 60
+          },
+          "fcpMs": {
+            "median": 44,
+            "p95": 52
+          },
+          "lcpObservedMs": {
+            "median": 44,
+            "p95": 52
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    },
+    {
+      "repeat": 3,
+      "runtime": "worker",
+      "users": 5,
+      "file": "3-worker-5.json",
+      "completed": true,
+      "navigations": 90,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 23.69999998807907,
+            "p95": 30.799999997019768
+          },
+          "domContentLoadedMs": {
+            "median": 63.70000000298023,
+            "p95": 77.20000000298023
+          },
+          "loadMs": {
+            "median": 92.8999999910593,
+            "p95": 109.79999999701977
+          },
+          "fcpMs": {
+            "median": 64,
+            "p95": 72
+          },
+          "lcpObservedMs": {
+            "median": 88,
+            "p95": 96
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 83.8999999910593,
+            "p95": 97.1000000089407
+          },
+          "domContentLoadedMs": {
+            "median": 114.59999999403954,
+            "p95": 130.30000001192093
+          },
+          "loadMs": {
+            "median": 143.6000000089407,
+            "p95": 151.40000000596046
+          },
+          "fcpMs": {
+            "median": 112,
+            "p95": 128
+          },
+          "lcpObservedMs": {
+            "median": 128,
+            "p95": 144
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 17,
+            "p95": 19.900000005960464
+          },
+          "domContentLoadedMs": {
+            "median": 49.1000000089407,
+            "p95": 54.099999994039536
+          },
+          "loadMs": {
+            "median": 83.3999999910593,
+            "p95": 85.8999999910593
+          },
+          "fcpMs": {
+            "median": 56,
+            "p95": 60
+          },
+          "lcpObservedMs": {
+            "median": 56,
+            "p95": 60
+          }
+        }
+      },
+      "browserVersion": "153.0.8010.12"
+    }
+  ],
+  "finishedAt": "2026-10-01T13:15:24.587Z"
+}

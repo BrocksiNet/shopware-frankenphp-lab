@@ -1,0 +1,905 @@
+{
+  "schemaVersion": 1,
+  "completed": true,
+  "startedAt": "2026-10-01T13:14:53.647Z",
+  "options": {
+    "existingStorefront": true,
+    "url": "http://music-de.localhost:8106",
+    "routes": [
+      {
+        "name": "homepage",
+        "path": "/",
+        "route": "frontend-home-page",
+        "expectedText": "Acoustic Foam Panel"
+      },
+      {
+        "name": "search",
+        "path": "/search?search=guitar",
+        "route": "frontend-search-page",
+        "expectedText": "Acoustic Guitar"
+      },
+      {
+        "name": "product",
+        "path": "/Acoustic-Guitar-Natural-Finish-Spruce-Top/AI-7773c700e25f427e934e62144dcc1451",
+        "route": "frontend-detail-page",
+        "expectedText": "Acoustic Guitar"
+      }
+    ],
+    "runtime": "worker",
+    "expectedProtocol": "http/1.1",
+    "requireImages": true,
+    "users": 1,
+    "samples": 6,
+    "warmup": 2,
+    "settleMs": 500,
+    "output": "measurements/music-populated/3-worker-1.json"
+  },
+  "samples": [
+    {
+      "user": 0,
+      "cycle": 0,
+      "route": "homepage",
+      "ttfbMs": 14.200000002980232,
+      "domContentLoadedMs": 61.20000000298023,
+      "loadMs": 68,
+      "fcpMs": 48,
+      "lcpObservedMs": 64,
+      "lcpElement": "IMG",
+      "lcpImage": "/thumbnail/6a/c0/30/1790760566/cms-music-home-hero_800x800.webp",
+      "visibleImages": [
+        {
+          "path": "/media/6d/b5/cb/1790760553/music-logo.png",
+          "loaded": true,
+          "width": 293,
+          "height": 70
+        },
+        {
+          "path": "/thumbnail/6a/c0/30/1790760566/cms-music-home-hero_800x800.webp",
+          "loaded": true,
+          "width": 699,
+          "height": 699
+        }
+      ],
+      "textPresent": true,
+      "observedAtMs": 585.8000000119209,
+      "protocol": "http/1.1",
+      "transferSize": 57910,
+      "encodedBodySize": 57610,
+      "fontLoaded": true,
+      "fontErrors": 0,
+      "wrongOrigins": [],
+      "productPresent": false,
+      "cacheControl": "no-cache, private",
+      "age": "4",
+      "contentEncoding": "gzip"
+    },
+    {
+      "user": 0,
+      "cycle": 0,
+      "route": "search",
+      "ttfbMs": 82.3999999910593,
+      "domContentLoadedMs": 106.70000000298023,
+      "loadMs": 122,
+      "fcpMs": 120,
+      "lcpObservedMs": 132,
+      "lcpElement": "IMG",
+      "lcpImage": "/thumbnail/e0/93/68/1790760560/Guitar-Stand---Foldable---Black--2--front_280x187.webp",
+      "visibleImages": [
+        {
+          "path": "/media/6d/b5/cb/1790760553/music-logo.png",
+          "loaded": true,
+          "width": 293,
+          "height": 70
+        },
+        {
+          "path": "/thumbnail/e0/93/68/1790760560/Guitar-Stand---Foldable---Black--2--front_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        },
+        {
+          "path": "/thumbnail/9b/c6/19/1790760559/Guitar-Gig-Bag---Padded---Black-lifestyle_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        },
+        {
+          "path": "/thumbnail/63/a5/72/1790760561/Guitar-Strings---Light-Gauge---Nickel-Plated-lifestyle_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        },
+        {
+          "path": "/thumbnail/49/43/27/1790760559/Guitar-String-Set---Nickel-Wound---Light-Gauge-front_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        }
+      ],
+      "textPresent": true,
+      "observedAtMs": 641.8999999910593,
+      "protocol": "http/1.1",
+      "transferSize": 32490,
+      "encodedBodySize": 32190,
+      "fontLoaded": true,
+      "fontErrors": 0,
+      "wrongOrigins": [],
+      "productPresent": false,
+      "cacheControl": "no-cache, private",
+      "age": "4",
+      "contentEncoding": "gzip"
+    },
+    {
+      "user": 0,
+      "cycle": 0,
+      "route": "product",
+      "ttfbMs": 12.299999997019768,
+      "domContentLoadedMs": 37.1000000089407,
+      "loadMs": 60,
+      "fcpMs": 52,
+      "lcpObservedMs": 52,
+      "lcpElement": "IMG",
+      "lcpImage": "/thumbnail/a0/3e/7c/1790760555/Acoustic-Guitar---Natural-Finish---Spruce-Top-lifestyle_800x533.webp",
+      "visibleImages": [
+        {
+          "path": "/media/6d/b5/cb/1790760553/music-logo.png",
+          "loaded": true,
+          "width": 293,
+          "height": 70
+        },
+        {
+          "path": "/thumbnail/a0/3e/7c/1790760555/Acoustic-Guitar---Natural-Finish---Spruce-Top-lifestyle_800x533.webp",
+          "loaded": true,
+          "width": 640,
+          "height": 426
+        }
+      ],
+      "textPresent": true,
+      "observedAtMs": 579.6000000089407,
+      "protocol": "http/1.1",
+      "transferSize": 39322,
+      "encodedBodySize": 39022,
+      "fontLoaded": true,
+      "fontErrors": 0,
+      "wrongOrigins": [],
+      "productPresent": false,
+      "cacheControl": "no-cache, private",
+      "age": "489",
+      "contentEncoding": "gzip"
+    },
+    {
+      "user": 0,
+      "cycle": 1,
+      "route": "homepage",
+      "ttfbMs": 17.80000001192093,
+      "domContentLoadedMs": 47.70000000298023,
+      "loadMs": 71.80000001192093,
+      "fcpMs": 68,
+      "lcpObservedMs": 80,
+      "lcpElement": "IMG",
+      "lcpImage": "/thumbnail/6a/c0/30/1790760566/cms-music-home-hero_800x800.webp",
+      "visibleImages": [
+        {
+          "path": "/media/6d/b5/cb/1790760553/music-logo.png",
+          "loaded": true,
+          "width": 293,
+          "height": 70
+        },
+        {
+          "path": "/thumbnail/6a/c0/30/1790760566/cms-music-home-hero_800x800.webp",
+          "loaded": true,
+          "width": 699,
+          "height": 699
+        }
+      ],
+      "textPresent": true,
+      "observedAtMs": 602.1000000089407,
+      "protocol": "http/1.1",
+      "transferSize": 57910,
+      "encodedBodySize": 57610,
+      "fontLoaded": true,
+      "fontErrors": 0,
+      "wrongOrigins": [],
+      "productPresent": false,
+      "cacheControl": "no-cache, private",
+      "age": "6",
+      "contentEncoding": "gzip"
+    },
+    {
+      "user": 0,
+      "cycle": 1,
+      "route": "search",
+      "ttfbMs": 60.900000005960464,
+      "domContentLoadedMs": 85.5,
+      "loadMs": 100.79999999701977,
+      "fcpMs": 100,
+      "lcpObservedMs": 108,
+      "lcpElement": "IMG",
+      "lcpImage": "/thumbnail/e0/93/68/1790760560/Guitar-Stand---Foldable---Black--2--front_280x187.webp",
+      "visibleImages": [
+        {
+          "path": "/media/6d/b5/cb/1790760553/music-logo.png",
+          "loaded": true,
+          "width": 293,
+          "height": 70
+        },
+        {
+          "path": "/thumbnail/e0/93/68/1790760560/Guitar-Stand---Foldable---Black--2--front_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        },
+        {
+          "path": "/thumbnail/9b/c6/19/1790760559/Guitar-Gig-Bag---Padded---Black-lifestyle_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        },
+        {
+          "path": "/thumbnail/63/a5/72/1790760561/Guitar-Strings---Light-Gauge---Nickel-Plated-lifestyle_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        },
+        {
+          "path": "/thumbnail/49/43/27/1790760559/Guitar-String-Set---Nickel-Wound---Light-Gauge-front_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        }
+      ],
+      "textPresent": true,
+      "observedAtMs": 619.4000000059605,
+      "protocol": "http/1.1",
+      "transferSize": 32453,
+      "encodedBodySize": 32153,
+      "fontLoaded": true,
+      "fontErrors": 0,
+      "wrongOrigins": [],
+      "productPresent": false,
+      "cacheControl": "no-cache, private",
+      "age": "6",
+      "contentEncoding": "gzip"
+    },
+    {
+      "user": 0,
+      "cycle": 1,
+      "route": "product",
+      "ttfbMs": 8,
+      "domContentLoadedMs": 29.099999994039536,
+      "loadMs": 52.3999999910593,
+      "fcpMs": 44,
+      "lcpObservedMs": 44,
+      "lcpElement": "IMG",
+      "lcpImage": "/thumbnail/a0/3e/7c/1790760555/Acoustic-Guitar---Natural-Finish---Spruce-Top-lifestyle_800x533.webp",
+      "visibleImages": [
+        {
+          "path": "/media/6d/b5/cb/1790760553/music-logo.png",
+          "loaded": true,
+          "width": 293,
+          "height": 70
+        },
+        {
+          "path": "/thumbnail/a0/3e/7c/1790760555/Acoustic-Guitar---Natural-Finish---Spruce-Top-lifestyle_800x533.webp",
+          "loaded": true,
+          "width": 640,
+          "height": 426
+        }
+      ],
+      "textPresent": true,
+      "observedAtMs": 574,
+      "protocol": "http/1.1",
+      "transferSize": 39322,
+      "encodedBodySize": 39022,
+      "fontLoaded": true,
+      "fontErrors": 0,
+      "wrongOrigins": [],
+      "productPresent": false,
+      "cacheControl": "no-cache, private",
+      "age": "491",
+      "contentEncoding": "gzip"
+    },
+    {
+      "user": 0,
+      "cycle": 2,
+      "route": "homepage",
+      "ttfbMs": 15.099999994039536,
+      "domContentLoadedMs": 44.29999999701977,
+      "loadMs": 68.29999999701977,
+      "fcpMs": 64,
+      "lcpObservedMs": 76,
+      "lcpElement": "IMG",
+      "lcpImage": "/thumbnail/6a/c0/30/1790760566/cms-music-home-hero_800x800.webp",
+      "visibleImages": [
+        {
+          "path": "/media/6d/b5/cb/1790760553/music-logo.png",
+          "loaded": true,
+          "width": 293,
+          "height": 70
+        },
+        {
+          "path": "/thumbnail/6a/c0/30/1790760566/cms-music-home-hero_800x800.webp",
+          "loaded": true,
+          "width": 699,
+          "height": 699
+        }
+      ],
+      "textPresent": true,
+      "observedAtMs": 587.7999999970198,
+      "protocol": "http/1.1",
+      "transferSize": 57910,
+      "encodedBodySize": 57610,
+      "fontLoaded": true,
+      "fontErrors": 0,
+      "wrongOrigins": [],
+      "productPresent": false,
+      "cacheControl": "no-cache, private",
+      "age": "8",
+      "contentEncoding": "gzip"
+    },
+    {
+      "user": 0,
+      "cycle": 2,
+      "route": "search",
+      "ttfbMs": 86.8999999910593,
+      "domContentLoadedMs": 111.3999999910593,
+      "loadMs": 127.09999999403954,
+      "fcpMs": 124,
+      "lcpObservedMs": 132,
+      "lcpElement": "IMG",
+      "lcpImage": "/thumbnail/e0/93/68/1790760560/Guitar-Stand---Foldable---Black--2--front_280x187.webp",
+      "visibleImages": [
+        {
+          "path": "/media/6d/b5/cb/1790760553/music-logo.png",
+          "loaded": true,
+          "width": 293,
+          "height": 70
+        },
+        {
+          "path": "/thumbnail/e0/93/68/1790760560/Guitar-Stand---Foldable---Black--2--front_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        },
+        {
+          "path": "/thumbnail/9b/c6/19/1790760559/Guitar-Gig-Bag---Padded---Black-lifestyle_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        },
+        {
+          "path": "/thumbnail/63/a5/72/1790760561/Guitar-Strings---Light-Gauge---Nickel-Plated-lifestyle_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        },
+        {
+          "path": "/thumbnail/49/43/27/1790760559/Guitar-String-Set---Nickel-Wound---Light-Gauge-front_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        }
+      ],
+      "textPresent": true,
+      "observedAtMs": 647,
+      "protocol": "http/1.1",
+      "transferSize": 32466,
+      "encodedBodySize": 32166,
+      "fontLoaded": true,
+      "fontErrors": 0,
+      "wrongOrigins": [],
+      "productPresent": false,
+      "cacheControl": "no-cache, private",
+      "age": "7",
+      "contentEncoding": "gzip"
+    },
+    {
+      "user": 0,
+      "cycle": 2,
+      "route": "product",
+      "ttfbMs": 6.5999999940395355,
+      "domContentLoadedMs": 31.399999991059303,
+      "loadMs": 58.19999998807907,
+      "fcpMs": 48,
+      "lcpObservedMs": 48,
+      "lcpElement": "IMG",
+      "lcpImage": "/thumbnail/a0/3e/7c/1790760555/Acoustic-Guitar---Natural-Finish---Spruce-Top-lifestyle_800x533.webp",
+      "visibleImages": [
+        {
+          "path": "/media/6d/b5/cb/1790760553/music-logo.png",
+          "loaded": true,
+          "width": 293,
+          "height": 70
+        },
+        {
+          "path": "/thumbnail/a0/3e/7c/1790760555/Acoustic-Guitar---Natural-Finish---Spruce-Top-lifestyle_800x533.webp",
+          "loaded": true,
+          "width": 640,
+          "height": 426
+        }
+      ],
+      "textPresent": true,
+      "observedAtMs": 587.2999999970198,
+      "protocol": "http/1.1",
+      "transferSize": 39322,
+      "encodedBodySize": 39022,
+      "fontLoaded": true,
+      "fontErrors": 0,
+      "wrongOrigins": [],
+      "productPresent": false,
+      "cacheControl": "no-cache, private",
+      "age": "493",
+      "contentEncoding": "gzip"
+    },
+    {
+      "user": 0,
+      "cycle": 3,
+      "route": "homepage",
+      "ttfbMs": 5.799999997019768,
+      "domContentLoadedMs": 34.69999998807907,
+      "loadMs": 59.5,
+      "fcpMs": 56,
+      "lcpObservedMs": 68,
+      "lcpElement": "IMG",
+      "lcpImage": "/thumbnail/6a/c0/30/1790760566/cms-music-home-hero_800x800.webp",
+      "visibleImages": [
+        {
+          "path": "/media/6d/b5/cb/1790760553/music-logo.png",
+          "loaded": true,
+          "width": 293,
+          "height": 70
+        },
+        {
+          "path": "/thumbnail/6a/c0/30/1790760566/cms-music-home-hero_800x800.webp",
+          "loaded": true,
+          "width": 699,
+          "height": 699
+        }
+      ],
+      "textPresent": true,
+      "observedAtMs": 579.5,
+      "protocol": "http/1.1",
+      "transferSize": 57910,
+      "encodedBodySize": 57610,
+      "fontLoaded": true,
+      "fontErrors": 0,
+      "wrongOrigins": [],
+      "productPresent": false,
+      "cacheControl": "no-cache, private",
+      "age": "10",
+      "contentEncoding": "gzip"
+    },
+    {
+      "user": 0,
+      "cycle": 3,
+      "route": "search",
+      "ttfbMs": 80.8999999910593,
+      "domContentLoadedMs": 105.09999999403954,
+      "loadMs": 117.19999998807907,
+      "fcpMs": 104,
+      "lcpObservedMs": 116,
+      "lcpElement": "IMG",
+      "lcpImage": "/thumbnail/e0/93/68/1790760560/Guitar-Stand---Foldable---Black--2--front_280x187.webp",
+      "visibleImages": [
+        {
+          "path": "/media/6d/b5/cb/1790760553/music-logo.png",
+          "loaded": true,
+          "width": 293,
+          "height": 70
+        },
+        {
+          "path": "/thumbnail/e0/93/68/1790760560/Guitar-Stand---Foldable---Black--2--front_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        },
+        {
+          "path": "/thumbnail/9b/c6/19/1790760559/Guitar-Gig-Bag---Padded---Black-lifestyle_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        },
+        {
+          "path": "/thumbnail/63/a5/72/1790760561/Guitar-Strings---Light-Gauge---Nickel-Plated-lifestyle_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        },
+        {
+          "path": "/thumbnail/49/43/27/1790760559/Guitar-String-Set---Nickel-Wound---Light-Gauge-front_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        }
+      ],
+      "textPresent": true,
+      "observedAtMs": 637.0999999940395,
+      "protocol": "http/1.1",
+      "transferSize": 32484,
+      "encodedBodySize": 32184,
+      "fontLoaded": true,
+      "fontErrors": 0,
+      "wrongOrigins": [],
+      "productPresent": false,
+      "cacheControl": "no-cache, private",
+      "age": "9",
+      "contentEncoding": "gzip"
+    },
+    {
+      "user": 0,
+      "cycle": 3,
+      "route": "product",
+      "ttfbMs": 7.0999999940395355,
+      "domContentLoadedMs": 31,
+      "loadMs": 52.099999994039536,
+      "fcpMs": 44,
+      "lcpObservedMs": 44,
+      "lcpElement": "IMG",
+      "lcpImage": "/thumbnail/a0/3e/7c/1790760555/Acoustic-Guitar---Natural-Finish---Spruce-Top-lifestyle_800x533.webp",
+      "visibleImages": [
+        {
+          "path": "/media/6d/b5/cb/1790760553/music-logo.png",
+          "loaded": true,
+          "width": 293,
+          "height": 70
+        },
+        {
+          "path": "/thumbnail/a0/3e/7c/1790760555/Acoustic-Guitar---Natural-Finish---Spruce-Top-lifestyle_800x533.webp",
+          "loaded": true,
+          "width": 640,
+          "height": 426
+        }
+      ],
+      "textPresent": true,
+      "observedAtMs": 572.1999999880791,
+      "protocol": "http/1.1",
+      "transferSize": 39322,
+      "encodedBodySize": 39022,
+      "fontLoaded": true,
+      "fontErrors": 0,
+      "wrongOrigins": [],
+      "productPresent": false,
+      "cacheControl": "no-cache, private",
+      "age": "495",
+      "contentEncoding": "gzip"
+    },
+    {
+      "user": 0,
+      "cycle": 4,
+      "route": "homepage",
+      "ttfbMs": 16.799999997019768,
+      "domContentLoadedMs": 45.6000000089407,
+      "loadMs": 69,
+      "fcpMs": 68,
+      "lcpObservedMs": 80,
+      "lcpElement": "IMG",
+      "lcpImage": "/thumbnail/6a/c0/30/1790760566/cms-music-home-hero_800x800.webp",
+      "visibleImages": [
+        {
+          "path": "/media/6d/b5/cb/1790760553/music-logo.png",
+          "loaded": true,
+          "width": 293,
+          "height": 70
+        },
+        {
+          "path": "/thumbnail/6a/c0/30/1790760566/cms-music-home-hero_800x800.webp",
+          "loaded": true,
+          "width": 699,
+          "height": 699
+        }
+      ],
+      "textPresent": true,
+      "observedAtMs": 588.6000000089407,
+      "protocol": "http/1.1",
+      "transferSize": 57910,
+      "encodedBodySize": 57610,
+      "fontLoaded": true,
+      "fontErrors": 0,
+      "wrongOrigins": [],
+      "productPresent": false,
+      "cacheControl": "no-cache, private",
+      "age": "11",
+      "contentEncoding": "gzip"
+    },
+    {
+      "user": 0,
+      "cycle": 4,
+      "route": "search",
+      "ttfbMs": 50.70000000298023,
+      "domContentLoadedMs": 75.30000001192093,
+      "loadMs": 90.80000001192093,
+      "fcpMs": 88,
+      "lcpObservedMs": 96,
+      "lcpElement": "IMG",
+      "lcpImage": "/thumbnail/e0/93/68/1790760560/Guitar-Stand---Foldable---Black--2--front_280x187.webp",
+      "visibleImages": [
+        {
+          "path": "/media/6d/b5/cb/1790760553/music-logo.png",
+          "loaded": true,
+          "width": 293,
+          "height": 70
+        },
+        {
+          "path": "/thumbnail/e0/93/68/1790760560/Guitar-Stand---Foldable---Black--2--front_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        },
+        {
+          "path": "/thumbnail/9b/c6/19/1790760559/Guitar-Gig-Bag---Padded---Black-lifestyle_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        },
+        {
+          "path": "/thumbnail/63/a5/72/1790760561/Guitar-Strings---Light-Gauge---Nickel-Plated-lifestyle_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        },
+        {
+          "path": "/thumbnail/49/43/27/1790760559/Guitar-String-Set---Nickel-Wound---Light-Gauge-front_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        }
+      ],
+      "textPresent": true,
+      "observedAtMs": 610.6000000089407,
+      "protocol": "http/1.1",
+      "transferSize": 32490,
+      "encodedBodySize": 32190,
+      "fontLoaded": true,
+      "fontErrors": 0,
+      "wrongOrigins": [],
+      "productPresent": false,
+      "cacheControl": "no-cache, private",
+      "age": "11",
+      "contentEncoding": "gzip"
+    },
+    {
+      "user": 0,
+      "cycle": 4,
+      "route": "product",
+      "ttfbMs": 4.799999997019768,
+      "domContentLoadedMs": 28.5,
+      "loadMs": 51.599999994039536,
+      "fcpMs": 44,
+      "lcpObservedMs": 44,
+      "lcpElement": "IMG",
+      "lcpImage": "/thumbnail/a0/3e/7c/1790760555/Acoustic-Guitar---Natural-Finish---Spruce-Top-lifestyle_800x533.webp",
+      "visibleImages": [
+        {
+          "path": "/media/6d/b5/cb/1790760553/music-logo.png",
+          "loaded": true,
+          "width": 293,
+          "height": 70
+        },
+        {
+          "path": "/thumbnail/a0/3e/7c/1790760555/Acoustic-Guitar---Natural-Finish---Spruce-Top-lifestyle_800x533.webp",
+          "loaded": true,
+          "width": 640,
+          "height": 426
+        }
+      ],
+      "textPresent": true,
+      "observedAtMs": 571.5999999940395,
+      "protocol": "http/1.1",
+      "transferSize": 39322,
+      "encodedBodySize": 39022,
+      "fontLoaded": true,
+      "fontErrors": 0,
+      "wrongOrigins": [],
+      "productPresent": false,
+      "cacheControl": "no-cache, private",
+      "age": "497",
+      "contentEncoding": "gzip"
+    },
+    {
+      "user": 0,
+      "cycle": 5,
+      "route": "homepage",
+      "ttfbMs": 17.700000002980232,
+      "domContentLoadedMs": 47.20000000298023,
+      "loadMs": 72.29999999701977,
+      "fcpMs": 68,
+      "lcpObservedMs": 80,
+      "lcpElement": "IMG",
+      "lcpImage": "/thumbnail/6a/c0/30/1790760566/cms-music-home-hero_800x800.webp",
+      "visibleImages": [
+        {
+          "path": "/media/6d/b5/cb/1790760553/music-logo.png",
+          "loaded": true,
+          "width": 293,
+          "height": 70
+        },
+        {
+          "path": "/thumbnail/6a/c0/30/1790760566/cms-music-home-hero_800x800.webp",
+          "loaded": true,
+          "width": 699,
+          "height": 699
+        }
+      ],
+      "textPresent": true,
+      "observedAtMs": 593.1000000089407,
+      "protocol": "http/1.1",
+      "transferSize": 57910,
+      "encodedBodySize": 57610,
+      "fontLoaded": true,
+      "fontErrors": 0,
+      "wrongOrigins": [],
+      "productPresent": false,
+      "cacheControl": "no-cache, private",
+      "age": "13",
+      "contentEncoding": "gzip"
+    },
+    {
+      "user": 0,
+      "cycle": 5,
+      "route": "search",
+      "ttfbMs": 83,
+      "domContentLoadedMs": 107.90000000596046,
+      "loadMs": 123.70000000298023,
+      "fcpMs": 120,
+      "lcpObservedMs": 128,
+      "lcpElement": "IMG",
+      "lcpImage": "/thumbnail/e0/93/68/1790760560/Guitar-Stand---Foldable---Black--2--front_280x187.webp",
+      "visibleImages": [
+        {
+          "path": "/media/6d/b5/cb/1790760553/music-logo.png",
+          "loaded": true,
+          "width": 293,
+          "height": 70
+        },
+        {
+          "path": "/thumbnail/e0/93/68/1790760560/Guitar-Stand---Foldable---Black--2--front_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        },
+        {
+          "path": "/thumbnail/9b/c6/19/1790760559/Guitar-Gig-Bag---Padded---Black-lifestyle_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        },
+        {
+          "path": "/thumbnail/63/a5/72/1790760561/Guitar-Strings---Light-Gauge---Nickel-Plated-lifestyle_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        },
+        {
+          "path": "/thumbnail/49/43/27/1790760559/Guitar-String-Set---Nickel-Wound---Light-Gauge-front_280x187.webp",
+          "loaded": true,
+          "width": 280,
+          "height": 187
+        }
+      ],
+      "textPresent": true,
+      "observedAtMs": 642.7000000029802,
+      "protocol": "http/1.1",
+      "transferSize": 32481,
+      "encodedBodySize": 32181,
+      "fontLoaded": true,
+      "fontErrors": 0,
+      "wrongOrigins": [],
+      "productPresent": false,
+      "cacheControl": "no-cache, private",
+      "age": "13",
+      "contentEncoding": "gzip"
+    },
+    {
+      "user": 0,
+      "cycle": 5,
+      "route": "product",
+      "ttfbMs": 3.7999999970197678,
+      "domContentLoadedMs": 26.900000005960464,
+      "loadMs": 49.79999999701977,
+      "fcpMs": 40,
+      "lcpObservedMs": 40,
+      "lcpElement": "IMG",
+      "lcpImage": "/thumbnail/a0/3e/7c/1790760555/Acoustic-Guitar---Natural-Finish---Spruce-Top-lifestyle_800x533.webp",
+      "visibleImages": [
+        {
+          "path": "/media/6d/b5/cb/1790760553/music-logo.png",
+          "loaded": true,
+          "width": 293,
+          "height": 70
+        },
+        {
+          "path": "/thumbnail/a0/3e/7c/1790760555/Acoustic-Guitar---Natural-Finish---Spruce-Top-lifestyle_800x533.webp",
+          "loaded": true,
+          "width": 640,
+          "height": 426
+        }
+      ],
+      "textPresent": true,
+      "observedAtMs": 570.9000000059605,
+      "protocol": "http/1.1",
+      "transferSize": 39322,
+      "encodedBodySize": 39022,
+      "fontLoaded": true,
+      "fontErrors": 0,
+      "wrongOrigins": [],
+      "productPresent": false,
+      "cacheControl": "no-cache, private",
+      "age": "498",
+      "contentEncoding": "gzip"
+    }
+  ],
+  "warmupNavigations": 6,
+  "browserVersion": "153.0.8010.12",
+  "measuredSeconds": 10.833341167000006,
+  "driverCpuSeconds": 0.246627,
+  "completedNavigationsPerSecond": 1.6615372600680869,
+  "summary": {
+    "homepage": {
+      "ttfbMs": {
+        "median": 15.099999994039536,
+        "p95": 17.80000001192093
+      },
+      "domContentLoadedMs": {
+        "median": 45.6000000089407,
+        "p95": 61.20000000298023
+      },
+      "loadMs": {
+        "median": 68.29999999701977,
+        "p95": 72.29999999701977
+      },
+      "fcpMs": {
+        "median": 64,
+        "p95": 68
+      },
+      "lcpObservedMs": {
+        "median": 76,
+        "p95": 80
+      }
+    },
+    "search": {
+      "ttfbMs": {
+        "median": 80.8999999910593,
+        "p95": 86.8999999910593
+      },
+      "domContentLoadedMs": {
+        "median": 105.09999999403954,
+        "p95": 111.3999999910593
+      },
+      "loadMs": {
+        "median": 117.19999998807907,
+        "p95": 127.09999999403954
+      },
+      "fcpMs": {
+        "median": 104,
+        "p95": 124
+      },
+      "lcpObservedMs": {
+        "median": 116,
+        "p95": 132
+      }
+    },
+    "product": {
+      "ttfbMs": {
+        "median": 6.5999999940395355,
+        "p95": 12.299999997019768
+      },
+      "domContentLoadedMs": {
+        "median": 29.099999994039536,
+        "p95": 37.1000000089407
+      },
+      "loadMs": {
+        "median": 52.099999994039536,
+        "p95": 60
+      },
+      "fcpMs": {
+        "median": 44,
+        "p95": 52
+      },
+      "lcpObservedMs": {
+        "median": 44,
+        "p95": 52
+      }
+    }
+  },
+  "finishedAt": "2026-10-01T13:15:08.460Z"
+}

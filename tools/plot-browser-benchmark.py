@@ -16,11 +16,16 @@ def load_matrix(directory):
         raise ValueError("Refusing to chart an incomplete matrix")
     runs = report["runs"]
     config = report["configuration"]
-    expected = 3 * config["repeats"] * len(config["users"])
+    runtimes = [t["name"] for t in report.get("targets", [])] or [
+        "fpm",
+        "classic",
+        "worker",
+    ]
+    expected = len(runtimes) * config["repeats"] * len(config["users"])
     keys = {(run["runtime"], run["users"], run["repeat"]) for run in runs}
     expected_keys = {
         (runtime, users, repeat)
-        for runtime in ("fpm", "classic", "worker")
+        for runtime in runtimes
         for users in config["users"]
         for repeat in range(1, config["repeats"] + 1)
     }
@@ -34,8 +39,15 @@ def load_matrix(directory):
             or len(raw["samples"]) != count
             or any(
                 s.get("error")
-                or s["protocol"] != "h2"
+                or s["protocol"] != config.get("expectedProtocol", "h2")
                 or s["contentEncoding"] != "gzip"
+                or (
+                    config.get("requireImages")
+                    and (
+                        not s.get("visibleImages")
+                        or any(not image["loaded"] for image in s["visibleImages"])
+                    )
+                )
                 for s in raw["samples"]
             )
         ):
@@ -49,9 +61,28 @@ def plot(directory):
     report = load_matrix(directory)
     config = report["configuration"]
     users = sorted(config["users"])
-    runtimes = ["fpm", "classic", "worker"]
-    labels = ["PHP-FPM", "FrankenPHP classic", "FrankenPHP worker"]
-    colors = ["#577087", "#a798bd", "#5831a5"]
+    runtimes = [t["name"] for t in report.get("targets", [])] or [
+        "fpm",
+        "classic",
+        "worker",
+    ]
+    labels = [t.get("label", t["name"]) for t in report.get("targets", [])] or [
+        "PHP-FPM",
+        "FrankenPHP classic",
+        "FrankenPHP worker",
+    ]
+    palette = {
+        "fpm": "#577087",
+        "fpm-control": "#577087",
+        "classic": "#a798bd",
+        "worker": "#5831a5",
+        "trunk-fpm": "#aa7547",
+    }
+    colors = [palette.get(runtime, "#577087") for runtime in runtimes]
+    protocol = {"h2": "HTTP/2", "http/1.1": "HTTP/1.1"}.get(
+        config.get("expectedProtocol", "h2"), "unknown protocol"
+    )
+    cache = "enabled" if config.get("httpCacheEnabled") else "disabled or unspecified"
     plt.rcParams.update(
         {"font.family": "DejaVu Sans", "font.size": 12, "svg.fonttype": "none"}
     )
@@ -66,7 +97,7 @@ def plot(directory):
         fig.text(
             0.05,
             0.92,
-            f"Shopware storefront: {title.lower()}",
+            f"{report.get('title', 'Shopware storefront')}: {title.lower()}",
             fontsize=22,
             weight="bold",
             color="#20202b",
@@ -74,7 +105,7 @@ def plot(directory):
         fig.text(
             0.05,
             0.85,
-            "Concurrent Chromium sessions · HTTP/2 + gzip · HTTP cache enabled",
+            f"Concurrent Chromium sessions · {protocol} + gzip · HTTP cache {cache}",
             fontsize=13,
             color="#625d70",
         )
@@ -130,14 +161,18 @@ def plot(directory):
         fig.text(
             0.05,
             0.075,
-            f"{config['samplesPerRoutePerUser']} loads per page/session/run after {config['warmupCycles']} warm-up cycles. Warm browser caches; {config['phpSlots']} PHP slots.",
+            f"{config['samplesPerRoutePerUser']} loads per page/session/run after {config['warmupCycles']} warm-up cycles. Warm browser caches.",
             fontsize=10,
             color="#625d70",
         )
         fig.text(
             0.05,
             0.03,
-            f"Patched trunk · local {report['host']['arch']} lab · LCP observed {config['settleMs']} ms after load/fonts · no product images",
+            (
+                f"Existing storefronts · images checked · LCP cutoff {config['settleMs']} ms after load/fonts/images"
+                if report.get("targets")
+                else f"Patched trunk · local {report['host']['arch']} lab · LCP observed {config['settleMs']} ms after load/fonts · no product images"
+            ),
             fontsize=10,
             color="#625d70",
         )

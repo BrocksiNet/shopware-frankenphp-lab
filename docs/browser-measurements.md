@@ -4,6 +4,10 @@ Measured 2026-10-01. **2,592 measured navigations and 864 excluded warm-up
 navigations passed**, across 27 runs. Zero browser/content/network failures,
 no retries and no skipped pages. The lab was restored to classic mode afterwards.
 
+The later [populated music-shop experiment](music-browser-measurements.md) checks
+real product images on existing installations. It uses different builds and
+HTTP/1.1, so its samples are not combined with this matrix.
+
 ## Configuration
 
 - Shopware development commit `868f25121f764f41d6490fd032d6f28507be4e43`, with the

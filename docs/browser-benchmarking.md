@@ -9,6 +9,10 @@ not perform checkout or create orders; guest-cart isolation remains a separate
 The [published browser results](browser-measurements.md) include all page charts
 and raw measurements from the 2026-10-01 matrix.
 
+For a catalog with actual photography, see [music catalog setup and existing-shop
+measurements](music-catalog.md). That separate runner accepts local origins and
+checks visible images without recreating services or seeding data.
+
 ## Prepare the disposable lab
 
 Requirements: Docker Compose 2.24.4 or newer, Node.js 22 or newer, and Chromium

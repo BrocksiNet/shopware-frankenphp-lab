@@ -38,7 +38,9 @@ Wait for `Lab initialized` and `init` to exit successfully. Then:
 The first run downloads a pinned Shopware source revision, installs Composer
 packages, creates the database and storefront, builds both frontends, and assigns
 the Storefront theme. The web service starts only after initialization succeeds.
-The catalog starts empty. No local PHP, Composer or Node installation is required.
+The catalog starts empty. The optional [music catalog guide](docs/music-catalog.md)
+adds a populated template with photography for browser experiments. No local PHP,
+Composer or Node installation is required for the basic Docker startup.
 Later starts reuse the named application/database volumes and skip installation.
 
 ## What version am I testing?
@@ -90,6 +92,9 @@ docker compose exec web curl -s http://localhost:2019/frankenphp/threads
 Classic mode has regular PHP threads and no worker script. The worker configuration
 registers `public/index.php`. Disabling recycling alone does not enable classic mode.
 
+See the [configuration audit and tuning priorities](docs/frankenphp-tuning.md)
+for the distinction between a development baseline and a production profile.
+
 ## Operate the lab
 
 ```bash
@@ -125,6 +130,10 @@ The [concurrent browser benchmark](docs/browser-benchmarking.md) measures storef
 TTFB, FCP and observed LCP over HTTPS/HTTP/2 at 1, 5 and 10 concurrent sessions,
 with repeated runs and reproducible charts. The [browser results](docs/browser-measurements.md)
 show why the Admin throughput gain is not a storefront speed multiplier.
+
+The [populated music-shop results](docs/music-browser-measurements.md) add real
+product images and an existing-shop runner. Keep this HTTP/1.1 dataset separate
+from the synthetic HTTP/2 comparison.
 
 The lab includes Playwright browser checks for JavaScript/font loading, search
 and isolated guest carts. See [automated browser tests](docs/testing.md#automated-chromium-checks-with-playwright)
