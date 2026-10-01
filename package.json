@@ -1,0 +1,13 @@
+{
+  "name": "shopware-frankenphp-lab-tests",
+  "private": true,
+  "scripts": {
+    "test:browser": "playwright test --project=smoke",
+    "test:browser:catalog": "playwright test --project=catalog",
+    "bench:browser": "node tools/browser-matrix.mjs",
+    "test:harness": "node --test tools/test-*.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}

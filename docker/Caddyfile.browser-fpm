@@ -1,0 +1,32 @@
+# Shopware docker-base request handling, with local TLS for browser HTTP/2.
+{
+	skip_install_trust
+	auto_https disable_redirects
+	servers {
+		protocols h1 h2
+	}
+}
+https://localhost:8443 {
+	tls internal
+	route {
+		root * /var/www/html/public
+		encode gzip
+		@theme path /theme/*
+		@default {
+			not path /theme/* /media/* /thumbnail/* /bundles/*
+		}
+		php_fastcgi @default unix//tmp/php-fpm.sock {
+			trusted_proxies private_ranges
+		}
+		handle @theme {
+			@theme_file file
+			handle @theme_file {
+				file_server
+			}
+			respond 410
+		}
+		file_server {
+			hide *.php
+		}
+	}
+}

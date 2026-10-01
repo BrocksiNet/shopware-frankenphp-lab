@@ -1,0 +1,13 @@
+# Use last, after compose.yaml and any worker/FPM override.
+services:
+  web:
+    environment:
+      APP_URL: https://localhost:8443
+      SHOPWARE_HTTP_CACHE_ENABLED: "${BROWSER_HTTP_CACHE:-1}"
+    ports:
+      - "127.0.0.1:8443:8443"
+    volumes:
+      - ./docker/Caddyfile.browser-${BROWSER_RUNTIME_CONFIG:-frankenphp}:/etc/caddy/Caddyfile:ro
+    healthcheck:
+      test:
+        [CMD, curl, --fail, --silent, --insecure, https://localhost:8443/admin]

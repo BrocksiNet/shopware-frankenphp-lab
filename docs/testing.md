@@ -4,6 +4,119 @@ Start in classic mode and record the source revision, PHP/FrankenPHP versions,
 image digests, installed plugins and theme. Repeat the same tests after switching
 to worker mode; a successful HTTP status is only the beginning.
 
+## Automated Chromium checks with Playwright
+
+The standalone browser harness requires Node.js 22 or newer on the test host.
+It drives the running Docker lab; it does not build or execute Shopware on the host.
+Start the lab and wait for `web` to be healthy, then run:
+
+```bash
+npm ci
+npx playwright install chromium
+npm run test:browser
+```
+
+Four smoke tests check the homepage, login page, search page and submitting the
+search form. They assert rendered content, Storefront JavaScript availability,
+loaded web fonts and same-origin scripts/styles/font links. Browser exceptions,
+console errors, failed network requests and HTTP errors fail the checks. The
+starter has no CDN; adapt the origin assertion explicitly if your shop uses one.
+
+The guest-cart journey requires the synthetic fixture from the
+[benchmark guide](benchmarking.md#seed-repeatable-synthetic-data):
+
+```bash
+export ADMIN_BENCH_PASSWORD=shopware
+node tools/seed-benchmark.mjs --seed-lab
+docker compose restart web
+npm run test:browser:catalog
+```
+
+It opens a product, adds it through the Storefront JavaScript off-canvas cart,
+alternates three rounds of cart checks between two isolated browser contexts,
+and removes the item. Missing fixtures fail the test; they are not silently skipped.
+It creates temporary guest carts, not orders or customer accounts. Closing browser
+contexts does not delete their server-side sessions; use the disposable lab.
+
+### Repeat against each runtime at the same storefront URL
+
+Keep `http://localhost:8080`, the data, code, theme and cache setting unchanged.
+The extra ports in `compose.benchmark.yaml` are Admin API endpoints, not configured
+storefront domains. Use these commands sequentially from the lab directory:
+
+```bash
+# Classic baseline
+docker compose --env-file benchmark.env up -d --no-deps --force-recreate --wait web
+PW_OUTPUT_DIR=measurements/browser-classic PW_REPORT_DIR=measurements/browser-classic-html \
+  npx playwright test --project=smoke --project=catalog
+
+# Persistent HTTP workers
+docker compose --env-file benchmark.env -f compose.yaml -f compose.worker.yaml \
+  up -d --no-deps --force-recreate --wait web
+PW_OUTPUT_DIR=measurements/browser-worker PW_REPORT_DIR=measurements/browser-worker-html \
+  npx playwright test --project=smoke --project=catalog
+
+# FPM control at the same public URL
+docker compose --env-file benchmark.env -f compose.yaml -f compose.fpm.yaml \
+  up -d --no-deps --force-recreate --wait web
+PW_OUTPUT_DIR=measurements/browser-fpm PW_REPORT_DIR=measurements/browser-fpm-html \
+  npx playwright test --project=smoke --project=catalog
+
+# Restore the default classic service
+docker compose --env-file benchmark.env up -d --no-deps --force-recreate --wait web
+```
+
+Each runtime has five PHP execution slots. The tests run serially without retries,
+so failures are not hidden by a later pass. The HTML and JSON reports retain test
+results and navigation timing attachments; failed tests also retain a screenshot
+and a [Playwright trace](https://playwright.dev/docs/test-use-options#recording-options).
+Use a new output directory for each experiment; Playwright replaces previous output
+at the chosen path. `STOREFRONT_URL` overrides the default URL for another configured
+lab domain. Reports/traces can contain session data, so review before sharing them.
+
+These are correctness checks, not a storefront capacity benchmark. Navigation
+TTFB, DOMContentLoaded, load time and negotiated protocol are diagnostic samples,
+without controlled warm-ups or statistical comparison. Chromium uses ordinary
+local HTTP here; it does not exercise the Admin harness's HTTP/2 cleartext mode.
+The current run keeps Shopware HTTP caching disabled. A cached HTTPS browser
+performance comparison remains separate work.
+
+On 2026-10-01, all five tests passed in each runtime on the corrected pinned build:
+**15/15 passed**, with zero retries or skips. A separate negative control blocked
+font requests and confirmed the browser checker rejects the page. The compact
+[result record](results/2026-10-01-browser.json) records each test outcome.
+This single-domain journey does not establish multi-domain safety, authenticated
+customer isolation, checkout, payment correctness or sustained performance. With
+five server workers, it also cannot guarantee that every A/B pair hits the same
+worker; use a one-worker diagnostic setup for deterministic state-leak reproduction.
+
+### Navigation timings from the initial browser checks
+
+The same [result record](results/2026-10-01-browser.json) preserves all 33 navigation
+samples, including the slower first visits. For the direct search-page visit:
+
+| Single search-page sample | FPM | Classic | Worker |
+| --- | ---: | ---: | ---: |
+| TTFB | 107.3 ms | 101.1 ms | 87.4 ms |
+| DOMContentLoaded | 161.2 ms | 153.6 ms | 141.0 ms |
+| Load event | 180.6 ms | 171.7 ms | 158.5 ms |
+
+All values are measured from navigation start; load time is not a visual-completion
+metric. The first homepage TTFB was 567.8 ms for FPM, 118.0 ms for classic and
+618.9 ms for workers. A later homepage visit measured 75.8, 76.6 and 69.5 ms,
+respectively. Classic was already running, whereas FPM and workers had just been
+recreated. Those samples mix different warm-up states and cannot rank the runtimes.
+No FCP, LCP, CLS or INP was collected in this first correctness suite. Repeated,
+controlled browser measurements are needed before deriving a performance claim.
+
+## Concurrent browser performance matrix
+
+For repeated page timings at 1, 5 and 10 concurrent sessions, use the
+[HTTP/2 browser benchmark guide](browser-benchmarking.md). It adds controlled
+warm-up, three runtime-order rotations, cache-enabled HTTPS runs, FCP/observed LCP,
+raw samples and reproducible charts. This is separate from the quick correctness
+suite and supersedes its single-navigation timings for comparison.
+
 ## What to test in this lab
 
 1. Open the storefront and Administration in a browser. Check JavaScript and font

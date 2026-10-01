@@ -121,6 +121,15 @@ logs; fix the cause and retry, or reset this disposable lab.
 
 ## Verify behavior before measuring speed
 
+The [concurrent browser benchmark](docs/browser-benchmarking.md) measures storefront
+TTFB, FCP and observed LCP over HTTPS/HTTP/2 at 1, 5 and 10 concurrent sessions,
+with repeated runs and reproducible charts. The [browser results](docs/browser-measurements.md)
+show why the Admin throughput gain is not a storefront speed multiplier.
+
+The lab includes Playwright browser checks for JavaScript/font loading, search
+and isolated guest carts. See [automated browser tests](docs/testing.md#automated-chromium-checks-with-playwright)
+for installation and the same-URL classic/worker/FPM comparison.
+
 Follow [the Shopware testing guide](docs/testing.md) for browser checks, plugins,
 sessions, multi-domain requests and known gaps. The scripts in `tools/` are optional
 host-side Python/curl and Node tools; they do not run Shopware on the host.

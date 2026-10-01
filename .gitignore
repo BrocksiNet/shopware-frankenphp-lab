@@ -4,3 +4,6 @@
 measurements/
 __pycache__/
 *.log
+node_modules/
+test-results/
+playwright-report/

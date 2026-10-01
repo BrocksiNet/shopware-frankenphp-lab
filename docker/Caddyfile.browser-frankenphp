@@ -1,0 +1,34 @@
+# Shopware docker-base request handling, with local TLS for browser HTTP/2.
+{
+	skip_install_trust
+	auto_https disable_redirects
+	servers {
+		protocols h1 h2
+	}
+	frankenphp {
+		{$FRANKENPHP_CONFIG}
+	}
+}
+https://localhost:8443 {
+	tls internal
+	root * /var/www/html/public
+	encode gzip
+	@theme path /theme/*
+	@phpRoute {
+		not path /theme/* /media/* /thumbnail/* /bundles/*
+		not file {path}
+	}
+	rewrite @phpRoute index.php
+	@frontController path index.php
+	php @frontController
+	handle @theme {
+		@theme_file file
+		handle @theme_file {
+			file_server
+		}
+		respond 410
+	}
+	file_server {
+		hide *.php
+	}
+}

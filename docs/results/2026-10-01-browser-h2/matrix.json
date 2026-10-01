@@ -1,0 +1,2164 @@
+{
+  "completed": true,
+  "startedAt": "2026-10-01T11:58:33.614Z",
+  "configuration": {
+    "repeats": 3,
+    "users": [
+      1,
+      5,
+      10
+    ],
+    "samplesPerRoutePerUser": 6,
+    "warmupCycles": 2,
+    "settleMs": 250,
+    "httpCacheEnabled": true,
+    "encoding": "gzip",
+    "workerLoopMax": 0,
+    "phpSlots": 5
+  },
+  "host": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M4 Pro",
+    "logicalCpus": 14,
+    "memoryBytes": 51539607552
+  },
+  "imagePins": "# Multi-platform image indexes used for the 2026-10-01 comparison.\n# Deliberately frozen for reproduction; not a production update policy.\nFRANKENPHP_IMAGE=ghcr.io/shopware/docker-base:8.4-frankenphp@sha256:204bdeba18e9566af794d089019325798937647f07bed3e3ea0be8ee5555bd33\nFPM_IMAGE=ghcr.io/shopware/docker-base:8.4-caddy@sha256:c9747684cb09e3d81f71d2cab924903420df84b320c1e53f0fa41be587ac8d54\nINIT_IMAGE=ghcr.io/shopware/docker-dev:php8.4-node24-caddy@sha256:9e75defee6e11c950958b7316ffb6198469b7d00ff20e60395bbfc12d4e6ccc1\n",
+  "runs": [
+    {
+      "repeat": 1,
+      "runtime": "fpm",
+      "users": 1,
+      "file": "1-fpm-1.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:15:03) (NTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 18,
+      "completedNavigationsPerSecond": 2.8035184468009406,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 18.099999994039536,
+            "p95": 21.900000005960464
+          },
+          "domContentLoadedMs": {
+            "median": 37.69999998807907,
+            "p95": 53.79999999701977
+          },
+          "loadMs": {
+            "median": 47.29999999701977,
+            "p95": 65
+          },
+          "fcpMs": {
+            "median": 48,
+            "p95": 64
+          },
+          "lcpObservedMs": {
+            "median": 48,
+            "p95": 64
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 94.29999999701977,
+            "p95": 110.90000000596046
+          },
+          "domContentLoadedMs": {
+            "median": 111.70000000298023,
+            "p95": 145
+          },
+          "loadMs": {
+            "median": 121.5,
+            "p95": 156.40000000596046
+          },
+          "fcpMs": {
+            "median": 120,
+            "p95": 156
+          },
+          "lcpObservedMs": {
+            "median": 120,
+            "p95": 156
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 31.900000005960464,
+            "p95": 47.900000005960464
+          },
+          "domContentLoadedMs": {
+            "median": 45.400000005960464,
+            "p95": 82.20000000298023
+          },
+          "loadMs": {
+            "median": 53,
+            "p95": 91.70000000298023
+          },
+          "fcpMs": {
+            "median": 56,
+            "p95": 92
+          },
+          "lcpObservedMs": {
+            "median": 56,
+            "p95": 92
+          }
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "runtime": "fpm",
+      "users": 5,
+      "file": "1-fpm-5.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:15:03) (NTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 90,
+      "completedNavigationsPerSecond": 13.433574667502228,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 18.69999998807907,
+            "p95": 29.599999994039536
+          },
+          "domContentLoadedMs": {
+            "median": 35.5,
+            "p95": 49.5
+          },
+          "loadMs": {
+            "median": 42.8999999910593,
+            "p95": 56.099999994039536
+          },
+          "fcpMs": {
+            "median": 48,
+            "p95": 64
+          },
+          "lcpObservedMs": {
+            "median": 48,
+            "p95": 64
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 110.59999999403954,
+            "p95": 127
+          },
+          "domContentLoadedMs": {
+            "median": 127.70000000298023,
+            "p95": 153.79999999701977
+          },
+          "loadMs": {
+            "median": 136.5,
+            "p95": 164.30000001192093
+          },
+          "fcpMs": {
+            "median": 140,
+            "p95": 164
+          },
+          "lcpObservedMs": {
+            "median": 140,
+            "p95": 164
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 31.100000008940697,
+            "p95": 40.20000000298023
+          },
+          "domContentLoadedMs": {
+            "median": 47,
+            "p95": 57.20000000298023
+          },
+          "loadMs": {
+            "median": 51.3999999910593,
+            "p95": 62.5
+          },
+          "fcpMs": {
+            "median": 56,
+            "p95": 68
+          },
+          "lcpObservedMs": {
+            "median": 56,
+            "p95": 68
+          }
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "runtime": "fpm",
+      "users": 10,
+      "file": "1-fpm-10.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:15:03) (NTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 180,
+      "completedNavigationsPerSecond": 22.160967098536997,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 30.400000005960464,
+            "p95": 68.59999999403954
+          },
+          "domContentLoadedMs": {
+            "median": 52,
+            "p95": 90.1000000089407
+          },
+          "loadMs": {
+            "median": 60,
+            "p95": 96.29999999701977
+          },
+          "fcpMs": {
+            "median": 72,
+            "p95": 96
+          },
+          "lcpObservedMs": {
+            "median": 72,
+            "p95": 100
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 122.5,
+            "p95": 255.70000000298023
+          },
+          "domContentLoadedMs": {
+            "median": 168.8999999910593,
+            "p95": 278.3999999910593
+          },
+          "loadMs": {
+            "median": 172.59999999403954,
+            "p95": 284.29999999701977
+          },
+          "fcpMs": {
+            "median": 156,
+            "p95": 284
+          },
+          "lcpObservedMs": {
+            "median": 156,
+            "p95": 284
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 38.900000005960464,
+            "p95": 67.29999999701977
+          },
+          "domContentLoadedMs": {
+            "median": 57.29999999701977,
+            "p95": 87.70000000298023
+          },
+          "loadMs": {
+            "median": 65.40000000596046,
+            "p95": 93.59999999403954
+          },
+          "fcpMs": {
+            "median": 88,
+            "p95": 100
+          },
+          "lcpObservedMs": {
+            "median": 88,
+            "p95": 100
+          }
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "runtime": "classic",
+      "users": 1,
+      "file": "1-classic-1.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:13:45) (ZTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 18,
+      "completedNavigationsPerSecond": 2.90463963182807,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 19.400000005960464,
+            "p95": 20.799999997019768
+          },
+          "domContentLoadedMs": {
+            "median": 38.29999999701977,
+            "p95": 42.3999999910593
+          },
+          "loadMs": {
+            "median": 48.29999999701977,
+            "p95": 49
+          },
+          "fcpMs": {
+            "median": 48,
+            "p95": 48
+          },
+          "lcpObservedMs": {
+            "median": 48,
+            "p95": 48
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 104.20000000298023,
+            "p95": 106.69999998807907
+          },
+          "domContentLoadedMs": {
+            "median": 119.79999999701977,
+            "p95": 121.6000000089407
+          },
+          "loadMs": {
+            "median": 129.90000000596046,
+            "p95": 135
+          },
+          "fcpMs": {
+            "median": 128,
+            "p95": 132
+          },
+          "lcpObservedMs": {
+            "median": 128,
+            "p95": 132
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 17.899999991059303,
+            "p95": 29.900000005960464
+          },
+          "domContentLoadedMs": {
+            "median": 32.8999999910593,
+            "p95": 46.400000005960464
+          },
+          "loadMs": {
+            "median": 40.70000000298023,
+            "p95": 52.599999994039536
+          },
+          "fcpMs": {
+            "median": 40,
+            "p95": 52
+          },
+          "lcpObservedMs": {
+            "median": 40,
+            "p95": 52
+          }
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "runtime": "classic",
+      "users": 5,
+      "file": "1-classic-5.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:13:45) (ZTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 90,
+      "completedNavigationsPerSecond": 13.315186542968023,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 26.100000008940697,
+            "p95": 37.79999999701977
+          },
+          "domContentLoadedMs": {
+            "median": 47.099999994039536,
+            "p95": 64.70000000298023
+          },
+          "loadMs": {
+            "median": 54.29999999701977,
+            "p95": 72.09999999403954
+          },
+          "fcpMs": {
+            "median": 60,
+            "p95": 68
+          },
+          "lcpObservedMs": {
+            "median": 60,
+            "p95": 68
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 117.29999999701977,
+            "p95": 125.20000000298023
+          },
+          "domContentLoadedMs": {
+            "median": 138.5,
+            "p95": 149.90000000596046
+          },
+          "loadMs": {
+            "median": 144.30000001192093,
+            "p95": 153.6000000089407
+          },
+          "fcpMs": {
+            "median": 148,
+            "p95": 164
+          },
+          "lcpObservedMs": {
+            "median": 148,
+            "p95": 164
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 31.099999994039536,
+            "p95": 41.099999994039536
+          },
+          "domContentLoadedMs": {
+            "median": 47.70000000298023,
+            "p95": 56.099999994039536
+          },
+          "loadMs": {
+            "median": 52.79999999701977,
+            "p95": 62.099999994039536
+          },
+          "fcpMs": {
+            "median": 64,
+            "p95": 68
+          },
+          "lcpObservedMs": {
+            "median": 64,
+            "p95": 68
+          }
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "runtime": "classic",
+      "users": 10,
+      "file": "1-classic-10.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:13:45) (ZTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 180,
+      "completedNavigationsPerSecond": 21.169680311162935,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 31.299999997019768,
+            "p95": 164.59999999403954
+          },
+          "domContentLoadedMs": {
+            "median": 53.79999999701977,
+            "p95": 186.6000000089407
+          },
+          "loadMs": {
+            "median": 61.79999999701977,
+            "p95": 196
+          },
+          "fcpMs": {
+            "median": 84,
+            "p95": 220
+          },
+          "lcpObservedMs": {
+            "median": 84,
+            "p95": 220
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 199.79999999701977,
+            "p95": 403.5
+          },
+          "domContentLoadedMs": {
+            "median": 222.70000000298023,
+            "p95": 432.70000000298023
+          },
+          "loadMs": {
+            "median": 230.09999999403954,
+            "p95": 440.5
+          },
+          "fcpMs": {
+            "median": 228,
+            "p95": 420
+          },
+          "lcpObservedMs": {
+            "median": 228,
+            "p95": 424
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 38.70000000298023,
+            "p95": 65.8999999910593
+          },
+          "domContentLoadedMs": {
+            "median": 57.29999999701977,
+            "p95": 81.40000000596046
+          },
+          "loadMs": {
+            "median": 63.29999999701977,
+            "p95": 88.79999999701977
+          },
+          "fcpMs": {
+            "median": 92,
+            "p95": 108
+          },
+          "lcpObservedMs": {
+            "median": 92,
+            "p95": 108
+          }
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "runtime": "worker",
+      "users": 1,
+      "file": "1-worker-1.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:13:45) (ZTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 18,
+      "completedNavigationsPerSecond": 2.923403044203031,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 9,
+            "p95": 14.100000008940697
+          },
+          "domContentLoadedMs": {
+            "median": 26.099999994039536,
+            "p95": 30.100000008940697
+          },
+          "loadMs": {
+            "median": 35.3999999910593,
+            "p95": 39.900000005960464
+          },
+          "fcpMs": {
+            "median": 36,
+            "p95": 40
+          },
+          "lcpObservedMs": {
+            "median": 36,
+            "p95": 40
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 97.5,
+            "p95": 121.70000000298023
+          },
+          "domContentLoadedMs": {
+            "median": 115,
+            "p95": 137.5
+          },
+          "loadMs": {
+            "median": 126.70000000298023,
+            "p95": 152.59999999403954
+          },
+          "fcpMs": {
+            "median": 128,
+            "p95": 148
+          },
+          "lcpObservedMs": {
+            "median": 128,
+            "p95": 148
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 11.900000005960464,
+            "p95": 21.19999998807907
+          },
+          "domContentLoadedMs": {
+            "median": 25.599999994039536,
+            "p95": 36.599999994039536
+          },
+          "loadMs": {
+            "median": 32.5,
+            "p95": 41.5
+          },
+          "fcpMs": {
+            "median": 36,
+            "p95": 44
+          },
+          "lcpObservedMs": {
+            "median": 36,
+            "p95": 44
+          }
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "runtime": "worker",
+      "users": 5,
+      "file": "1-worker-5.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:13:45) (ZTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 90,
+      "completedNavigationsPerSecond": 12.171332878253414,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 17.899999991059303,
+            "p95": 37.599999994039536
+          },
+          "domContentLoadedMs": {
+            "median": 39.900000005960464,
+            "p95": 61.29999999701977
+          },
+          "loadMs": {
+            "median": 44.29999999701977,
+            "p95": 68.40000000596046
+          },
+          "fcpMs": {
+            "median": 52,
+            "p95": 72
+          },
+          "lcpObservedMs": {
+            "median": 52,
+            "p95": 72
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 133.40000000596046,
+            "p95": 188.1000000089407
+          },
+          "domContentLoadedMs": {
+            "median": 155,
+            "p95": 213.40000000596046
+          },
+          "loadMs": {
+            "median": 164.59999999403954,
+            "p95": 221.6000000089407
+          },
+          "fcpMs": {
+            "median": 160,
+            "p95": 220
+          },
+          "lcpObservedMs": {
+            "median": 160,
+            "p95": 220
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 24,
+            "p95": 65
+          },
+          "domContentLoadedMs": {
+            "median": 43.1000000089407,
+            "p95": 109.5
+          },
+          "loadMs": {
+            "median": 48,
+            "p95": 113.20000000298023
+          },
+          "fcpMs": {
+            "median": 48,
+            "p95": 96
+          },
+          "lcpObservedMs": {
+            "median": 48,
+            "p95": 100
+          }
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "runtime": "worker",
+      "users": 10,
+      "file": "1-worker-10.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:13:45) (ZTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 180,
+      "completedNavigationsPerSecond": 20.00760965424066,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 31.100000008940697,
+            "p95": 172.29999999701977
+          },
+          "domContentLoadedMs": {
+            "median": 53.5,
+            "p95": 201.09999999403954
+          },
+          "loadMs": {
+            "median": 62,
+            "p95": 209
+          },
+          "fcpMs": {
+            "median": 84,
+            "p95": 224
+          },
+          "lcpObservedMs": {
+            "median": 84,
+            "p95": 224
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 202.29999999701977,
+            "p95": 375.79999999701977
+          },
+          "domContentLoadedMs": {
+            "median": 223.09999999403954,
+            "p95": 457.6000000089407
+          },
+          "loadMs": {
+            "median": 229.59999999403954,
+            "p95": 468
+          },
+          "fcpMs": {
+            "median": 232,
+            "p95": 412
+          },
+          "lcpObservedMs": {
+            "median": 232,
+            "p95": 412
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 23.5,
+            "p95": 53.79999999701977
+          },
+          "domContentLoadedMs": {
+            "median": 51.400000005960464,
+            "p95": 81.30000001192093
+          },
+          "loadMs": {
+            "median": 59.29999999701977,
+            "p95": 88.40000000596046
+          },
+          "fcpMs": {
+            "median": 72,
+            "p95": 108
+          },
+          "lcpObservedMs": {
+            "median": 72,
+            "p95": 108
+          }
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "runtime": "classic",
+      "users": 5,
+      "file": "2-classic-5.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:13:45) (ZTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 90,
+      "completedNavigationsPerSecond": 13.320484492661969,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 22.400000005960464,
+            "p95": 33.19999998807907
+          },
+          "domContentLoadedMs": {
+            "median": 38.69999998807907,
+            "p95": 53.70000000298023
+          },
+          "loadMs": {
+            "median": 49.099999994039536,
+            "p95": 62.5
+          },
+          "fcpMs": {
+            "median": 56,
+            "p95": 72
+          },
+          "lcpObservedMs": {
+            "median": 56,
+            "p95": 72
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 115.5,
+            "p95": 155.3999999910593
+          },
+          "domContentLoadedMs": {
+            "median": 135,
+            "p95": 174.29999999701977
+          },
+          "loadMs": {
+            "median": 142.90000000596046,
+            "p95": 187.69999998807907
+          },
+          "fcpMs": {
+            "median": 148,
+            "p95": 188
+          },
+          "lcpObservedMs": {
+            "median": 148,
+            "p95": 188
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 30.799999997019768,
+            "p95": 40.1000000089407
+          },
+          "domContentLoadedMs": {
+            "median": 46.5,
+            "p95": 56.29999999701977
+          },
+          "loadMs": {
+            "median": 50.70000000298023,
+            "p95": 61.70000000298023
+          },
+          "fcpMs": {
+            "median": 56,
+            "p95": 64
+          },
+          "lcpObservedMs": {
+            "median": 56,
+            "p95": 64
+          }
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "runtime": "classic",
+      "users": 10,
+      "file": "2-classic-10.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:13:45) (ZTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 180,
+      "completedNavigationsPerSecond": 19.337295659303916,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 33.20000000298023,
+            "p95": 75
+          },
+          "domContentLoadedMs": {
+            "median": 53.20000000298023,
+            "p95": 121.40000000596046
+          },
+          "loadMs": {
+            "median": 62.900000005960464,
+            "p95": 126.19999998807907
+          },
+          "fcpMs": {
+            "median": 76,
+            "p95": 108
+          },
+          "lcpObservedMs": {
+            "median": 76,
+            "p95": 108
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 203.1000000089407,
+            "p95": 373.6000000089407
+          },
+          "domContentLoadedMs": {
+            "median": 230,
+            "p95": 396.79999999701977
+          },
+          "loadMs": {
+            "median": 237.90000000596046,
+            "p95": 406.20000000298023
+          },
+          "fcpMs": {
+            "median": 232,
+            "p95": 412
+          },
+          "lcpObservedMs": {
+            "median": 244,
+            "p95": 412
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 42.5,
+            "p95": 88.59999999403954
+          },
+          "domContentLoadedMs": {
+            "median": 61.69999998807907,
+            "p95": 114.29999999701977
+          },
+          "loadMs": {
+            "median": 69,
+            "p95": 120.40000000596046
+          },
+          "fcpMs": {
+            "median": 84,
+            "p95": 112
+          },
+          "lcpObservedMs": {
+            "median": 84,
+            "p95": 112
+          }
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "runtime": "classic",
+      "users": 1,
+      "file": "2-classic-1.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:13:45) (ZTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 18,
+      "completedNavigationsPerSecond": 2.5786958890215277,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 17.799999997019768,
+            "p95": 47.20000000298023
+          },
+          "domContentLoadedMs": {
+            "median": 36.69999998807907,
+            "p95": 62.900000005960464
+          },
+          "loadMs": {
+            "median": 45.1000000089407,
+            "p95": 74.09999999403954
+          },
+          "fcpMs": {
+            "median": 44,
+            "p95": 72
+          },
+          "lcpObservedMs": {
+            "median": 44,
+            "p95": 72
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 131.5,
+            "p95": 166
+          },
+          "domContentLoadedMs": {
+            "median": 153.20000000298023,
+            "p95": 191.20000000298023
+          },
+          "loadMs": {
+            "median": 164.80000001192093,
+            "p95": 199.1000000089407
+          },
+          "fcpMs": {
+            "median": 164,
+            "p95": 200
+          },
+          "lcpObservedMs": {
+            "median": 164,
+            "p95": 200
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 32.6000000089407,
+            "p95": 55.3999999910593
+          },
+          "domContentLoadedMs": {
+            "median": 47.29999999701977,
+            "p95": 73.29999999701977
+          },
+          "loadMs": {
+            "median": 55.5,
+            "p95": 81.3999999910593
+          },
+          "fcpMs": {
+            "median": 56,
+            "p95": 84
+          },
+          "lcpObservedMs": {
+            "median": 56,
+            "p95": 84
+          }
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "runtime": "worker",
+      "users": 5,
+      "file": "2-worker-5.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:13:45) (ZTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 90,
+      "completedNavigationsPerSecond": 13.529773111342335,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 15.900000005960464,
+            "p95": 36
+          },
+          "domContentLoadedMs": {
+            "median": 41.29999999701977,
+            "p95": 55.900000005960464
+          },
+          "loadMs": {
+            "median": 47.70000000298023,
+            "p95": 68.40000000596046
+          },
+          "fcpMs": {
+            "median": 52,
+            "p95": 72
+          },
+          "lcpObservedMs": {
+            "median": 52,
+            "p95": 72
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 100.59999999403954,
+            "p95": 129.1000000089407
+          },
+          "domContentLoadedMs": {
+            "median": 126.5,
+            "p95": 148.40000000596046
+          },
+          "loadMs": {
+            "median": 137.3999999910593,
+            "p95": 158.5
+          },
+          "fcpMs": {
+            "median": 136,
+            "p95": 160
+          },
+          "lcpObservedMs": {
+            "median": 136,
+            "p95": 160
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 24.299999997019768,
+            "p95": 32.099999994039536
+          },
+          "domContentLoadedMs": {
+            "median": 43.70000000298023,
+            "p95": 53.099999994039536
+          },
+          "loadMs": {
+            "median": 49.5,
+            "p95": 59.400000005960464
+          },
+          "fcpMs": {
+            "median": 60,
+            "p95": 72
+          },
+          "lcpObservedMs": {
+            "median": 60,
+            "p95": 72
+          }
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "runtime": "worker",
+      "users": 10,
+      "file": "2-worker-10.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:13:45) (ZTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 180,
+      "completedNavigationsPerSecond": 22.411327481756455,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 28.5,
+            "p95": 43.20000000298023
+          },
+          "domContentLoadedMs": {
+            "median": 53.20000000298023,
+            "p95": 83.29999999701977
+          },
+          "loadMs": {
+            "median": 61.8999999910593,
+            "p95": 90.59999999403954
+          },
+          "fcpMs": {
+            "median": 80,
+            "p95": 96
+          },
+          "lcpObservedMs": {
+            "median": 80,
+            "p95": 96
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 146.79999999701977,
+            "p95": 245.79999999701977
+          },
+          "domContentLoadedMs": {
+            "median": 170.8999999910593,
+            "p95": 267.20000000298023
+          },
+          "loadMs": {
+            "median": 178.3999999910593,
+            "p95": 275.59999999403954
+          },
+          "fcpMs": {
+            "median": 180,
+            "p95": 284
+          },
+          "lcpObservedMs": {
+            "median": 180,
+            "p95": 284
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 30.900000005960464,
+            "p95": 58.400000005960464
+          },
+          "domContentLoadedMs": {
+            "median": 50.70000000298023,
+            "p95": 81.69999998807907
+          },
+          "loadMs": {
+            "median": 57.1000000089407,
+            "p95": 88.59999999403954
+          },
+          "fcpMs": {
+            "median": 80,
+            "p95": 92
+          },
+          "lcpObservedMs": {
+            "median": 80,
+            "p95": 92
+          }
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "runtime": "worker",
+      "users": 1,
+      "file": "2-worker-1.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:13:45) (ZTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 18,
+      "completedNavigationsPerSecond": 2.823766977163017,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 9.200000002980232,
+            "p95": 12.400000005960464
+          },
+          "domContentLoadedMs": {
+            "median": 31.5,
+            "p95": 40
+          },
+          "loadMs": {
+            "median": 42.400000005960464,
+            "p95": 52.900000005960464
+          },
+          "fcpMs": {
+            "median": 44,
+            "p95": 52
+          },
+          "lcpObservedMs": {
+            "median": 44,
+            "p95": 52
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 94.20000000298023,
+            "p95": 101.20000000298023
+          },
+          "domContentLoadedMs": {
+            "median": 122.90000000596046,
+            "p95": 137.79999999701977
+          },
+          "loadMs": {
+            "median": 133.09999999403954,
+            "p95": 148.79999999701977
+          },
+          "fcpMs": {
+            "median": 132,
+            "p95": 148
+          },
+          "lcpObservedMs": {
+            "median": 132,
+            "p95": 148
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 13.200000002980232,
+            "p95": 31
+          },
+          "domContentLoadedMs": {
+            "median": 33.29999999701977,
+            "p95": 55.5
+          },
+          "loadMs": {
+            "median": 42.20000000298023,
+            "p95": 65.8999999910593
+          },
+          "fcpMs": {
+            "median": 44,
+            "p95": 68
+          },
+          "lcpObservedMs": {
+            "median": 44,
+            "p95": 68
+          }
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "runtime": "fpm",
+      "users": 5,
+      "file": "2-fpm-5.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:15:03) (NTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 90,
+      "completedNavigationsPerSecond": 13.124354958460614,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 24.900000005960464,
+            "p95": 37.8999999910593
+          },
+          "domContentLoadedMs": {
+            "median": 52.400000005960464,
+            "p95": 62.79999999701977
+          },
+          "loadMs": {
+            "median": 60.599999994039536,
+            "p95": 70.20000000298023
+          },
+          "fcpMs": {
+            "median": 64,
+            "p95": 76
+          },
+          "lcpObservedMs": {
+            "median": 64,
+            "p95": 76
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 116.6000000089407,
+            "p95": 124.59999999403954
+          },
+          "domContentLoadedMs": {
+            "median": 141.79999999701977,
+            "p95": 157.79999999701977
+          },
+          "loadMs": {
+            "median": 148.69999998807907,
+            "p95": 163.79999999701977
+          },
+          "fcpMs": {
+            "median": 152,
+            "p95": 168
+          },
+          "lcpObservedMs": {
+            "median": 152,
+            "p95": 168
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 30.600000008940697,
+            "p95": 41.20000000298023
+          },
+          "domContentLoadedMs": {
+            "median": 49.70000000298023,
+            "p95": 59.900000005960464
+          },
+          "loadMs": {
+            "median": 58.5,
+            "p95": 67.40000000596046
+          },
+          "fcpMs": {
+            "median": 60,
+            "p95": 76
+          },
+          "lcpObservedMs": {
+            "median": 60,
+            "p95": 76
+          }
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "runtime": "fpm",
+      "users": 10,
+      "file": "2-fpm-10.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:15:03) (NTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 180,
+      "completedNavigationsPerSecond": 22.311587935450454,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 30.899999991059303,
+            "p95": 70.3999999910593
+          },
+          "domContentLoadedMs": {
+            "median": 55.70000000298023,
+            "p95": 92.79999999701977
+          },
+          "loadMs": {
+            "median": 64.90000000596046,
+            "p95": 103.79999999701977
+          },
+          "fcpMs": {
+            "median": 84,
+            "p95": 100
+          },
+          "lcpObservedMs": {
+            "median": 84,
+            "p95": 100
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 124.40000000596046,
+            "p95": 237.29999999701977
+          },
+          "domContentLoadedMs": {
+            "median": 158.30000001192093,
+            "p95": 259.29999999701977
+          },
+          "loadMs": {
+            "median": 162.90000000596046,
+            "p95": 265.8999999910593
+          },
+          "fcpMs": {
+            "median": 168,
+            "p95": 276
+          },
+          "lcpObservedMs": {
+            "median": 168,
+            "p95": 276
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 41.20000000298023,
+            "p95": 72.6000000089407
+          },
+          "domContentLoadedMs": {
+            "median": 61.6000000089407,
+            "p95": 102.6000000089407
+          },
+          "loadMs": {
+            "median": 66.29999999701977,
+            "p95": 109
+          },
+          "fcpMs": {
+            "median": 76,
+            "p95": 108
+          },
+          "lcpObservedMs": {
+            "median": 76,
+            "p95": 112
+          }
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "runtime": "fpm",
+      "users": 1,
+      "file": "2-fpm-1.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:15:03) (NTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 18,
+      "completedNavigationsPerSecond": 2.7705234848329345,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 18.200000002980232,
+            "p95": 22.200000002980232
+          },
+          "domContentLoadedMs": {
+            "median": 38.1000000089407,
+            "p95": 52.6000000089407
+          },
+          "loadMs": {
+            "median": 49.099999994039536,
+            "p95": 64.70000000298023
+          },
+          "fcpMs": {
+            "median": 48,
+            "p95": 64
+          },
+          "lcpObservedMs": {
+            "median": 48,
+            "p95": 64
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 98.3999999910593,
+            "p95": 115.6000000089407
+          },
+          "domContentLoadedMs": {
+            "median": 118.70000000298023,
+            "p95": 144.5
+          },
+          "loadMs": {
+            "median": 130.20000000298023,
+            "p95": 155.90000000596046
+          },
+          "fcpMs": {
+            "median": 132,
+            "p95": 156
+          },
+          "lcpObservedMs": {
+            "median": 132,
+            "p95": 156
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 35.6000000089407,
+            "p95": 49.19999998807907
+          },
+          "domContentLoadedMs": {
+            "median": 55.20000000298023,
+            "p95": 82.3999999910593
+          },
+          "loadMs": {
+            "median": 64.1000000089407,
+            "p95": 91.79999999701977
+          },
+          "fcpMs": {
+            "median": 64,
+            "p95": 92
+          },
+          "lcpObservedMs": {
+            "median": 64,
+            "p95": 92
+          }
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "runtime": "worker",
+      "users": 10,
+      "file": "3-worker-10.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:13:45) (ZTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 180,
+      "completedNavigationsPerSecond": 23.140994459087793,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 25.100000008940697,
+            "p95": 40.6000000089407
+          },
+          "domContentLoadedMs": {
+            "median": 44.19999998807907,
+            "p95": 64.40000000596046
+          },
+          "loadMs": {
+            "median": 52.20000000298023,
+            "p95": 74.90000000596046
+          },
+          "fcpMs": {
+            "median": 72,
+            "p95": 100
+          },
+          "lcpObservedMs": {
+            "median": 72,
+            "p95": 100
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 119.6000000089407,
+            "p95": 210.29999999701977
+          },
+          "domContentLoadedMs": {
+            "median": 139.29999999701977,
+            "p95": 234.20000000298023
+          },
+          "loadMs": {
+            "median": 149.29999999701977,
+            "p95": 241.29999999701977
+          },
+          "fcpMs": {
+            "median": 148,
+            "p95": 244
+          },
+          "lcpObservedMs": {
+            "median": 148,
+            "p95": 244
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 27.299999997019768,
+            "p95": 50.099999994039536
+          },
+          "domContentLoadedMs": {
+            "median": 44.099999994039536,
+            "p95": 65.09999999403954
+          },
+          "loadMs": {
+            "median": 51,
+            "p95": 71.79999999701977
+          },
+          "fcpMs": {
+            "median": 84,
+            "p95": 92
+          },
+          "lcpObservedMs": {
+            "median": 84,
+            "p95": 92
+          }
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "runtime": "worker",
+      "users": 1,
+      "file": "3-worker-1.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:13:45) (ZTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 18,
+      "completedNavigationsPerSecond": 3.0174396909961523,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 13.100000008940697,
+            "p95": 18.299999997019768
+          },
+          "domContentLoadedMs": {
+            "median": 29.5,
+            "p95": 37.5
+          },
+          "loadMs": {
+            "median": 38,
+            "p95": 42
+          },
+          "fcpMs": {
+            "median": 36,
+            "p95": 44
+          },
+          "lcpObservedMs": {
+            "median": 36,
+            "p95": 44
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 88.3999999910593,
+            "p95": 91.80000001192093
+          },
+          "domContentLoadedMs": {
+            "median": 105.09999999403954,
+            "p95": 110.5
+          },
+          "loadMs": {
+            "median": 115.79999999701977,
+            "p95": 120.1000000089407
+          },
+          "fcpMs": {
+            "median": 116,
+            "p95": 120
+          },
+          "lcpObservedMs": {
+            "median": 116,
+            "p95": 120
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 12.400000005960464,
+            "p95": 15.900000005960464
+          },
+          "domContentLoadedMs": {
+            "median": 24.600000008940697,
+            "p95": 27.900000005960464
+          },
+          "loadMs": {
+            "median": 30.700000002980232,
+            "p95": 34.20000000298023
+          },
+          "fcpMs": {
+            "median": 32,
+            "p95": 36
+          },
+          "lcpObservedMs": {
+            "median": 32,
+            "p95": 36
+          }
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "runtime": "worker",
+      "users": 5,
+      "file": "3-worker-5.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:13:45) (ZTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 90,
+      "completedNavigationsPerSecond": 12.726840088499625,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 18.19999998807907,
+            "p95": 36.5
+          },
+          "domContentLoadedMs": {
+            "median": 37.20000000298023,
+            "p95": 55.6000000089407
+          },
+          "loadMs": {
+            "median": 44.8999999910593,
+            "p95": 62.79999999701977
+          },
+          "fcpMs": {
+            "median": 52,
+            "p95": 68
+          },
+          "lcpObservedMs": {
+            "median": 52,
+            "p95": 68
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 119,
+            "p95": 195.19999998807907
+          },
+          "domContentLoadedMs": {
+            "median": 139.3999999910593,
+            "p95": 215.5
+          },
+          "loadMs": {
+            "median": 145.90000000596046,
+            "p95": 227.19999998807907
+          },
+          "fcpMs": {
+            "median": 144,
+            "p95": 228
+          },
+          "lcpObservedMs": {
+            "median": 144,
+            "p95": 228
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 21,
+            "p95": 104.30000001192093
+          },
+          "domContentLoadedMs": {
+            "median": 36.8999999910593,
+            "p95": 122.70000000298023
+          },
+          "loadMs": {
+            "median": 43.20000000298023,
+            "p95": 127.1000000089407
+          },
+          "fcpMs": {
+            "median": 52,
+            "p95": 132
+          },
+          "lcpObservedMs": {
+            "median": 52,
+            "p95": 132
+          }
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "runtime": "fpm",
+      "users": 10,
+      "file": "3-fpm-10.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:15:03) (NTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 180,
+      "completedNavigationsPerSecond": 21.2393208620958,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 29.299999997019768,
+            "p95": 72.79999999701977
+          },
+          "domContentLoadedMs": {
+            "median": 51.70000000298023,
+            "p95": 90.70000000298023
+          },
+          "loadMs": {
+            "median": 60.79999999701977,
+            "p95": 102.70000000298023
+          },
+          "fcpMs": {
+            "median": 72,
+            "p95": 96
+          },
+          "lcpObservedMs": {
+            "median": 72,
+            "p95": 96
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 183.29999999701977,
+            "p95": 321.09999999403954
+          },
+          "domContentLoadedMs": {
+            "median": 206.70000000298023,
+            "p95": 343.80000001192093
+          },
+          "loadMs": {
+            "median": 214.59999999403954,
+            "p95": 349.20000000298023
+          },
+          "fcpMs": {
+            "median": 204,
+            "p95": 348
+          },
+          "lcpObservedMs": {
+            "median": 204,
+            "p95": 348
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 38.29999999701977,
+            "p95": 72.09999999403954
+          },
+          "domContentLoadedMs": {
+            "median": 55.900000005960464,
+            "p95": 88.90000000596046
+          },
+          "loadMs": {
+            "median": 63,
+            "p95": 96.29999999701977
+          },
+          "fcpMs": {
+            "median": 76,
+            "p95": 100
+          },
+          "lcpObservedMs": {
+            "median": 76,
+            "p95": 100
+          }
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "runtime": "fpm",
+      "users": 1,
+      "file": "3-fpm-1.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:15:03) (NTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 18,
+      "completedNavigationsPerSecond": 2.9041264955217816,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 15.900000005960464,
+            "p95": 24.299999997019768
+          },
+          "domContentLoadedMs": {
+            "median": 30.700000002980232,
+            "p95": 41.099999994039536
+          },
+          "loadMs": {
+            "median": 40.5,
+            "p95": 51.400000005960464
+          },
+          "fcpMs": {
+            "median": 40,
+            "p95": 52
+          },
+          "lcpObservedMs": {
+            "median": 40,
+            "p95": 52
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 97.90000000596046,
+            "p95": 109.09999999403954
+          },
+          "domContentLoadedMs": {
+            "median": 114.80000001192093,
+            "p95": 124.19999998807907
+          },
+          "loadMs": {
+            "median": 124,
+            "p95": 139.59999999403954
+          },
+          "fcpMs": {
+            "median": 124,
+            "p95": 136
+          },
+          "lcpObservedMs": {
+            "median": 124,
+            "p95": 136
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 26.399999991059303,
+            "p95": 34.599999994039536
+          },
+          "domContentLoadedMs": {
+            "median": 41.900000005960464,
+            "p95": 49.70000000298023
+          },
+          "loadMs": {
+            "median": 48.70000000298023,
+            "p95": 54
+          },
+          "fcpMs": {
+            "median": 52,
+            "p95": 56
+          },
+          "lcpObservedMs": {
+            "median": 52,
+            "p95": 56
+          }
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "runtime": "fpm",
+      "users": 5,
+      "file": "3-fpm-5.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:15:03) (NTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 90,
+      "completedNavigationsPerSecond": 13.25896697951871,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 24,
+            "p95": 32.3999999910593
+          },
+          "domContentLoadedMs": {
+            "median": 41,
+            "p95": 51
+          },
+          "loadMs": {
+            "median": 50.79999999701977,
+            "p95": 60.79999999701977
+          },
+          "fcpMs": {
+            "median": 56,
+            "p95": 64
+          },
+          "lcpObservedMs": {
+            "median": 56,
+            "p95": 64
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 112.69999998807907,
+            "p95": 149.3999999910593
+          },
+          "domContentLoadedMs": {
+            "median": 131.29999999701977,
+            "p95": 171.19999998807907
+          },
+          "loadMs": {
+            "median": 140.20000000298023,
+            "p95": 182.79999999701977
+          },
+          "fcpMs": {
+            "median": 144,
+            "p95": 184
+          },
+          "lcpObservedMs": {
+            "median": 144,
+            "p95": 184
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 34.70000000298023,
+            "p95": 41.70000000298023
+          },
+          "domContentLoadedMs": {
+            "median": 49.8999999910593,
+            "p95": 61.70000000298023
+          },
+          "loadMs": {
+            "median": 56.099999994039536,
+            "p95": 65.79999999701977
+          },
+          "fcpMs": {
+            "median": 60,
+            "p95": 68
+          },
+          "lcpObservedMs": {
+            "median": 60,
+            "p95": 68
+          }
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "runtime": "classic",
+      "users": 10,
+      "file": "3-classic-10.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:13:45) (ZTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 180,
+      "completedNavigationsPerSecond": 18.367963343259657,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 38,
+            "p95": 82.79999999701977
+          },
+          "domContentLoadedMs": {
+            "median": 65,
+            "p95": 137.59999999403954
+          },
+          "loadMs": {
+            "median": 73.19999998807907,
+            "p95": 142.5
+          },
+          "fcpMs": {
+            "median": 64,
+            "p95": 112
+          },
+          "lcpObservedMs": {
+            "median": 64,
+            "p95": 112
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 275.5,
+            "p95": 573.2000000029802
+          },
+          "domContentLoadedMs": {
+            "median": 299.90000000596046,
+            "p95": 595.3999999910593
+          },
+          "loadMs": {
+            "median": 307.8999999910593,
+            "p95": 607.3999999910593
+          },
+          "fcpMs": {
+            "median": 300,
+            "p95": 608
+          },
+          "lcpObservedMs": {
+            "median": 300,
+            "p95": 608
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 51.099999994039536,
+            "p95": 80.5
+          },
+          "domContentLoadedMs": {
+            "median": 75.19999998807907,
+            "p95": 115.69999998807907
+          },
+          "loadMs": {
+            "median": 81.09999999403954,
+            "p95": 124.79999999701977
+          },
+          "fcpMs": {
+            "median": 84,
+            "p95": 128
+          },
+          "lcpObservedMs": {
+            "median": 84,
+            "p95": 128
+          }
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "runtime": "classic",
+      "users": 1,
+      "file": "3-classic-1.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:13:45) (ZTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 18,
+      "completedNavigationsPerSecond": 2.8505553779563453,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 7,
+            "p95": 17.099999994039536
+          },
+          "domContentLoadedMs": {
+            "median": 27.69999998807907,
+            "p95": 39
+          },
+          "loadMs": {
+            "median": 37.79999999701977,
+            "p95": 51.3999999910593
+          },
+          "fcpMs": {
+            "median": 36,
+            "p95": 52
+          },
+          "lcpObservedMs": {
+            "median": 36,
+            "p95": 52
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 86.29999999701977,
+            "p95": 122.70000000298023
+          },
+          "domContentLoadedMs": {
+            "median": 115.69999998807907,
+            "p95": 146.09999999403954
+          },
+          "loadMs": {
+            "median": 129.59999999403954,
+            "p95": 157.59999999403954
+          },
+          "fcpMs": {
+            "median": 128,
+            "p95": 156
+          },
+          "lcpObservedMs": {
+            "median": 128,
+            "p95": 156
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 24.900000005960464,
+            "p95": 38.29999999701977
+          },
+          "domContentLoadedMs": {
+            "median": 40.79999999701977,
+            "p95": 64.70000000298023
+          },
+          "loadMs": {
+            "median": 47.5,
+            "p95": 74.09999999403954
+          },
+          "fcpMs": {
+            "median": 48,
+            "p95": 76
+          },
+          "lcpObservedMs": {
+            "median": 48,
+            "p95": 76
+          }
+        }
+      }
+    },
+    {
+      "repeat": 3,
+      "runtime": "classic",
+      "users": 5,
+      "file": "3-classic-5.json",
+      "runtimeEvidence": "PHP 8.4.26 (cli) (built: Sep 24 2026 19:13:45) (ZTS)\nCopyright (c) The PHP Group\nBuilt by https://github.com/docker-library/php\nZend Engine v4.4.26, Copyright (c) Zend Technologies\n    with Zend OPcache v8.4.26, Copyright (c), by Zend Technologies\n1\n0\n868f25121f764f41d6490fd032d6f28507be4e43\n7b468bef72e8e2d9096897938f0fc5fc20bd98728a58a7ae77fcec21860944c1  src/Core/Kernel.php\n503f50c2bfc41f61d2f2bf26368ffb554c364680f7021cc05b22a7539a70739a  src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php\n26968efa98b88fb03626de63f910498212af148c90d702c97f6e524aa78a4852  src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php\n57120361c63128ef941e84185b2313004547be1388c0aad5b67c6e67847b50df  src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php\n",
+      "browserVersion": "153.0.8010.12",
+      "completed": true,
+      "navigations": 90,
+      "completedNavigationsPerSecond": 13.115184501926581,
+      "summary": {
+        "homepage": {
+          "ttfbMs": {
+            "median": 27.700000002980232,
+            "p95": 42.8999999910593
+          },
+          "domContentLoadedMs": {
+            "median": 53.5,
+            "p95": 71.5
+          },
+          "loadMs": {
+            "median": 62,
+            "p95": 81.29999999701977
+          },
+          "fcpMs": {
+            "median": 64,
+            "p95": 76
+          },
+          "lcpObservedMs": {
+            "median": 68,
+            "p95": 76
+          }
+        },
+        "search": {
+          "ttfbMs": {
+            "median": 120.59999999403954,
+            "p95": 126.79999999701977
+          },
+          "domContentLoadedMs": {
+            "median": 149.20000000298023,
+            "p95": 156.69999998807907
+          },
+          "loadMs": {
+            "median": 156.6000000089407,
+            "p95": 166.5
+          },
+          "fcpMs": {
+            "median": 160,
+            "p95": 172
+          },
+          "lcpObservedMs": {
+            "median": 160,
+            "p95": 172
+          }
+        },
+        "product": {
+          "ttfbMs": {
+            "median": 33,
+            "p95": 42.8999999910593
+          },
+          "domContentLoadedMs": {
+            "median": 54.79999999701977,
+            "p95": 65.79999999701977
+          },
+          "loadMs": {
+            "median": 62,
+            "p95": 75
+          },
+          "fcpMs": {
+            "median": 64,
+            "p95": 84
+          },
+          "lcpObservedMs": {
+            "median": 64,
+            "p95": 84
+          }
+        }
+      }
+    }
+  ],
+  "restoredClassic": true,
+  "finishedAt": "2026-10-01T12:05:20.259Z"
+}

@@ -1,0 +1,496 @@
+{
+  "date": "2026-10-01",
+  "source": "868f25121f764f41d6490fd032d6f28507be4e43",
+  "patches": ["plugin-init.patch", "monolog-reset.patch"],
+  "playwright": "1.63.0",
+  "browser": "Chromium",
+  "url": "http://localhost:8080",
+  "http_cache": false,
+  "php_execution_slots": 5,
+  "worker_loop_max": 0,
+  "scope": "Single-domain storefront correctness; diagnostic timings are not a benchmark",
+  "runtimes": {
+    "classic": {
+      "started_at": "2026-10-01T11:37:55.115Z",
+      "tests": [
+        {
+          "name": "frontend-home-page: rendered page, JavaScript and fonts",
+          "project": "smoke",
+          "outcome": "expected",
+          "attempts": ["passed"]
+        },
+        {
+          "name": "frontend-account-login-page: rendered page, JavaScript and fonts",
+          "project": "smoke",
+          "outcome": "expected",
+          "attempts": ["passed"]
+        },
+        {
+          "name": "frontend-search-page: rendered page, JavaScript and fonts",
+          "project": "smoke",
+          "outcome": "expected",
+          "attempts": ["passed"]
+        },
+        {
+          "name": "search form navigates to rendered results",
+          "project": "smoke",
+          "outcome": "expected",
+          "attempts": ["passed"]
+        },
+        {
+          "name": "seeded product can be added and removed without leaking to another guest",
+          "project": "catalog",
+          "outcome": "expected",
+          "attempts": ["passed"]
+        }
+      ],
+      "navigation_samples": [
+        {
+          "test": "frontend-home-page: rendered page, JavaScript and fonts",
+          "navigation": "navigation-frontend-home-page",
+          "timing": {
+            "url": "http://localhost:8080/",
+            "ttfbMs": 118,
+            "domContentLoadedMs": 216.6,
+            "loadMs": 259.5,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "frontend-account-login-page: rendered page, JavaScript and fonts",
+          "navigation": "navigation-frontend-account-login-page",
+          "timing": {
+            "url": "http://localhost:8080/account/login",
+            "ttfbMs": 89.7,
+            "domContentLoadedMs": 147.5,
+            "loadMs": 164.6,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "frontend-search-page: rendered page, JavaScript and fonts",
+          "navigation": "navigation-frontend-search-page",
+          "timing": {
+            "url": "http://localhost:8080/search?search=Lab",
+            "ttfbMs": 101.1,
+            "domContentLoadedMs": 153.6,
+            "loadMs": 171.7,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "search form navigates to rendered results",
+          "navigation": "navigation-frontend-home-page",
+          "timing": {
+            "url": "http://localhost:8080/",
+            "ttfbMs": 76.6,
+            "domContentLoadedMs": 132,
+            "loadMs": 149.6,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-detail-page",
+          "timing": {
+            "url": "http://localhost:8080/Lab-product-0/FP-LAB-00000",
+            "ttfbMs": 111.5,
+            "domContentLoadedMs": 161.3,
+            "loadMs": 177.7,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-checkout-cart-page",
+          "timing": {
+            "url": "http://localhost:8080/checkout/cart",
+            "ttfbMs": 89,
+            "domContentLoadedMs": 136.8,
+            "loadMs": 148.2,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-checkout-cart-page",
+          "timing": {
+            "url": "http://localhost:8080/checkout/cart",
+            "ttfbMs": 47.9,
+            "domContentLoadedMs": 88.3,
+            "loadMs": 100.1,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-checkout-cart-page",
+          "timing": {
+            "url": "http://localhost:8080/checkout/cart",
+            "ttfbMs": 42.3,
+            "domContentLoadedMs": 63.3,
+            "loadMs": 71.8,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-checkout-cart-page",
+          "timing": {
+            "url": "http://localhost:8080/checkout/cart",
+            "ttfbMs": 48.4,
+            "domContentLoadedMs": 70.2,
+            "loadMs": 82.4,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-checkout-cart-page",
+          "timing": {
+            "url": "http://localhost:8080/checkout/cart",
+            "ttfbMs": 51.4,
+            "domContentLoadedMs": 63.3,
+            "loadMs": 84.8,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-checkout-cart-page",
+          "timing": {
+            "url": "http://localhost:8080/checkout/cart",
+            "ttfbMs": 42,
+            "domContentLoadedMs": 62.7,
+            "loadMs": 69,
+            "protocol": "http/1.1"
+          }
+        }
+      ]
+    },
+    "worker": {
+      "started_at": "2026-10-01T11:38:11.438Z",
+      "tests": [
+        {
+          "name": "frontend-home-page: rendered page, JavaScript and fonts",
+          "project": "smoke",
+          "outcome": "expected",
+          "attempts": ["passed"]
+        },
+        {
+          "name": "frontend-account-login-page: rendered page, JavaScript and fonts",
+          "project": "smoke",
+          "outcome": "expected",
+          "attempts": ["passed"]
+        },
+        {
+          "name": "frontend-search-page: rendered page, JavaScript and fonts",
+          "project": "smoke",
+          "outcome": "expected",
+          "attempts": ["passed"]
+        },
+        {
+          "name": "search form navigates to rendered results",
+          "project": "smoke",
+          "outcome": "expected",
+          "attempts": ["passed"]
+        },
+        {
+          "name": "seeded product can be added and removed without leaking to another guest",
+          "project": "catalog",
+          "outcome": "expected",
+          "attempts": ["passed"]
+        }
+      ],
+      "navigation_samples": [
+        {
+          "test": "frontend-home-page: rendered page, JavaScript and fonts",
+          "navigation": "navigation-frontend-home-page",
+          "timing": {
+            "url": "http://localhost:8080/",
+            "ttfbMs": 618.9,
+            "domContentLoadedMs": 686.5,
+            "loadMs": 706.2,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "frontend-account-login-page: rendered page, JavaScript and fonts",
+          "navigation": "navigation-frontend-account-login-page",
+          "timing": {
+            "url": "http://localhost:8080/account/login",
+            "ttfbMs": 77.5,
+            "domContentLoadedMs": 135.8,
+            "loadMs": 152.1,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "frontend-search-page: rendered page, JavaScript and fonts",
+          "navigation": "navigation-frontend-search-page",
+          "timing": {
+            "url": "http://localhost:8080/search?search=Lab",
+            "ttfbMs": 87.4,
+            "domContentLoadedMs": 141,
+            "loadMs": 158.5,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "search form navigates to rendered results",
+          "navigation": "navigation-frontend-home-page",
+          "timing": {
+            "url": "http://localhost:8080/",
+            "ttfbMs": 69.5,
+            "domContentLoadedMs": 124.4,
+            "loadMs": 142.6,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-detail-page",
+          "timing": {
+            "url": "http://localhost:8080/Lab-product-0/FP-LAB-00000",
+            "ttfbMs": 105.8,
+            "domContentLoadedMs": 154.2,
+            "loadMs": 170.5,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-checkout-cart-page",
+          "timing": {
+            "url": "http://localhost:8080/checkout/cart",
+            "ttfbMs": 95.6,
+            "domContentLoadedMs": 137.3,
+            "loadMs": 153.1,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-checkout-cart-page",
+          "timing": {
+            "url": "http://localhost:8080/checkout/cart",
+            "ttfbMs": 43.8,
+            "domContentLoadedMs": 85.6,
+            "loadMs": 98.3,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-checkout-cart-page",
+          "timing": {
+            "url": "http://localhost:8080/checkout/cart",
+            "ttfbMs": 36.2,
+            "domContentLoadedMs": 57.7,
+            "loadMs": 66,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-checkout-cart-page",
+          "timing": {
+            "url": "http://localhost:8080/checkout/cart",
+            "ttfbMs": 40.8,
+            "domContentLoadedMs": 64.6,
+            "loadMs": 76.3,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-checkout-cart-page",
+          "timing": {
+            "url": "http://localhost:8080/checkout/cart",
+            "ttfbMs": 40.4,
+            "domContentLoadedMs": 62,
+            "loadMs": 73.9,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-checkout-cart-page",
+          "timing": {
+            "url": "http://localhost:8080/checkout/cart",
+            "ttfbMs": 33.2,
+            "domContentLoadedMs": 52.4,
+            "loadMs": 60.9,
+            "protocol": "http/1.1"
+          }
+        }
+      ]
+    },
+    "fpm": {
+      "started_at": "2026-10-01T11:38:39.350Z",
+      "tests": [
+        {
+          "name": "frontend-home-page: rendered page, JavaScript and fonts",
+          "project": "smoke",
+          "outcome": "expected",
+          "attempts": ["passed"]
+        },
+        {
+          "name": "frontend-account-login-page: rendered page, JavaScript and fonts",
+          "project": "smoke",
+          "outcome": "expected",
+          "attempts": ["passed"]
+        },
+        {
+          "name": "frontend-search-page: rendered page, JavaScript and fonts",
+          "project": "smoke",
+          "outcome": "expected",
+          "attempts": ["passed"]
+        },
+        {
+          "name": "search form navigates to rendered results",
+          "project": "smoke",
+          "outcome": "expected",
+          "attempts": ["passed"]
+        },
+        {
+          "name": "seeded product can be added and removed without leaking to another guest",
+          "project": "catalog",
+          "outcome": "expected",
+          "attempts": ["passed"]
+        }
+      ],
+      "navigation_samples": [
+        {
+          "test": "frontend-home-page: rendered page, JavaScript and fonts",
+          "navigation": "navigation-frontend-home-page",
+          "timing": {
+            "url": "http://localhost:8080/",
+            "ttfbMs": 567.8,
+            "domContentLoadedMs": 634.6,
+            "loadMs": 653.3,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "frontend-account-login-page: rendered page, JavaScript and fonts",
+          "navigation": "navigation-frontend-account-login-page",
+          "timing": {
+            "url": "http://localhost:8080/account/login",
+            "ttfbMs": 75.7,
+            "domContentLoadedMs": 128.7,
+            "loadMs": 143.4,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "frontend-search-page: rendered page, JavaScript and fonts",
+          "navigation": "navigation-frontend-search-page",
+          "timing": {
+            "url": "http://localhost:8080/search?search=Lab",
+            "ttfbMs": 107.3,
+            "domContentLoadedMs": 161.2,
+            "loadMs": 180.6,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "search form navigates to rendered results",
+          "navigation": "navigation-frontend-home-page",
+          "timing": {
+            "url": "http://localhost:8080/",
+            "ttfbMs": 75.8,
+            "domContentLoadedMs": 129.8,
+            "loadMs": 147,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-detail-page",
+          "timing": {
+            "url": "http://localhost:8080/Lab-product-0/FP-LAB-00000",
+            "ttfbMs": 71.7,
+            "domContentLoadedMs": 119.6,
+            "loadMs": 135.8,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-checkout-cart-page",
+          "timing": {
+            "url": "http://localhost:8080/checkout/cart",
+            "ttfbMs": 55.2,
+            "domContentLoadedMs": 91.7,
+            "loadMs": 106.4,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-checkout-cart-page",
+          "timing": {
+            "url": "http://localhost:8080/checkout/cart",
+            "ttfbMs": 40.4,
+            "domContentLoadedMs": 81,
+            "loadMs": 92.9,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-checkout-cart-page",
+          "timing": {
+            "url": "http://localhost:8080/checkout/cart",
+            "ttfbMs": 42.8,
+            "domContentLoadedMs": 63.8,
+            "loadMs": 72.1,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-checkout-cart-page",
+          "timing": {
+            "url": "http://localhost:8080/checkout/cart",
+            "ttfbMs": 49.1,
+            "domContentLoadedMs": 71.9,
+            "loadMs": 84.3,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-checkout-cart-page",
+          "timing": {
+            "url": "http://localhost:8080/checkout/cart",
+            "ttfbMs": 50.4,
+            "domContentLoadedMs": 71.6,
+            "loadMs": 83,
+            "protocol": "http/1.1"
+          }
+        },
+        {
+          "test": "seeded product can be added and removed without leaking to another guest",
+          "navigation": "navigation-frontend-checkout-cart-page",
+          "timing": {
+            "url": "http://localhost:8080/checkout/cart",
+            "ttfbMs": 39,
+            "domContentLoadedMs": 60.2,
+            "loadMs": 67.9,
+            "protocol": "http/1.1"
+          }
+        }
+      ]
+    }
+  },
+  "negative_control": "Aborted web-font requests; browser checker rejected the page as required.",
+  "timing_limitations": [
+    "Single functional test sequence per runtime; no controlled warm-up or repeated performance trials.",
+    "Classic was already running; worker and FPM were recreated before testing.",
+    "Browser contexts, HTTP connections and asset caches differ between first visits and later cart navigations.",
+    "Local HTTP/1.1, Shopware HTTP cache disabled, no network/CPU throttling.",
+    "No FCP, LCP, CLS or INP collected."
+  ]
+}

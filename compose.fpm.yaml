@@ -1,0 +1,8 @@
+# Same public storefront URL and data, with Shopware's FPM image as control.
+# Use with compose.yaml only; do not combine with compose.worker.yaml.
+services:
+  web:
+    image: ${FPM_IMAGE:-ghcr.io/shopware/docker-base:8.4-caddy}
+    environment:
+      FPM_PM: static
+      FPM_PM_MAX_CHILDREN: "5"

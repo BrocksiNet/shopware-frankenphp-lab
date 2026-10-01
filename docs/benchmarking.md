@@ -171,3 +171,11 @@ Stop only the additional services when finished:
 ```bash
 docker compose -f compose.yaml -f compose.benchmark.yaml stop worker fpm
 ```
+
+## Browser-level storefront comparison
+
+The Admin load generator does not execute JavaScript or render pages. For TTFB,
+FCP and observed LCP under concurrent browsing, use the separate
+[HTTPS/HTTP/2 browser benchmark](browser-benchmarking.md). It keeps the public
+storefront origin constant while switching runtimes and enables Shopware HTTP
+caching. Its navigation rate and workload cannot be equated with these API req/s.
