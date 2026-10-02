@@ -25,8 +25,9 @@ Failed checks and unfavorable results are retained alongside successful ones.
 
 All original raw measurement files remain under `measurements/`. Their contents
 are unchanged. [Source hashes](migration-source-hashes.json) record the imported
-files before navigation edits to Markdown; code, raw data and chart artifacts
-retain those hashes. The source application and image versions are in the reports.
+files before navigation edits to Markdown. Code, raw data and the PNG chart
+retain those hashes. The SVG has only trailing whitespace normalized; its
+`archivedSha256` records the resulting bytes. The source application and image versions are in the reports.
 No benchmark or compatibility result was newly measured during this migration.
 
 ## Tools and reproduction

@@ -233,7 +233,8 @@
   },
   {
     "path": "docs/assets/admin-benchmark-comparison.svg",
-    "sha256": "f8edeb79d66e4b737a0ca507be30b4ec2590e036fed1899ea5a0372c1121ee66"
+    "sha256": "f8edeb79d66e4b737a0ca507be30b4ec2590e036fed1899ea5a0372c1121ee66",
+    "archivedSha256": "543687564f46a53775b00f6217d5c099976ebc0866053ec080ff2d54cd0b4970"
   },
   {
     "path": "docs/assets/admin-benchmark-comparison.png",
