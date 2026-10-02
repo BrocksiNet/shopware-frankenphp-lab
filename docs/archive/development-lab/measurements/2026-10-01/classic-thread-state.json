@@ -1,0 +1,70 @@
+{
+    "ThreadDebugStates": [
+        {
+            "Index": 0,
+            "Name": "Regular PHP Thread",
+            "State": "ready",
+            "IsWaiting": true,
+            "IsBusy": false,
+            "WaitingSinceMilliseconds": 31191,
+            "CurrentURI": "",
+            "CurrentMethod": "",
+            "RequestStartedAt": 0,
+            "RequestCount": 7627,
+            "MemoryUsage": 5521240
+        },
+        {
+            "Index": 1,
+            "Name": "Regular PHP Thread",
+            "State": "ready",
+            "IsWaiting": true,
+            "IsBusy": false,
+            "WaitingSinceMilliseconds": 181695,
+            "CurrentURI": "",
+            "CurrentMethod": "",
+            "RequestStartedAt": 0,
+            "RequestCount": 7564,
+            "MemoryUsage": 2709400
+        },
+        {
+            "Index": 2,
+            "Name": "Regular PHP Thread",
+            "State": "ready",
+            "IsWaiting": true,
+            "IsBusy": false,
+            "WaitingSinceMilliseconds": 181691,
+            "CurrentURI": "",
+            "CurrentMethod": "",
+            "RequestStartedAt": 0,
+            "RequestCount": 7579,
+            "MemoryUsage": 2709400
+        },
+        {
+            "Index": 3,
+            "Name": "Regular PHP Thread",
+            "State": "ready",
+            "IsWaiting": true,
+            "IsBusy": false,
+            "WaitingSinceMilliseconds": 181685,
+            "CurrentURI": "",
+            "CurrentMethod": "",
+            "RequestStartedAt": 0,
+            "RequestCount": 7571,
+            "MemoryUsage": 2471384
+        },
+        {
+            "Index": 4,
+            "Name": "Regular PHP Thread",
+            "State": "ready",
+            "IsWaiting": true,
+            "IsBusy": false,
+            "WaitingSinceMilliseconds": 181695,
+            "CurrentURI": "",
+            "CurrentMethod": "",
+            "RequestStartedAt": 0,
+            "RequestCount": 6032,
+            "MemoryUsage": 2336520
+        }
+    ],
+    "ReservedThreadCount": 0
+}

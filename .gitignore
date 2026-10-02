@@ -7,3 +7,7 @@ __pycache__/
 node_modules/
 test-results/
 playwright-report/
+
+# Published historical evidence is intentionally versioned.
+!docs/archive/development-lab/measurements/
+!docs/archive/development-lab/measurements/**

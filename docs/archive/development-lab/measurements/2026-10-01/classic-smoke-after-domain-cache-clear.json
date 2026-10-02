@@ -1,0 +1,465 @@
+{
+  "started_at": "2026-10-01T06:33:51.214610+00:00",
+  "scope": "storefront smoke checks",
+  "configuration": {
+    "rounds": 3,
+    "timeout_seconds": 20,
+    "cart_enabled": true,
+    "login_enabled": false,
+    "search_term": "guitar",
+    "allowed_asset_origins": []
+  },
+  "not_tested": [
+    "browser JS execution, font loading and CORS",
+    "orders/payments/registration",
+    "Admin and Store API",
+    "worker reset wiring",
+    "memory soak and recovery after failures"
+  ],
+  "targets": [
+    {
+      "base_url": "http://music-de.localhost:8107",
+      "checks": [
+        {
+          "name": "/: content",
+          "status": "pass"
+        },
+        {
+          "name": "/: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "/: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "/account/login: content",
+          "status": "pass"
+        },
+        {
+          "name": "/account/login: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "/account/login: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "/search: content",
+          "status": "pass"
+        },
+        {
+          "name": "/search: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "/search: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 1 session A: content",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 1 session A: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 1 session A: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart isolation round 1 session A",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 1 session B: content",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 1 session B: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 1 session B: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart isolation round 1 session B",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 2 session B: content",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 2 session B: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 2 session B: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart isolation round 2 session B",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 2 session A: content",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 2 session A: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 2 session A: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart isolation round 2 session A",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 3 session A: content",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 3 session A: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 3 session A: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart isolation round 3 session A",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 3 session B: content",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 3 session B: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 3 session B: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart isolation round 3 session B",
+          "status": "pass"
+        },
+        {
+          "name": "remove test cart item",
+          "status": "pass"
+        },
+        {
+          "name": "account isolation",
+          "status": "skip",
+          "detail": "No login credentials supplied"
+        }
+      ]
+    },
+    {
+      "base_url": "http://music.localhost:8107",
+      "checks": [
+        {
+          "name": "/: content",
+          "status": "pass"
+        },
+        {
+          "name": "/: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "/: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "/account/login: content",
+          "status": "pass"
+        },
+        {
+          "name": "/account/login: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "/account/login: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "/search: content",
+          "status": "pass"
+        },
+        {
+          "name": "/search: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "/search: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 1 session A: content",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 1 session A: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 1 session A: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart isolation round 1 session A",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 1 session B: content",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 1 session B: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 1 session B: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart isolation round 1 session B",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 2 session B: content",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 2 session B: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 2 session B: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart isolation round 2 session B",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 2 session A: content",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 2 session A: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 2 session A: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart isolation round 2 session A",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 3 session A: content",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 3 session A: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 3 session A: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart isolation round 3 session A",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 3 session B: content",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 3 session B: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 3 session B: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart isolation round 3 session B",
+          "status": "pass"
+        },
+        {
+          "name": "remove test cart item",
+          "status": "pass"
+        },
+        {
+          "name": "account isolation",
+          "status": "skip",
+          "detail": "No login credentials supplied"
+        }
+      ]
+    },
+    {
+      "base_url": "http://music-de.localhost:8107",
+      "checks": [
+        {
+          "name": "/: content",
+          "status": "pass"
+        },
+        {
+          "name": "/: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "/: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "/account/login: content",
+          "status": "pass"
+        },
+        {
+          "name": "/account/login: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "/account/login: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "/search: content",
+          "status": "pass"
+        },
+        {
+          "name": "/search: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "/search: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 1 session A: content",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 1 session A: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 1 session A: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart isolation round 1 session A",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 1 session B: content",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 1 session B: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 1 session B: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart isolation round 1 session B",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 2 session B: content",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 2 session B: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 2 session B: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart isolation round 2 session B",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 2 session A: content",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 2 session A: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 2 session A: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart isolation round 2 session A",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 3 session A: content",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 3 session A: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 3 session A: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart isolation round 3 session A",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 3 session B: content",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 3 session B: script/stylesheet origins",
+          "status": "pass"
+        },
+        {
+          "name": "cart round 3 session B: probe state",
+          "status": "pass"
+        },
+        {
+          "name": "cart isolation round 3 session B",
+          "status": "pass"
+        },
+        {
+          "name": "remove test cart item",
+          "status": "pass"
+        },
+        {
+          "name": "account isolation",
+          "status": "skip",
+          "detail": "No login credentials supplied"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "pass": 102,
+    "fail": 0,
+    "skip": 3
+  },
+  "finished_at": "2026-10-01T06:33:59.028826+00:00"
+}

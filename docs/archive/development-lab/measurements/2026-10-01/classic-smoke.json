@@ -1,0 +1,117 @@
+{
+  "started_at": "2026-10-01T06:32:34.426233+00:00",
+  "scope": "storefront smoke checks",
+  "configuration": {
+    "rounds": 3,
+    "timeout_seconds": 20,
+    "cart_enabled": true,
+    "login_enabled": false,
+    "search_term": "guitar",
+    "allowed_asset_origins": []
+  },
+  "not_tested": [
+    "browser JS execution, font loading and CORS",
+    "orders/payments/registration",
+    "Admin and Store API",
+    "worker reset wiring",
+    "memory soak and recovery after failures"
+  ],
+  "targets": [
+    {
+      "base_url": "http://music-de.localhost:8107",
+      "checks": [
+        {
+          "name": "/",
+          "status": "fail",
+          "detail": "Expected HTTP 200, received 400"
+        },
+        {
+          "name": "/account/login",
+          "status": "fail",
+          "detail": "Expected HTTP 200, received 400"
+        },
+        {
+          "name": "/search",
+          "status": "fail",
+          "detail": "Expected HTTP 200, received 400"
+        },
+        {
+          "name": "cart isolation",
+          "status": "fail",
+          "detail": "Expected HTTP 200, received 400"
+        },
+        {
+          "name": "account isolation",
+          "status": "skip",
+          "detail": "No login credentials supplied"
+        }
+      ]
+    },
+    {
+      "base_url": "http://music.localhost:8107",
+      "checks": [
+        {
+          "name": "/",
+          "status": "fail",
+          "detail": "Expected HTTP 200, received 400"
+        },
+        {
+          "name": "/account/login",
+          "status": "fail",
+          "detail": "Expected HTTP 200, received 400"
+        },
+        {
+          "name": "/search",
+          "status": "fail",
+          "detail": "Expected HTTP 200, received 400"
+        },
+        {
+          "name": "cart isolation",
+          "status": "fail",
+          "detail": "Expected HTTP 200, received 400"
+        },
+        {
+          "name": "account isolation",
+          "status": "skip",
+          "detail": "No login credentials supplied"
+        }
+      ]
+    },
+    {
+      "base_url": "http://music-de.localhost:8107",
+      "checks": [
+        {
+          "name": "/",
+          "status": "fail",
+          "detail": "Expected HTTP 200, received 400"
+        },
+        {
+          "name": "/account/login",
+          "status": "fail",
+          "detail": "Expected HTTP 200, received 400"
+        },
+        {
+          "name": "/search",
+          "status": "fail",
+          "detail": "Expected HTTP 200, received 400"
+        },
+        {
+          "name": "cart isolation",
+          "status": "fail",
+          "detail": "Expected HTTP 200, received 400"
+        },
+        {
+          "name": "account isolation",
+          "status": "skip",
+          "detail": "No login credentials supplied"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "pass": 0,
+    "fail": 12,
+    "skip": 3
+  },
+  "finished_at": "2026-10-01T06:32:34.824621+00:00"
+}

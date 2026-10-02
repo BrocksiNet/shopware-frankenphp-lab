@@ -1,0 +1,22 @@
+{
+    "name": "swag/franken-php-probe",
+    "description": "Dev-only probe: exposes worker/process, service reset and memory state as X-Probe-* response headers",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "version": "1.0.0",
+    "require": {
+        "shopware/core": "~6.7.0 || ~6.8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Swag\\FrankenPhpProbe\\": "src/"
+        }
+    },
+    "extra": {
+        "shopware-plugin-class": "Swag\\FrankenPhpProbe\\FrankenPhpProbe",
+        "label": {
+            "en-GB": "FrankenPHP probe (dev only)",
+            "de-DE": "FrankenPHP-Probe (nur Entwicklung)"
+        }
+    }
+}

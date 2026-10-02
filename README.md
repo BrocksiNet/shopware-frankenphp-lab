@@ -15,6 +15,10 @@ container deployments; enabling persistent HTTP workers is a separate applicatio
 compatibility question. This lab's patched source and worker experiments do not
 represent the default configuration in that guide.
 
+Read the published evaluation, [Is FrankenPHP worth it for Shopware?](https://brocksi.net/blog/is-frankenphp-worth-it-for-shopware/),
+for the narrative and tradeoffs. This repository owns the reproducible setup and
+evidence; the article and artwork live in the website repository.
+
 ## Start with classic mode
 
 Requirements: Git, Docker Engine/Desktop and Docker Compose v2, internet access,
@@ -155,3 +159,11 @@ populated-shop experiment remains a separate dataset.
 See the [recorded three-runtime comparison](docs/measurements.md) for results and limitations.
 
 The [validation record](docs/validation.md) states what was actually exercised.
+
+## Background and historical evidence
+
+The [worker model and extension patterns](docs/worker-model.md) explain service,
+request and session lifetimes. The [original development-lab archive](docs/archive/development-lab/README.md)
+preserves earlier compatibility findings, raw measurements, probe tools and the
+logging-reset diagnosis. These dated experiments are separate from the current
+portable lab results.

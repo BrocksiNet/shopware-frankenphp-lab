@@ -1,0 +1,39 @@
+diff --git a/tests/unit/Core/Framework/Asset/FallbackUrlPackageTest.php b/tests/unit/Core/Framework/Asset/FallbackUrlPackageTest.php
+index 8c4e5ed32d..2573ed1ba9 100644
+--- a/tests/unit/Core/Framework/Asset/FallbackUrlPackageTest.php
++++ b/tests/unit/Core/Framework/Asset/FallbackUrlPackageTest.php
+@@ -53,6 +53,34 @@ class FallbackUrlPackageTest extends TestCase
+         static::assertSame('https://test.de/test', $url);
+     }
+ 
++    public function testFallbackUrlFollowsTheCurrentRequestWhenPackageIsReused(): void
++    {
++        $requestStack = new RequestStack();
++        $requestStack->push(Request::create('https://first.example'));
++        $package = $this->createPackage(requestStack: $requestStack);
++
++        static::assertSame('https://first.example/test', $package->getUrl('test'));
++
++        $requestStack->pop();
++        $requestStack->push(Request::create('https://second.example'));
++
++        static::assertSame('https://second.example/test', $package->getUrl('test'));
++    }
++
++    public function testExplicitAssetUrlIsPreservedWhenPackageIsReused(): void
++    {
++        $requestStack = new RequestStack();
++        $requestStack->push(Request::create('https://first.example'));
++        $package = $this->createPackage('https://cdn.example', $requestStack);
++
++        static::assertSame('https://cdn.example/test', $package->getUrl('test'));
++
++        $requestStack->pop();
++        $requestStack->push(Request::create('https://second.example'));
++
++        static::assertSame('https://cdn.example/test', $package->getUrl('test'));
++    }
++
+     private function createPackage(string $url = '', ?RequestStack $requestStack = null): FallbackUrlPackage
+     {
+         return new FallbackUrlPackage([$url], new EmptyVersionStrategy(), $requestStack);

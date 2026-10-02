@@ -155,3 +155,11 @@ The [earlier comparison with 500-request recycling](measurements-2026-10-01-recy
 is preserved unchanged, including its raw data and the older populated-shop
 experiment. That comparison did not have the logging patch. Do not attribute the
 difference between dates/configurations solely to recycling or pool their samples.
+
+## Earlier diagnosis and development runs
+
+The [logging-reset investigation](archive/development-lab/measurements/2026-10-01/slowdown/README.md)
+includes the standalone reproduction, instrumented worker runners and raw phase/object
+measurements that led to the correction used here. Other experiments from the
+original installation are preserved in the [development-lab archive](archive/development-lab/README.md).
+Their builds and workloads differ; do not combine their samples with this report.

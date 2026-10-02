@@ -1,0 +1,114 @@
+[
+  {
+    "first_host": "music.localhost",
+    "request_host": "music.localhost",
+    "scripts": [
+      "http://music.localhost:8106/bundles/storefront/storefront/shopware/shopware.js?1790759210",
+      "http://music.localhost:8106/theme/5a6934c3e584f155be43b5f77a475d2e/js/storefront/storefront.js?1790760556"
+    ],
+    "headers": {
+      "Age": "0",
+      "X-Probe-Leaked-Path": "-",
+      "X-Probe-Process-Requests": "1",
+      "X-Probe-Service-Resets": "0"
+    }
+  },
+  {
+    "first_host": "music.localhost",
+    "request_host": "music-de.localhost",
+    "scripts": [
+      "http://music.localhost:8106/bundles/storefront/storefront/shopware/shopware.js?1790759210",
+      "http://music.localhost:8106/theme/5a6934c3e584f155be43b5f77a475d2e/js/storefront/storefront.js?1790760556"
+    ],
+    "headers": {
+      "Age": "0",
+      "X-Probe-Leaked-Path": "-",
+      "X-Probe-Process-Requests": "4",
+      "X-Probe-Service-Resets": "1"
+    }
+  },
+  {
+    "first_host": "music.localhost",
+    "request_host": "music.localhost",
+    "scripts": [
+      "http://music.localhost:8106/bundles/storefront/storefront/shopware/shopware.js?1790759210",
+      "http://music.localhost:8106/theme/5a6934c3e584f155be43b5f77a475d2e/js/storefront/storefront.js?1790760556"
+    ],
+    "headers": {
+      "Age": "0",
+      "X-Probe-Leaked-Path": "-",
+      "X-Probe-Process-Requests": "7",
+      "X-Probe-Service-Resets": "2"
+    }
+  },
+  {
+    "first_host": "music.localhost",
+    "request_host": "music-de.localhost",
+    "scripts": [
+      "http://music.localhost:8106/bundles/storefront/storefront/shopware/shopware.js?1790759210",
+      "http://music.localhost:8106/theme/5a6934c3e584f155be43b5f77a475d2e/js/storefront/storefront.js?1790760556"
+    ],
+    "headers": {
+      "Age": "1",
+      "X-Probe-Leaked-Path": "-",
+      "X-Probe-Process-Requests": "10",
+      "X-Probe-Service-Resets": "3"
+    }
+  },
+  {
+    "first_host": "music-de.localhost",
+    "request_host": "music-de.localhost",
+    "scripts": [
+      "http://music-de.localhost:8106/bundles/storefront/storefront/shopware/shopware.js?1790759210",
+      "http://music-de.localhost:8106/theme/5a6934c3e584f155be43b5f77a475d2e/js/storefront/storefront.js?1790760556"
+    ],
+    "headers": {
+      "Age": "0",
+      "X-Probe-Leaked-Path": "-",
+      "X-Probe-Process-Requests": "1",
+      "X-Probe-Service-Resets": "0"
+    }
+  },
+  {
+    "first_host": "music-de.localhost",
+    "request_host": "music.localhost",
+    "scripts": [
+      "http://music-de.localhost:8106/bundles/storefront/storefront/shopware/shopware.js?1790759210",
+      "http://music-de.localhost:8106/theme/5a6934c3e584f155be43b5f77a475d2e/js/storefront/storefront.js?1790760556"
+    ],
+    "headers": {
+      "Age": "0",
+      "X-Probe-Leaked-Path": "-",
+      "X-Probe-Process-Requests": "4",
+      "X-Probe-Service-Resets": "1"
+    }
+  },
+  {
+    "first_host": "music-de.localhost",
+    "request_host": "music-de.localhost",
+    "scripts": [
+      "http://music-de.localhost:8106/bundles/storefront/storefront/shopware/shopware.js?1790759210",
+      "http://music-de.localhost:8106/theme/5a6934c3e584f155be43b5f77a475d2e/js/storefront/storefront.js?1790760556"
+    ],
+    "headers": {
+      "Age": "0",
+      "X-Probe-Leaked-Path": "-",
+      "X-Probe-Process-Requests": "7",
+      "X-Probe-Service-Resets": "2"
+    }
+  },
+  {
+    "first_host": "music-de.localhost",
+    "request_host": "music.localhost",
+    "scripts": [
+      "http://music-de.localhost:8106/bundles/storefront/storefront/shopware/shopware.js?1790759210",
+      "http://music-de.localhost:8106/theme/5a6934c3e584f155be43b5f77a475d2e/js/storefront/storefront.js?1790760556"
+    ],
+    "headers": {
+      "Age": "0",
+      "X-Probe-Leaked-Path": "-",
+      "X-Probe-Process-Requests": "10",
+      "X-Probe-Service-Resets": "3"
+    }
+  }
+]

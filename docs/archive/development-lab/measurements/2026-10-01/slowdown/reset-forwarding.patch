@@ -1,0 +1,75 @@
+--- a/src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php
++++ b/src/Core/Framework/Log/Monolog/ExcludeExceptionHandler.php
+@@ -5,6 +5,7 @@
+ use Monolog\Handler\AbstractHandler;
+ use Monolog\Handler\HandlerInterface;
+ use Monolog\LogRecord;
++use Monolog\ResettableInterface;
+ use Shopware\Core\Framework\Log\Package;
+ 
+ #[Package('framework')]
+@@ -37,4 +38,14 @@
+ 
+         return $this->handler->handle($record);
+     }
++    #[\Override]
++    public function reset(): void
++    {
++        parent::reset();
++
++        if ($this->handler instanceof ResettableInterface) {
++            $this->handler->reset();
++        }
++    }
++
+ }
+--- a/src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php
++++ b/src/Core/Framework/Log/Monolog/ErrorCodeLogLevelHandler.php
+@@ -6,6 +6,7 @@
+ use Monolog\Handler\HandlerInterface;
+ use Monolog\Level;
+ use Monolog\LogRecord;
++use Monolog\ResettableInterface;
+ use Psr\Log\LogLevel;
+ use Shopware\Core\Framework\Log\Package;
+ use Shopware\Core\Framework\ShopwareHttpException;
+@@ -61,4 +62,14 @@
+ 
+         return $this->handler->handle($record);
+     }
++    #[\Override]
++    public function reset(): void
++    {
++        parent::reset();
++
++        if ($this->handler instanceof ResettableInterface) {
++            $this->handler->reset();
++        }
++    }
++
+ }
+--- a/src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php
++++ b/src/Core/Framework/Log/Monolog/ExcludeFlowEventHandler.php
+@@ -5,6 +5,7 @@
+ use Monolog\Handler\AbstractHandler;
+ use Monolog\Handler\HandlerInterface;
+ use Monolog\LogRecord;
++use Monolog\ResettableInterface;
+ use Shopware\Core\Framework\Log\Package;
+ 
+ #[Package('framework')]
+@@ -45,4 +46,14 @@
+ 
+         return $this->handler->handle($record);
+     }
++    #[\Override]
++    public function reset(): void
++    {
++        parent::reset();
++
++        if ($this->handler instanceof ResettableInterface) {
++            $this->handler->reset();
++        }
++    }
++
+ }

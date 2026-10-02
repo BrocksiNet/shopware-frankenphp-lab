@@ -1,0 +1,24 @@
+[
+  {
+    "base": "http://music-de.localhost:8106",
+    "script_hosts": [
+      {
+        "hosts": [
+          "music.localhost:8106"
+        ],
+        "responses": 20
+      }
+    ]
+  },
+  {
+    "base": "http://music-de.localhost:8105",
+    "script_hosts": [
+      {
+        "hosts": [
+          "music-de.localhost:8105"
+        ],
+        "responses": 20
+      }
+    ]
+  }
+]

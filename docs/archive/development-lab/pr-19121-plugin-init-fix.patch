@@ -1,0 +1,59 @@
+diff --git a/src/Core/Kernel.php b/src/Core/Kernel.php
+index c848dfe2f7..57c134ad50 100644
+--- a/src/Core/Kernel.php
++++ b/src/Core/Kernel.php
+@@ -24,6 +24,8 @@ use Symfony\Component\Config\Loader\LoaderInterface;
+ use Symfony\Component\DependencyInjection\ContainerBuilder;
+ use Symfony\Component\Filesystem\Filesystem;
+ use Symfony\Component\Finder\Finder;
++use Symfony\Component\HttpFoundation\Request;
++use Symfony\Component\HttpFoundation\Response;
+ use Symfony\Component\HttpKernel\Bundle\Bundle;
+ use Symfony\Component\HttpKernel\Kernel as HttpKernel;
+ use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
+@@ -126,6 +128,16 @@ class Kernel extends HttpKernel
+         return $this->projectDir;
+     }
+ 
++    public function handle(Request $request, int $type = self::MAIN_REQUEST, bool $catch = true): Response
++    {
++        // Symfony's handle() builds the container (preBoot) before it calls boot(), which would skip the
++        // plugin initialization below and register no plugin bundles. Booting first keeps the order intact;
++        // parent::handle() still maintains the request stack bookkeeping that triggers the service reset.
++        $this->boot();
++
++        return parent::handle($request, $type, $catch);
++    }
++
+     public function boot(): void
+     {
+         if (!$this->booted) {
+diff --git a/tests/integration/Core/KernelServiceResetTest.php b/tests/integration/Core/KernelServiceResetTest.php
+index 5e8f7a1fa2..ad8562b493 100644
+--- a/tests/integration/Core/KernelServiceResetTest.php
++++ b/tests/integration/Core/KernelServiceResetTest.php
+@@ -41,6 +41,24 @@ class KernelServiceResetTest extends TestCase
+         }
+     }
+ 
++    /**
++     * `Symfony\Component\HttpKernel\Kernel::handle()` builds the container before it calls `boot()`.
++     * Front controllers (`public/index.php`, FrankenPHP, RoadRunner) call `handle()` on an unbooted
++     * kernel, so the plugins must still be initialized before the bundles are registered.
++     */
++    public function testHandleOnAnUnbootedKernelRegistersThePluginBundles(): void
++    {
++        $kernel = KernelLifecycleManager::createKernel();
++
++        try {
++            $kernel->handle(Request::create('/api/_info/version'));
++
++            static::assertArrayHasKey($kernel->getPluginLoader()->getName(), $kernel->getBundles());
++        } finally {
++            $kernel->shutdown();
++        }
++    }
++
+     /**
+      * Symfony's `http_cache` service must not exist: `Symfony\Component\HttpKernel\Kernel::handle()`
+      * would route the first request of a process through it, bypassing Shopware's own HTTP cache

@@ -1,0 +1,26 @@
+{
+  "sourceCommit": "868f25121f764f41d6490fd032d6f28507be4e43",
+  "labCommit": "05c0f4e55b81517cda0b159d7dcd26d58934f7bf",
+  "imageId": "sha256:4723c82d33f3712051163e850091dbc729050d7f04447a6c0cba1c5de6093e16",
+  "workerCount": 1,
+  "regularThreads": 1,
+  "workerLoopMax": 0,
+  "runtimeVersions": {
+    "monolog/monolog": "3.12.1",
+    "symfony/http-kernel": "v7.4.20",
+    "symfony/monolog-bundle": "v3.11.2",
+    "symfony/runtime": "v7.4.14"
+  },
+  "phpVersion": "8.4.26",
+  "frankenphpVersion": "1.12.7",
+  "transport": "h2c",
+  "encoding": "gzip",
+  "users": 5,
+  "concurrentRequestsPerUser": 4,
+  "secondsPerRun": 10,
+  "warmupSeconds": 1,
+  "APP_ENV": "prod",
+  "APP_DEBUG": 0,
+  "httpCache": false,
+  "sharedDataset": "public lab synthetic fixture"
+}

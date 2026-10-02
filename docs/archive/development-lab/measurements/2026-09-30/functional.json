@@ -1,0 +1,125 @@
+[
+  {
+    "target": "worker",
+    "checks": [
+      {
+        "check": "guest add-to-cart",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "check": "two guest carts isolated",
+        "ok": true,
+        "pairs": 10
+      },
+      {
+        "check": "demo customer login",
+        "ok": true,
+        "status": 200,
+        "bodyClass": "is-ctl-accountprofile is-act-index is-active-route-frontend-account-home-page"
+      },
+      {
+        "check": "logged-in vs anonymous account isolation",
+        "ok": true,
+        "pairs": 10
+      },
+      {
+        "check": "logout",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "check": "product detail",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "check": "administration shell",
+        "ok": true,
+        "status": 200
+      }
+    ]
+  },
+  {
+    "target": "control-fpm",
+    "checks": [
+      {
+        "check": "guest add-to-cart",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "check": "two guest carts isolated",
+        "ok": true,
+        "pairs": 10
+      },
+      {
+        "check": "demo customer login",
+        "ok": true,
+        "status": 200,
+        "bodyClass": "is-ctl-accountprofile is-act-index is-active-route-frontend-account-home-page"
+      },
+      {
+        "check": "logged-in vs anonymous account isolation",
+        "ok": true,
+        "pairs": 10
+      },
+      {
+        "check": "logout",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "check": "product detail",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "check": "administration shell",
+        "ok": true,
+        "status": 200
+      }
+    ]
+  },
+  {
+    "target": "trunk-fpm",
+    "checks": [
+      {
+        "check": "guest add-to-cart",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "check": "two guest carts isolated",
+        "ok": true,
+        "pairs": 10
+      },
+      {
+        "check": "demo customer login",
+        "ok": true,
+        "status": 200,
+        "bodyClass": "is-ctl-accountprofile is-act-index is-active-route-frontend-account-home-page"
+      },
+      {
+        "check": "logged-in vs anonymous account isolation",
+        "ok": true,
+        "pairs": 10
+      },
+      {
+        "check": "logout",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "check": "product detail",
+        "ok": true,
+        "status": 200
+      },
+      {
+        "check": "administration shell",
+        "ok": true,
+        "status": 200
+      }
+    ]
+  }
+]

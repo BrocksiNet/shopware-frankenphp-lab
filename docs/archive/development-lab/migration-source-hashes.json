@@ -1,0 +1,242 @@
+[
+  {
+    "path": "fallback-url-worker-reproduction.patch",
+    "sha256": "2935a8cf7723ffbd9e33042757f7359d825a328e44063fe4d2fe5054989be88b"
+  },
+  {
+    "path": "pr-19121-plugin-init-fix.patch",
+    "sha256": "7cf925959fc4ed1f5ce5581be90f1411e70d205abdabff62f52e31715edecc7a"
+  },
+  {
+    "path": "bin/probe.sh",
+    "sha256": "6fa371059a7f6c9abd79227d39fd91d3a01233aa2d5c14ea1f02f5c1ae338230"
+  },
+  {
+    "path": "bin/admin-benchmark.mjs",
+    "sha256": "a1ad0650f9e28659cd231ce89df4a7a889c50c87f229a3ba2639f08906c21664"
+  },
+  {
+    "path": "bin/test-admin-benchmark.mjs",
+    "sha256": "4b0526fe4f2285bd8c7eceb217fa77a6ff0eb06459e82ed5b5744ddac32bbdb2"
+  },
+  {
+    "path": "docs/performance.md",
+    "sha256": "ca67d34409c89313bace813a7e811280d8a6168830c2bddf593b6678efebe2ec"
+  },
+  {
+    "path": "docs/verification.md",
+    "sha256": "3a5b399b425a13ac1859c82c50c669448431dff396a4fb1536b66d702f3654b9"
+  },
+  {
+    "path": "docs/setup-and-operations.md",
+    "sha256": "c4fc8c9aff096b7ae2e67f9724ebbe59fd877b84d9071266edc76b4e44a61210"
+  },
+  {
+    "path": "docs/compatibility.md",
+    "sha256": "427020d416d2a163cfca92c8c3b5046f38f228c8f1ad2e62335e1f9968f40ce1"
+  },
+  {
+    "path": "probe/FrankenPhpProbe/composer.json",
+    "sha256": "1128f2c15a3225c99e0338bf1f9d7352204782da52f8781f7b45881f6c9858fa"
+  },
+  {
+    "path": "probe/FrankenPhpProbe/src/FrankenPhpProbe.php",
+    "sha256": "e2733c12e4f206a9301c6c52b51672a094653b7c0e1bb94879f66fa2c0658d29"
+  },
+  {
+    "path": "probe/FrankenPhpProbe/src/Subscriber/ProbeHeaderSubscriber.php",
+    "sha256": "c63000450b84b19290efef0a10949d0ba3a1d2535f0a86ef0219443e04a1e573"
+  },
+  {
+    "path": "probe/FrankenPhpProbe/src/Service/ProbeState.php",
+    "sha256": "5431569f6b5fb3829f1a6f4a667ea186889b017a4753b76f05a9d271b7e9a50c"
+  },
+  {
+    "path": "probe/FrankenPhpProbe/src/Resources/config/services.php",
+    "sha256": "6826a0ac1b56d4ee1e134ab75437e5ac8e984e7282eb833dbbf683074c059c51"
+  },
+  {
+    "path": "measurements/2026-09-30/admin-api-recycle-500.json",
+    "sha256": "db10da5d4892dbbfe07002642e01968df23707721c1dd22a5e2a1d2783d24e78"
+  },
+  {
+    "path": "measurements/2026-09-30/http-samples.json",
+    "sha256": "744238d1c081cfc71abc00e462a11693e2556773646a5041cdb1d14cde2e15a9"
+  },
+  {
+    "path": "measurements/2026-09-30/asset-hosts.json",
+    "sha256": "c7aa54a0a7e4d0fe92a3891727063fefc6bad8b4a524167817decebccb5e153e"
+  },
+  {
+    "path": "measurements/2026-09-30/fresh-worker-asset-hosts.json",
+    "sha256": "dd22af26f4fd6c941d59230f5b8c3b33273c11967fe3aa154986ad1baccbaf5a"
+  },
+  {
+    "path": "measurements/2026-09-30/admin-benchmark-preflight.json",
+    "sha256": "54c8c2e83f51b337bca94be5cb5862c45b239f392ef58fe4ff04081b86f07e1e"
+  },
+  {
+    "path": "measurements/2026-09-30/admin-api-http-benchmark.json",
+    "sha256": "bdddbcd82bffafcb62b5d330a062a2f98f32ab5bbd0a812b36c8847f75ace398"
+  },
+  {
+    "path": "measurements/2026-09-30/functional.json",
+    "sha256": "0a2a4bac5afb46833ad31af3d1acf307198b660c7f581ba2c47e33cf3f7b915e"
+  },
+  {
+    "path": "measurements/2026-09-30/admin-api-after-worker-restart.json",
+    "sha256": "760bcfd4b9f8387c9f65f7f314240ed0c334faf0b5a44a32888c5f11343d7850"
+  },
+  {
+    "path": "measurements/2026-09-30/admin-api-summary.json",
+    "sha256": "de07eabc92702a54ea073673760b604ff78fa304afe161eb5d79928c2d348280"
+  },
+  {
+    "path": "measurements/2026-09-30/verification.json",
+    "sha256": "730825f74704cd5a035ab126da99b207d93c8c2e62239de910cf8364a5705ac7"
+  },
+  {
+    "path": "measurements/2026-09-30/verification-current.json",
+    "sha256": "0239761af66913c1cc86bb562977b91da5e687ca202abbe189a42dec90445bed"
+  },
+  {
+    "path": "measurements/2026-09-30/verification-domains.json",
+    "sha256": "fc1b3f4b83c082d47d9d582f07296df84a9fba9dc76ce4676cba1a0e3af1344c"
+  },
+  {
+    "path": "measurements/2026-10-01/classic-smoke-after-domain-cache-clear.json",
+    "sha256": "09ec1c547524e14f98270c0bd2d6b1736baa93dd6f098321fc4d6c7858b7abc3"
+  },
+  {
+    "path": "measurements/2026-10-01/admin-three-runtimes-summary.json",
+    "sha256": "dfeeaf09f5df07a625e07ad2ba72790417fd8eae44e6ef9d0df0df4e81505a6e"
+  },
+  {
+    "path": "measurements/2026-10-01/classic-thread-state.json",
+    "sha256": "266b023e00d1a0bd46453f3943b6b8935df1da0a623635f0e82b10ad31a37eaa"
+  },
+  {
+    "path": "measurements/2026-10-01/classic-smoke.json",
+    "sha256": "94eb5f476bbb04c5a19a35e54afcb881ecdfc251066f414c5bbff407e5de73fe"
+  },
+  {
+    "path": "measurements/2026-10-01/admin-three-runtimes.json",
+    "sha256": "5d04b7cefc0dd5b934d33e4903ae0af0e861ad8d58895b0fadbbd3d9fb3121bb"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/summary.json",
+    "sha256": "eab89d15d3cc3ef205991bbea5d8d9bcf78014a8d8c18fbd10d9917aa571ee5b"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/ErrorCodeLogLevelHandler.php",
+    "sha256": "efa3423890169bd453f90b57e9b600cebd4d75b0204a788c0e90be3647cf2cb9"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/original-runner.php",
+    "sha256": "e61debaa3544505c7ef7b6ecaeadacf125d7c1b3167fb633c8d3c672181f33e1"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/reproduction-reset-forwarding.txt",
+    "sha256": "7ee3a9901ece2359748a4c21caa0a98851e63d7d8b81957432c810951c934366"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/original-ExcludeFlowEventHandler.php",
+    "sha256": "351a03efa881e27866061db81b324cfa7426228503f6d0bab51f28edff37dcdf"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/original-ExcludeExceptionHandler.php",
+    "sha256": "9862d175103c97e60cfd909809ef1eee277733073d7638f2e8567e92cbda60ec"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/original-ErrorCodeLogLevelHandler.php",
+    "sha256": "146081ff3027bc827908e8a51866bb78da8a13c81bee77155ba6c1c27b6806ea"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/graph-diag-objects.jsonl",
+    "sha256": "0185663c4530562180e083f9617aa33153907e49ce6599f007f6157f742cbb4e"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/ExcludeFlowEventHandler.php",
+    "sha256": "833a502ae2d9bc45c797e30cd904f756f217966b689317b23b68c6f062a53114"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/ExcludeExceptionHandler.php",
+    "sha256": "d70b7de40ba8cfb9f7af214e70e1beee4c46c4d820870d1124e5fa45edb44341"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/reset-forwarding.json",
+    "sha256": "959b73a19f42fc224f6d471f7b36421efbf3584320f4b93d81f617a7168ab7ce"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/reproduction-original.txt",
+    "sha256": "47fa6023304f31089cbac2c71c1c99ac3a7e8fdd8e1dcc3299f8b46966601fda"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/reset-forwarding-metrics.jsonl",
+    "sha256": "e8c80f7d29fbd799497586defaf7ccd5a5cf589058a4c9bfee72dd628390dbc1"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/issue-monolog-reset.md",
+    "sha256": "28087527894f61cf603ba2177bb6d942a9a992e4a50a880a19d2a93261c7c935"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/README.md",
+    "sha256": "dc65a4b6d2ec4834d7931147bdd1f2b907ead9d4a8bedc332d1c32f5f6b641dc"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/reset-forwarding-objects.jsonl",
+    "sha256": "856e8c54fece3405484cbd1d4367e1aceab206e9eb4d47a9c266cf36d8d2f67b"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/graph.json",
+    "sha256": "d0987e96c1bcb265c40ada64f9da49dba3513fa52fe84651ad9bcc215bdd68ab"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/graph-runner.php",
+    "sha256": "7690d0462f7079eaf9dc87f0305eeb2425e48effec9de3b127769f63bbac48fa"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/instrumented-runner.php",
+    "sha256": "6f246391ad9664be978d4e4741d6e7e33c035026f7dad647fc8a0dc9f68701e6"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/graph-diag-metrics.jsonl",
+    "sha256": "8ceedf3dcb2003c555c19462ee04615d4303436c9ccc293ca28c6397e435e8f9"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/instrumented-metrics.jsonl",
+    "sha256": "029d589be16a8d32a2d1121df9b49958f5d7aca880ebbad76644dfee250b8bd8"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/uninstrumented.json",
+    "sha256": "b2738b2de6a727d7da20d88cac555ca251c31d5b0e224569686cb5951e192577"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/environment.json",
+    "sha256": "bdf344e02df6a71f6c71f4a848278dba2ffebb6bd3b569a7c964b46241c59de5"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/reproduce-handler-reset.php",
+    "sha256": "65aa2ca2ce51e6ef51dd178815584cf517da66c83053147bab2685c7015144c0"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/instrumented-v2.json",
+    "sha256": "bf6d1eba77f602fccd7f2061d647a3fa1eb31b7bc271db36d44a8d35270b64e4"
+  },
+  {
+    "path": "measurements/2026-10-01/slowdown/reset-forwarding.patch",
+    "sha256": "513569e85897945251d9000e7b97b4e208f8eb3502bb128c6b7a6e8c9cd3c916"
+  },
+  {
+    "path": "docs/assets/plot-admin-benchmark.py",
+    "sha256": "da2f2ac5d94cdf0f946ca40994490c9d683c8627e124e4c4ddc7ea125ea9e3ff"
+  },
+  {
+    "path": "docs/assets/admin-benchmark-comparison.svg",
+    "sha256": "f8edeb79d66e4b737a0ca507be30b4ec2590e036fed1899ea5a0372c1121ee66"
+  },
+  {
+    "path": "docs/assets/admin-benchmark-comparison.png",
+    "sha256": "7f20e9d2e6fb3e16fee5c5c1332e9353911151030631191f5b5cefd966fa95bc"
+  }
+]

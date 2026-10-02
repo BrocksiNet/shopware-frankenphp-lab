@@ -141,6 +141,10 @@ incorrect state long before recycling. Plugin services, event subscribers, Twig
 extensions and decorators may all retain objects in worker mode. Pass the current
 Shopware context to operations; verify that resettable services actually reset.
 
+The [worker model](worker-model.md) explains how to review extension state. The
+[historical compatibility record](archive/development-lab/docs/compatibility.md)
+preserves the original reproductions and their raw evidence.
+
 ## Upstream work and limitations
 
 Status checked 2026-10-01; these links can change after publication.
